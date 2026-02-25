@@ -35,9 +35,9 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(250,248,243,0.
 header.scrolled { box-shadow: 0 2px 24px rgba(14,45,31,0.1); }
 .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-.logo img { height: 44px; width: auto; }
-.logo-text { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--green-deep); line-height: 1.1; }
-.logo-sub { font-family: 'DM Sans', sans-serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-bright); display: block; }
+.logo img { height: 54px; width: auto; display: block; }
+.logo-text { display: none; } /* logo image already contains the name */
+.logo-sub { font-family: 'DM Sans', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.04em; color: var(--green-mid); display: block; max-width: 180px; line-height: 1.35; text-transform: none; }
 nav { display: flex; align-items: center; gap: 4px; }
 nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-mid); text-decoration: none; padding: 8px 12px; border-radius: 6px; transition: all 0.2s; white-space: nowrap; }
 nav a:hover { color: var(--green-mid); background: var(--green-pale); }
@@ -99,8 +99,9 @@ section { padding: 96px 0; }
 footer { background: var(--green-deep); color: #7aab8e; padding: 72px 0 36px; }
 .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
-.footer-brand .logo-text { color: #fff; font-size: 1.4rem; }
-.footer-brand .logo-sub { margin-bottom: 16px; }
+.footer-brand .logo img { height: 54px; filter: none; }
+.footer-brand .logo-text { display: none; }
+.footer-brand .logo-sub { color: #7aab8e; margin-bottom: 16px; max-width: 200px; }
 .footer-desc { font-size: 0.85rem; line-height: 1.7; color: #5a8070; margin-bottom: 20px; }
 .footer-contact { font-size: 0.88rem; color: #7aab8e; }
 .footer-contact a { color: var(--green-light); text-decoration: none; font-weight: 600; }
