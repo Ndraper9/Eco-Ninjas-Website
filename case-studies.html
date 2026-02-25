@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies | NHS Theatre Cap Results | Eco Ninjas</title>
+  <meta name="description" content="Real NHS results: Somerset NHS Foundation Trust, Liverpool University Hospitals and more. See verified outcomes from implementing Eco Ninjas reusable theatre caps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── FEATURED CASE STUDY ─── */
+    .featured-case { background: var(--green-deep); padding: 80px 0; position: relative; overflow: hidden; }
+    .featured-case::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(45,122,79,0.2) 0%, transparent 70%); }
+    .featured-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; }
+    .featured-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,168,75,0.2); border: 1px solid rgba(200,168,75,0.4); color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
+    .featured-layout { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: start; margin-top: 32px; }
+    .featured-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .featured-subtitle { font-size: 0.88rem; color: #7ab4e8; margin-bottom: 20px; font-weight: 500; }
+    .featured-body { font-size: 0.95rem; line-height: 1.8; color: #7aab8e; margin-bottom: 20px; }
+    .outcomes-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(76,175,125,0.15); border-radius: 12px; padding: 24px; margin-bottom: 28px; }
+    .outcomes-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-light); margin-bottom: 14px; }
+    .outcome-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(76,175,125,0.1); font-size: 0.85rem; color: #9dbfad; }
+    .outcome-row:last-child { border-bottom: none; }
+    .outcome-row .check { color: var(--green-light); flex-shrink: 0; }
+    .featured-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .case-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .case-stat-box { background: rgba(76,175,125,0.1); border: 1px solid rgba(76,175,125,0.2); border-radius: 12px; padding: 22px; text-align: center; }
+    .case-stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--green-light); display: block; line-height: 1; }
+    .case-stat-label { font-size: 0.75rem; color: #7aab8e; margin-top: 6px; line-height: 1.3; display: block; }
+    .case-photo { border-radius: 12px; overflow: hidden; border: 1px solid rgba(76,175,125,0.15); margin-bottom: 16px; }
+    .case-photo img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .case-photo-cap { background: rgba(0,94,184,0.2); padding: 12px 16px; font-size: 0.78rem; color: #7ab4e8; font-weight: 500; }
+    .quote-box { background: rgba(255,255,255,0.04); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 20px; margin-top: 14px; }
+    .quote-box p { font-size: 0.85rem; color: #9dbfad; font-style: italic; line-height: 1.65; margin-bottom: 8px; }
+    .quote-box cite { font-size: 0.75rem; color: var(--gold); font-weight: 600; font-style: normal; }
+
+    /* ─── SECONDARY CASE STUDY ─── */
+    .secondary-case { background: var(--white); }
+    .award-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,168,75,0.1); border: 1px solid rgba(200,168,75,0.25); color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 12px; }
+    .secondary-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .achievement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .achievement-item { padding: 16px; background: var(--green-pale); border: 1px solid rgba(45,122,79,0.15); border-radius: 10px; }
+    .achievement-icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .achievement-title { font-size: 0.82rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+    .achievement-body { font-size: 0.78rem; color: var(--text-mid); line-height: 1.4; }
+
+    /* ─── CUMULATIVE IMPACT ─── */
+    .impact-section { background: var(--green-mid); padding: 72px 0; }
+    .impact-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .impact-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: #fff; text-align: center; margin-bottom: 8px; }
+    .impact-sub { text-align: center; font-size: 0.95rem; color: #7aab8e; margin-bottom: 48px; }
+    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .impact-stat { padding: 32px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+    .impact-stat:last-child { border-right: none; }
+    .impact-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--green-light); display: block; line-height: 1; }
+    .impact-label { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; padding: 28px; position: relative; overflow: hidden; transition: all 0.3s; }
+    .testimonial-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-mid), var(--green-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+    .testimonial-card:hover { border-color: rgba(45,122,79,0.5); box-shadow: 0 12px 40px rgba(14,45,31,0.08); transform: translateY(-4px); }
+    .testimonial-card:hover::before { transform: scaleX(1); }
+    .testimonial-quote { font-size: 2rem; color: var(--green-light); margin-bottom: 12px; line-height: 1; }
+    .testimonial-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .testimonial-source { font-size: 0.78rem; font-weight: 600; color: var(--green-bright); }
+
+    /* ─── FAQ ─── */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 800px; }
+    .faq-item { background: var(--white); border: 1px solid rgba(45,122,79,0.2); border-radius: 10px; overflow: hidden; }
+    .faq-question { padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: 0.92rem; color: var(--text-dark); gap: 16px; transition: background 0.2s; }
+    .faq-question:hover { background: var(--green-pale); }
+    .faq-arrow { color: var(--green-bright); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-answer { display: none; padding: 0 20px 18px; font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; border-top: 1px solid var(--green-pale); padding-top: 16px; }
+    .faq-item.open .faq-answer { display: block; }
+
+    @media (max-width: 900px) { .featured-layout { grid-template-columns: 1fr; } .secondary-layout { grid-template-columns: 1fr; } .case-stat-grid { grid-template-columns: repeat(4, 1fr); } .testimonials-grid { grid-template-columns: 1fr; } .impact-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .case-stat-grid { grid-template-columns: 1fr 1fr; } .achievement-grid { grid-template-columns: 1fr; } .impact-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
+  <header id="header"><div class="nav-inner"><a class="logo" href="index.html"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas Logo" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html" class="active">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html" class="nav-cta">Contact Us</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
+  <nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" id="menuClose">&times;</button><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html">Contact Us</a></nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag">Verified NHS Results</div>
+      <h1>Real Results from<br />NHS Hospitals</h1>
+      <p>See how trusts across the UK are saving money, reducing waste, and improving patient safety. Every result is verified and demonstrates the tangible benefits of making the switch.</p>
+    </div>
+  </div>
+
+  <!-- SOMERSET FEATURED -->
+  <div class="featured-case">
+    <div class="featured-inner">
+      <div class="featured-tag">⭐ Featured Case Study</div>
+      <div class="featured-layout">
+        <div class="fade-up">
+          <h2 class="featured-title">Somerset NHS Foundation Trust</h2>
+          <p class="featured-subtitle">Musgrove Park Hospital • Implementation: April 2024 • 500+ Theatre Staff</p>
+          <p class="featured-body">Somerset NHS Foundation Trust faced a common challenge: poor staff recognition in theatres was impacting communication and contributing to potential safety concerns. Staff surveys revealed that only 41% of team members could correctly identify colleagues' names and roles during procedures.</p>
+          <p class="featured-body">The trust piloted Eco Ninjas badge hats in April 2024 across their main theatre complex. Full rollout was completed within three weeks, with staff receiving brief training on badge attachment and the new laundering process.</p>
+          <div class="outcomes-box">
+            <div class="outcomes-title">Measured Outcomes</div>
+            <div class="outcome-row"><span class="check">✓</span> Staff recognition increased from 41.1% to 95.9% — post-implementation surveys showed dramatic improvement</div>
+            <div class="outcome-row"><span class="check">✓</span> 90,000 caps prevented from incineration — annual prevention of disposable caps entering clinical waste stream</div>
+            <div class="outcome-row"><span class="check">✓</span> 48% cost reduction — projected three-year savings of over £13,000 vs. continued disposable purchases</div>
+            <div class="outcome-row"><span class="check">✓</span> Enhanced surgical safety — improved compliance with WHO surgical safety checklist</div>
+          </div>
+          <div class="featured-actions">
+            <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" class="btn-primary" rel="noopener">Download Full Case Study</a>
+            <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" class="btn-white" rel="noopener">Download SOP</a>
+          </div>
+        </div>
+        <div class="fade-up fade-up-delay-1">
+          <div class="case-photo">
+            <img src="https://static.wixstatic.com/media/bee7e3_9db803d9761f44ecb83a27eb4620be30~mv2.jpg/v1/fill/w_980,h_446,al_c,q_85,enc_avif/DSC_4118_edited.jpg" alt="Musgrove Park Hospital theatre staff with Eco Ninjas badge hats" />
+            <div class="case-photo-cap">Theatre staff at Musgrove Park Hospital, Somerset</div>
+          </div>
+          <div class="case-stat-grid">
+            <div class="case-stat-box"><span class="case-stat-num">96%</span><span class="case-stat-label">Staff recognition rate</span></div>
+            <div class="case-stat-box"><span class="case-stat-num">3wk</span><span class="case-stat-label">Implementation time</span></div>
+            <div class="case-stat-box"><span class="case-stat-num">500+</span><span class="case-stat-label">Staff using badges</span></div>
+            <div class="case-stat-box"><span class="case-stat-num">48%</span><span class="case-stat-label">Cost savings</span></div>
+          </div>
+          <div class="quote-box">
+            <p>"The impact was immediate. Within days, we noticed improved team coordination. Staff reported feeling more confident knowing exactly who they were working with."</p>
+            <cite>— Theatre Manager, Musgrove Park Hospital</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVERPOOL -->
+  <section class="secondary-case">
+    <div class="section-inner">
+      <div class="secondary-layout">
+        <div class="fade-up">
+          <div class="award-badge">🏆 Award Winning</div>
+          <p class="section-label">Early Adopter</p>
+          <h2 class="section-title">Liverpool University Hospitals NHS Foundation Trust</h2>
+          <p style="font-size:0.92rem; color:var(--text-mid); line-height:1.75; margin-bottom:16px;">As one of the first NHS trusts to pilot reusable theatre caps, Liverpool University Hospitals demonstrated the viability of this sustainable alternative. Their collaboration with Eco Ninjas helped refine the product and implementation process that other trusts now benefit from.</p>
+          <p style="font-size:0.92rem; color:var(--text-mid); line-height:1.75; margin-bottom:20px;">The trust's commitment to sustainability and innovation earned them the Northwest Coast Research and Innovation Sustainability Award in 2022 — validating the approach and helping to drive NHS-wide adoption.</p>
+          <div class="quote-box" style="background: var(--green-pale); border-left-color: var(--green-bright);">
+            <p style="color:var(--text-mid);">"This project won the Sustainability award, validating our belief that reusable theatre caps represent the future of sustainable healthcare."</p>
+            <cite style="color:var(--green-bright);">— Eco Ninjas Partnership Team</cite>
+          </div>
+          <div style="margin-top:24px;">
+            <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_c22a35400db64288bf8a519d94fb8d14.pdf" target="_blank" class="btn-primary" rel="noopener">Download Case Study</a>
+          </div>
+        </div>
+        <div class="fade-up fade-up-delay-1">
+          <div class="achievement-grid">
+            <div class="achievement-item"><div class="achievement-icon">🏆</div><div class="achievement-title">Award Recognition</div><p class="achievement-body">First NHS trust to win regional sustainability award for theatre cap initiative.</p></div>
+            <div class="achievement-item"><div class="achievement-icon">🔬</div><div class="achievement-title">Evidence Generation</div><p class="achievement-body">Provided real-world data informing NHS-wide adoption strategies.</p></div>
+            <div class="achievement-item"><div class="achievement-icon">👩🏽‍⚕️</div><div class="achievement-title">Staff Satisfaction</div><p class="achievement-body">High acceptance rates — anaesthetists noticed immediate communication improvements.</p></div>
+            <div class="achievement-item"><div class="achievement-icon">📚</div><div class="achievement-title">Best Practice</div><p class="achievement-body">Implementation learnings shared across NHS trusts nationally.</p></div>
+          </div>
+          <div class="case-stat-box" style="margin-top:20px; text-align:center; background:var(--green-pale); border:1px solid rgba(45,122,79,0.2);">
+            <span class="case-stat-num" style="color:var(--green-mid);">£2,500</span>
+            <span class="case-stat-label" style="color:var(--text-mid);">Saved over 3 years</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUMULATIVE IMPACT -->
+  <div class="impact-section">
+    <div class="impact-inner">
+      <h2 class="impact-title fade-up">Cumulative NHS Impact</h2>
+      <p class="impact-sub fade-up">Growing network of trusts — collective environmental and financial impact</p>
+      <div class="impact-grid">
+        <div class="impact-stat fade-up"><span class="impact-num">100K+</span><p class="impact-label">Total Caps in Use</p></div>
+        <div class="impact-stat fade-up fade-up-delay-1"><span class="impact-num">20T+</span><p class="impact-label">CO₂ Reduction (Tonnes)</p></div>
+        <div class="impact-stat fade-up fade-up-delay-2"><span class="impact-num">500K</span><p class="impact-label">Disposables Prevented</p></div>
+        <div class="impact-stat fade-up fade-up-delay-3"><span class="impact-num">£500K+</span><p class="impact-label">Cumulative NHS Savings</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section style="background: var(--cream);">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <p class="section-label">What Theatre Staff Say</p>
+        <h2 class="section-title">From the People Who Matter</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up"><div class="testimonial-quote">"</div><p class="testimonial-text">It took about two weeks for removing the badge to become automatic. Now I can't imagine working any other way.</p><div class="testimonial-source">Theatre Sister, NHS Trust</div></div>
+        <div class="testimonial-card fade-up fade-up-delay-1"><div class="testimonial-quote">"</div><p class="testimonial-text">The badge system has transformed how we work. I can instantly identify everyone in the room, which is crucial during complex procedures.</p><div class="testimonial-source">Consultant Surgeon, Somerset NHS</div></div>
+        <div class="testimonial-card fade-up fade-up-delay-2"><div class="testimonial-quote">"</div><p class="testimonial-text">As an anaesthetist, clear communication is essential. These caps have made a noticeable difference in team coordination and overall safety.</p><div class="testimonial-source">Anaesthetist, Liverpool University Hospitals</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background: var(--white);">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <p class="section-label">Common Questions</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list fade-up">
+        <div class="faq-item"><div class="faq-question">How do reusable theatre caps meet infection control standards? <span class="faq-arrow">▾</span></div><div class="faq-answer">Our caps are designed to be centrally laundered at 60°C+ alongside scrubs, meeting the same stringent NHS infection control standards. They've been tested for bacterial barrier performance and approved by infection control teams at multiple NHS trusts. Independent laboratory testing confirms they maintain integrity after 100+ wash cycles.</div></div>
+        <div class="faq-item"><div class="faq-question">What happens to the badges during laundering? <span class="faq-arrow">▾</span></div><div class="faq-answer">Staff remove their personal badges before sending caps to the laundry. Badges are stored in lockers or personal storage. When clean caps return from laundry, staff clip their badges back on. This process becomes automatic within 2–3 weeks, similar to removing disposable caps.</div></div>
+        <div class="faq-item"><div class="faq-question">How long does implementation typically take? <span class="faq-arrow">▾</span></div><div class="faq-answer">Most trusts complete full implementation within 3–4 weeks. This includes staff measurements, cap ordering, badge production, training sessions, and the transition period. We provide comprehensive support throughout the entire process, including on-site training if needed.</div></div>
+        <div class="faq-item"><div class="faq-question">Can we order through NHS procurement frameworks? <span class="faq-arrow">▾</span></div><div class="faq-answer">Yes, all Eco Ninjas products are available through the Mediq NHS framework, making procurement straightforward and compliant. You can also open a direct account with us for customised orders and dedicated support.</div></div>
+        <div class="faq-item"><div class="faq-question">What sizes and styles are available? <span class="faq-arrow">▾</span></div><div class="faq-answer">We offer multiple sizes to fit all staff comfortably. Our range includes traditional theatre caps, braid-style caps, and theatre hijabs. Badge colours include blue, yellow, white, and plain writeable badges for different roles and departments — 8 styles across 14 colours.</div></div>
+        <div class="faq-item"><div class="faq-question">How durable are the caps? <span class="faq-arrow">▾</span></div><div class="faq-answer">Our caps are designed for 100+ industrial wash cycles while maintaining shape, colour, and integrity. Made from high-quality poly-cotton blends, they're far more durable than disposables and provide consistent performance throughout their lifespan.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band"><div class="cta-inner"><div><h2 class="cta-title">Ready to Create Your Own Case Study?</h2><p class="cta-sub">Get in touch to discuss how Eco Ninjas can deliver measurable results at your trust.</p></div><div class="cta-actions"><a href="contact-us.html" class="btn-primary">Get in Touch</a><a href="resource-hub.html" class="btn-white">Download Resources</a></div></div></div>
+
+  <footer><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><a class="logo" href="index.html" style="margin-bottom:16px; display:inline-flex;"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas" style="height:40px;" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><p class="footer-desc">Working towards a safer and more sustainable NHS. Reusable theatre caps and badge hats that save money, improve patient safety, and cut waste.</p><div class="footer-contact"><a href="tel:+443301025810">0330 102 5810</a><br /><a href="contact-us.html">Email Us</a></div><div class="social-links" style="margin-top:20px;"><a href="https://www.linkedin.com/company/econinjasltd" target="_blank" rel="noopener" class="social-link">in</a><a href="https://www.instagram.com/econinjasltd/" target="_blank" rel="noopener" class="social-link">ig</a><a href="https://www.facebook.com/Econinjasltd" target="_blank" rel="noopener" class="social-link">fb</a><a href="https://www.youtube.com/channel/UC0rCyhoutbU92iIk8zfsKIg" target="_blank" rel="noopener" class="social-link">yt</a></div></div><div><p class="footer-col-title">Products</p><ul class="footer-links"><li><a href="products.html">Theatre Badge Hats</a></li><li><a href="products.html">Infection Control</a></li><li><a href="products.html">Laundering Guide</a></li><li><a href="calculator.html">Cost Calculator</a></li></ul></div><div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about-us.html">About Eco Ninjas</a></li><li><a href="about-us.html">Our Mission</a></li><li><a href="about-us.html">Accreditations</a></li><li><a href="blog.html">Blog</a></li></ul></div><div><p class="footer-col-title">Support</p><ul class="footer-links"><li><a href="resource-hub.html">Resource Hub</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact-us.html">Contact Us</a></li><li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li></ul></div><div><p class="footer-col-title">Contact</p><ul class="footer-links"><li><a href="tel:+443301025810">0330 102 5810</a></li><li><a href="contact-us.html">Email Us</a></li><li><a href="contact-us.html">Open Account</a></li><li><a href="contact-us.html">Pricing</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Eco Ninjas Ltd | United Kingdom | <a href="accreditations.html">Terms</a> | <a href="accreditations.html">Privacy</a></p><p>Website by <a href="https://www.taskox.co.uk" target="_blank" rel="noopener">TaskOx</a></p></div></div></footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('menuClose');
+    toggle.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

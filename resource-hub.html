@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resource Hub | Downloads & Documentation | Eco Ninjas</title>
+  <meta name="description" content="Download case studies, SOPs, research papers and testing documentation to support your NHS theatre cap implementation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── FILTER BAR ─── */
+    .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn { padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid rgba(45,122,79,0.3); background: transparent; color: var(--text-mid); cursor: pointer; transition: all 0.2s; }
+    .filter-btn.active, .filter-btn:hover { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
+
+    /* ─── RESOURCE CARDS ─── */
+    .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .resource-card { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: all 0.3s; }
+    .resource-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-mid), var(--green-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+    .resource-card:hover { border-color: rgba(45,122,79,0.5); box-shadow: 0 12px 40px rgba(14,45,31,0.08); transform: translateY(-4px); }
+    .resource-card:hover::before { transform: scaleX(1); }
+    .resource-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 12px; display: inline-block; margin-bottom: 14px; }
+    .type-case-study { background: rgba(76,175,125,0.12); color: var(--green-bright); border: 1px solid rgba(76,175,125,0.2); }
+    .type-sop { background: rgba(0,94,184,0.1); color: var(--nhs-blue); border: 1px solid rgba(0,94,184,0.2); }
+    .type-research { background: rgba(200,168,75,0.12); color: var(--gold); border: 1px solid rgba(200,168,75,0.25); }
+    .type-testing { background: rgba(156,39,176,0.08); color: #7b1fa2; border: 1px solid rgba(156,39,176,0.2); }
+    .resource-trending { position: absolute; top: 16px; right: 16px; background: rgba(200,168,75,0.15); border: 1px solid rgba(200,168,75,0.3); color: var(--gold); font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 10px; letter-spacing: 0.06em; }
+    .resource-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; line-height: 1.3; flex: 1; }
+    .resource-desc { font-size: 0.83rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 20px; flex: 1; }
+    .resource-meta { font-size: 0.75rem; color: var(--text-light); margin-bottom: 16px; }
+    .resource-download { display: flex; align-items: center; gap: 8px; font-size: 0.83rem; font-weight: 700; color: var(--green-mid); text-decoration: none; padding: 10px 14px; background: var(--green-pale); border-radius: 8px; transition: all 0.2s; }
+    .resource-download:hover { background: var(--green-light); color: var(--green-deep); }
+    .download-icon { font-size: 1rem; }
+
+    /* ─── TRENDING SECTION ─── */
+    .trending-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+    .trending-card { background: var(--green-deep); border-radius: 14px; padding: 32px; display: flex; gap: 20px; align-items: flex-start; }
+    .trending-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .trending-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .trending-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .trending-desc { font-size: 0.83rem; color: #7aab8e; line-height: 1.5; margin-bottom: 16px; }
+    .trending-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: var(--green-light); text-decoration: none; }
+    .trending-link:hover { color: #5fc98e; }
+
+    @media (max-width: 900px) { .resources-grid { grid-template-columns: repeat(2, 1fr); } .trending-layout { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .resources-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
+  <header id="header"><div class="nav-inner"><a class="logo" href="index.html"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas Logo" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html" class="active">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html" class="nav-cta">Contact Us</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
+  <nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" id="menuClose">&times;</button><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html">Contact Us</a></nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag">Documentation</div>
+      <h1>Resources &amp; Support</h1>
+      <p>Everything you need to implement and succeed with reusable theatre caps. Access comprehensive guides, research papers, and educational materials.</p>
+    </div>
+  </div>
+
+  <section style="background: var(--cream);">
+    <div class="section-inner">
+
+      <!-- TRENDING -->
+      <div class="section-header fade-up">
+        <p class="section-label">Most Popular</p>
+        <h2 class="section-title">Trending Downloads</h2>
+        <p class="section-body">Our most downloaded resources — trusted by NHS trusts across the UK.</p>
+      </div>
+      <div class="trending-layout fade-up">
+        <div class="trending-card">
+          <div class="trending-icon">📊</div>
+          <div>
+            <div class="trending-tag">🔥 Most Downloaded</div>
+            <div class="trending-title">Somerset NHS Foundation Trust Case Study</div>
+            <p class="trending-desc">Demonstrates 48% cost savings and 95.9% staff recognition improvements. The definitive NHS proof-of-concept for reusable badge hats.</p>
+            <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" class="trending-link" rel="noopener">Download PDF →</a>
+          </div>
+        </div>
+        <div class="trending-card">
+          <div class="trending-icon">📋</div>
+          <div>
+            <div class="trending-tag">🔥 Trending</div>
+            <div class="trending-title">Somerset NHS Standard Operating Procedure</div>
+            <p class="trending-desc">Step-by-step SOP for badge and theatre cap maintenance. The practical guide your infection control team and theatre managers need.</p>
+            <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" class="trending-link" rel="noopener">Download PDF →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-bar fade-up">
+        <button class="filter-btn active" data-filter="all">All Resources</button>
+        <button class="filter-btn" data-filter="case-study">Case Studies</button>
+        <button class="filter-btn" data-filter="sop">SOPs & Guides</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+        <button class="filter-btn" data-filter="testing">Testing & Lab Reports</button>
+      </div>
+
+      <!-- RESOURCE GRID -->
+      <div class="resources-grid">
+        <div class="resource-card fade-up" data-category="case-study">
+          <span class="resource-trending">🔥 Trending</span>
+          <span class="resource-type type-case-study">Case Study</span>
+          <div class="resource-title">Somerset NHS Foundation Trust</div>
+          <p class="resource-desc">Implementing a sustainable, inclusive, and operationally efficient identification solution for surgical teams. Musgrove Park Hospital, April 2024.</p>
+          <div class="resource-meta">Somerset NHS Foundation Trust • 2024</div>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+        </div>
+        <div class="resource-card fade-up fade-up-delay-1" data-category="sop">
+          <span class="resource-trending">🔥 Trending</span>
+          <span class="resource-type type-sop">SOP</span>
+          <div class="resource-title">Badge & Theatre Cap Maintenance SOP</div>
+          <p class="resource-desc">Standard Operating Procedure for badge and theatre cap maintenance — covering laundering, badge storage, and daily use protocols.</p>
+          <div class="resource-meta">Somerset NHS Foundation Trust • 2024</div>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+        </div>
+        <div class="resource-card fade-up fade-up-delay-2" data-category="case-study">
+          <span class="resource-type type-case-study">Case Study</span>
+          <div class="resource-title">Royal Liverpool Hospital — Dr. Mruga Diwan</div>
+          <p class="resource-desc">Tackling excess waste by switching to reusable theatre hats. Introduction of named reusable caps for theatre staff at a major NHS trust.</p>
+          <div class="resource-meta">Royal Liverpool Hospital • 2022</div>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_5e5ebc4a7cc0423a802e5c6ce887b823.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+        </div>
+        <div class="resource-card fade-up" data-category="testing">
+          <span class="resource-type type-testing">Lab Testing</span>
+          <div class="resource-title">Badge Separation Testing — TWI Cambridge</div>
+          <p class="resource-desc">Objective: to carry out badge 'separation' testing on three clinical hats. Independent testing by TWI, Cambridge validates badge integrity and safety.</p>
+          <div class="resource-meta">TWI Cambridge • Independent Testing</div>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_a377f13fd47846d98b5e3fc8336ae684.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+        </div>
+        <div class="resource-card fade-up fade-up-delay-1" data-category="testing">
+          <span class="resource-type type-testing">Lab Testing</span>
+          <div class="resource-title">Badge Degradation Test — Birmingham University</div>
+          <p class="resource-desc">Confirming badges remain unchanged when exposed to common cleaning products: Actichlor, Clinell, and 70% Isopropyl Alcohol (IPA).</p>
+          <div class="resource-meta">AMCASH at Birmingham University</div>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_f86727b912e240d2a9631222fb4bf068.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+        </div>
+        <div class="resource-card fade-up fade-up-delay-2" data-category="research">
+          <span class="resource-type type-research">Research</span>
+          <div class="resource-title">Demand Hub Review — Dr Gillian McNab</div>
+          <p class="resource-desc">Expert review of hospital theatre cloth hats. Gathered information from NHS hospital staff who have implemented or are planning to implement cloth hats in the theatre environment.</p>
+          <div class="resource-meta">Dr Gillian McNab • NHS Research</div>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_e62e7a17a2524a57b7e3efb208d5bc11.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+        </div>
+        <div class="resource-card fade-up" data-category="research">
+          <span class="resource-type type-research">Research</span>
+          <div class="resource-title">Microbial Evaluation — Dr Gillian McNab</div>
+          <p class="resource-desc">Laboratory investigative report to evaluate microbes on theatre hats. Demonstrates that personalised reusable cloth hats can safely replace disposable hats.</p>
+          <div class="resource-meta">Dr Gillian McNab • Lab Investigation</div>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_d6b4bbc16c5e4290800828e5b0d235a4.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+        </div>
+        <div class="resource-card fade-up fade-up-delay-1" data-category="research">
+          <span class="resource-type type-research">Research</span>
+          <div class="resource-title">Clinical Services Journal (CSJ)</div>
+          <p class="resource-desc">The team brief is an important part of effective team working in theatres. An innovative but simple initiative ensures everyone feels part of the team while tackling environmental and infection challenges.</p>
+          <div class="resource-meta">Clinical Services Journal • Published Article</div>
+          <a href="contact-us.html" class="resource-download"><span class="download-icon">📩</span> Request Access</a>
+        </div>
+        <div class="resource-card fade-up fade-up-delay-2" data-category="case-study">
+          <span class="resource-type type-case-study">Case Study</span>
+          <div class="resource-title">Liverpool University Hospitals</div>
+          <p class="resource-desc">Award-winning early adoption case study. Winner of the Northwest Coast Research and Innovation Sustainability Award 2022.</p>
+          <div class="resource-meta">Liverpool University Hospitals • 2022</div>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_c22a35400db64288bf8a519d94fb8d14.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band"><div class="cta-inner"><div><h2 class="cta-title">Can't Find What You're Looking For?</h2><p class="cta-sub">Our NHS specialists can provide bespoke documentation, infection control reports, and procurement support.</p></div><div class="cta-actions"><a href="contact-us.html" class="btn-primary">Contact Us</a><a href="case-studies.html" class="btn-white">View Case Studies</a></div></div></div>
+
+  <footer><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><a class="logo" href="index.html" style="margin-bottom:16px; display:inline-flex;"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas" style="height:40px;" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><p class="footer-desc">Working towards a safer and more sustainable NHS. Reusable theatre caps and badge hats that save money, improve patient safety, and cut waste.</p><div class="footer-contact"><a href="tel:+443301025810">0330 102 5810</a><br /><a href="contact-us.html">Email Us</a></div><div class="social-links" style="margin-top:20px;"><a href="https://www.linkedin.com/company/econinjasltd" target="_blank" rel="noopener" class="social-link">in</a><a href="https://www.instagram.com/econinjasltd/" target="_blank" rel="noopener" class="social-link">ig</a><a href="https://www.facebook.com/Econinjasltd" target="_blank" rel="noopener" class="social-link">fb</a><a href="https://www.youtube.com/channel/UC0rCyhoutbU92iIk8zfsKIg" target="_blank" rel="noopener" class="social-link">yt</a></div></div><div><p class="footer-col-title">Products</p><ul class="footer-links"><li><a href="products.html">Theatre Badge Hats</a></li><li><a href="products.html">Infection Control</a></li><li><a href="products.html">Laundering Guide</a></li><li><a href="calculator.html">Cost Calculator</a></li></ul></div><div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about-us.html">About Eco Ninjas</a></li><li><a href="about-us.html">Our Mission</a></li><li><a href="about-us.html">Accreditations</a></li><li><a href="blog.html">Blog</a></li></ul></div><div><p class="footer-col-title">Support</p><ul class="footer-links"><li><a href="resource-hub.html">Resource Hub</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact-us.html">Contact Us</a></li><li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li></ul></div><div><p class="footer-col-title">Contact</p><ul class="footer-links"><li><a href="tel:+443301025810">0330 102 5810</a></li><li><a href="contact-us.html">Email Us</a></li><li><a href="contact-us.html">Open Account</a></li><li><a href="contact-us.html">Pricing</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Eco Ninjas Ltd | United Kingdom | <a href="accreditations.html">Terms</a> | <a href="accreditations.html">Privacy</a></p><p>Website by <a href="https://www.taskox.co.uk" target="_blank" rel="noopener">TaskOx</a></p></div></div></footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('menuClose');
+    toggle.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.resource-card').forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+        });
+      });
+    });
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

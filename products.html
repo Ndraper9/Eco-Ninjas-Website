@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Reusable Theatre Badge Hats | Eco Ninjas</title>
+  <meta name="description" content="NHS-approved reusable theatre badge hats. 8 styles, 14 colours, multiple sizes. Infection control approved, centrally launderable, 100+ wash durability." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── PRODUCT GRID ─── */
+    .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .product-card { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; overflow: hidden; transition: all 0.3s; position: relative; }
+    .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-mid), var(--green-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; z-index: 1; }
+    .product-card:hover { border-color: rgba(45,122,79,0.5); box-shadow: 0 12px 40px rgba(14,45,31,0.1); transform: translateY(-5px); }
+    .product-card:hover::before { transform: scaleX(1); }
+    .product-img { background: var(--green-pale); height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .product-img img { width: 100%; height: 100%; object-fit: contain; padding: 20px; transition: transform 0.3s; }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    .product-info { padding: 20px; }
+    .product-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+    .product-meta { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
+    .product-meta-row { font-size: 0.78rem; color: var(--text-light); }
+    .product-meta-row strong { color: var(--text-dark); font-weight: 600; }
+    .product-badge { display: inline-flex; gap: 5px; flex-wrap: wrap; margin-bottom: 14px; }
+    .badge-tag { font-size: 0.68rem; font-weight: 600; padding: 3px 8px; border-radius: 12px; background: var(--green-pale); color: var(--green-bright); border: 1px solid rgba(45,122,79,0.2); }
+    .product-link { display: block; text-align: center; padding: 10px; background: var(--green-pale); color: var(--green-mid); font-size: 0.83rem; font-weight: 600; text-decoration: none; border-radius: 8px; transition: all 0.2s; }
+    .product-link:hover { background: var(--green-light); color: var(--green-deep); }
+
+    /* ─── FEATURES STRIP ─── */
+    .features-strip { background: var(--green-mid); padding: 56px 0; }
+    .features-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .feature-item { padding: 24px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+    .feature-item:last-child { border-right: none; }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .feature-title { font-weight: 700; font-size: 0.85rem; color: #fff; margin-bottom: 5px; }
+    .feature-body { font-size: 0.78rem; color: #7aab8e; line-height: 1.4; }
+
+    /* ─── FABRIC SECTION ─── */
+    .fabric-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .fabric-list { display: flex; flex-direction: column; gap: 16px; }
+    .fabric-item { display: flex; gap: 14px; align-items: flex-start; padding: 18px; background: var(--white); border: 1px solid rgba(45,122,79,0.2); border-radius: 10px; }
+    .fabric-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .fabric-item-title { font-weight: 700; font-size: 0.88rem; color: var(--text-dark); margin-bottom: 3px; }
+    .fabric-item-body { font-size: 0.83rem; line-height: 1.5; color: var(--text-mid); }
+    .fabric-callout { background: var(--green-deep); border-radius: 14px; padding: 32px; color: #fff; }
+    .fabric-callout-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; color: #fff; }
+    .fabric-callout-body { font-size: 0.9rem; line-height: 1.7; color: #7aab8e; margin-bottom: 24px; }
+    .fabric-spec { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(76,175,125,0.15); font-size: 0.85rem; }
+    .fabric-spec:last-child { border-bottom: none; }
+    .fabric-spec-label { color: #7aab8e; }
+    .fabric-spec-value { color: #fff; font-weight: 600; }
+
+    /* ─── COLOUR SWATCH ─── */
+    .colour-rec { background: var(--green-pale); border-radius: 12px; padding: 24px; margin-top: 24px; border: 1px solid rgba(45,122,79,0.2); }
+    .colour-rec-title { font-weight: 700; font-size: 0.88rem; color: var(--text-dark); margin-bottom: 8px; }
+    .colour-rec-body { font-size: 0.85rem; line-height: 1.6; color: var(--text-mid); }
+
+    @media (max-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr); } .features-grid { grid-template-columns: 1fr 1fr; } .fabric-layout { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .products-grid { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
+  <header id="header"><div class="nav-inner"><a class="logo" href="index.html"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas Logo" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html" class="active">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html" class="nav-cta">Contact Us</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
+  <nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" id="menuClose">&times;</button><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html">Contact Us</a></nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag">NHS Approved Products</div>
+      <h1>Reusable Theatre Caps<br />&amp; Badge Hats</h1>
+      <p>NHS-approved surgical caps designed for safety, sustainability, and superior infection control. The first of their kind designed to be centrally laundered.</p>
+    </div>
+  </div>
+
+  <!-- KEY FEATURES STRIP -->
+  <div class="features-strip">
+    <div class="features-inner">
+      <div class="features-grid">
+        <div class="feature-item"><div class="feature-icon">🏷️</div><div class="feature-title">Name &amp; Role Badges</div><p class="feature-body">Removable clip badges in blue, yellow, white &amp; plain</p></div>
+        <div class="feature-item"><div class="feature-icon">🧺</div><div class="feature-title">Centrally Launderable</div><p class="feature-body">Meets NHS infection control standards at 60–70°C</p></div>
+        <div class="feature-item"><div class="feature-icon">🎨</div><div class="feature-title">14 Colours Available</div><p class="feature-body">Match your scrubs for a coordinated team appearance</p></div>
+        <div class="feature-item"><div class="feature-icon">💪</div><div class="feature-title">100+ Wash Durability</div><p class="feature-body">Industrial wash cycles without loss of shape or colour</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT RANGE -->
+  <section style="background: var(--cream);">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <p class="section-label">Complete Range</p>
+        <h2 class="section-title">Our Theatre Badge Hats</h2>
+        <p class="section-body">Every product is designed specifically for the demanding environment of NHS operating theatres. Available in Badge Hat, Embroidery, Plain, and Logo styles across 14 colours.</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card fade-up">
+          <div class="product-img"><img src="https://static.wixstatic.com/media/bee7e3_cc3d1da54b444a85b022e1dfc6fc6784~mv2.png" alt="Bandana Badge Hat" /></div>
+          <div class="product-info">
+            <div class="product-name">Bandana</div>
+            <div class="product-badge"><span class="badge-tag">Badge Hat</span><span class="badge-tag">Embroidery</span><span class="badge-tag">Plain</span><span class="badge-tag">Logo</span></div>
+            <div class="product-meta"><div class="product-meta-row"><strong>Size:</strong> One Size / Adjustable</div><div class="product-meta-row"><strong>Colours:</strong> 14 available</div></div>
+            <a href="contact-us.html" class="product-link">Request Info →</a>
+          </div>
+        </div>
+        <div class="product-card fade-up fade-up-delay-1">
+          <div class="product-img"><img src="https://static.wixstatic.com/media/bee7e3_cfba8c11986447ba8ba0bded0cd19f55~mv2.png" alt="Hammock Badge Hat" /></div>
+          <div class="product-info">
+            <div class="product-name">Hammock</div>
+            <div class="product-badge"><span class="badge-tag">Badge Hat</span><span class="badge-tag">Embroidery</span><span class="badge-tag">Plain</span><span class="badge-tag">Logo</span></div>
+            <div class="product-meta"><div class="product-meta-row"><strong>Size:</strong> One Size</div><div class="product-meta-row"><strong>Colours:</strong> 14 available</div></div>
+            <a href="contact-us.html" class="product-link">Request Info →</a>
+          </div>
+        </div>
+        <div class="product-card fade-up fade-up-delay-2">
+          <div class="product-img"><img src="https://static.wixstatic.com/media/bee7e3_0bd00a5fdbba4b589c6c181766698ab1~mv2.png" alt="Logo Badge Hat" /></div>
+          <div class="product-info">
+            <div class="product-name">Logo Hats</div>
+            <div class="product-badge"><span class="badge-tag">Badge Hat</span><span class="badge-tag">Embroidery</span><span class="badge-tag">Plain</span><span class="badge-tag">Logo</span></div>
+            <div class="product-meta"><div class="product-meta-row"><strong>Size:</strong> All Sizes</div><div class="product-meta-row"><strong>Colours:</strong> 14 available</div></div>
+            <a href="contact-us.html" class="product-link">Request Info →</a>
+          </div>
+        </div>
+        <div class="product-card fade-up fade-up-delay-3">
+          <div class="product-img"><img src="https://static.wixstatic.com/media/bee7e3_bfa9f4d6c98b44a28cec0bfe52ad24f7~mv2.png" alt="Elastic Back Badge Hat" /></div>
+          <div class="product-info">
+            <div class="product-name">Elastic Back</div>
+            <div class="product-badge"><span class="badge-tag">Badge Hat</span><span class="badge-tag">Embroidery</span><span class="badge-tag">Plain</span><span class="badge-tag">Logo</span></div>
+            <div class="product-meta"><div class="product-meta-row"><strong>Size:</strong> S, M, L, XL</div><div class="product-meta-row"><strong>Colours:</strong> 14 available</div></div>
+            <a href="contact-us.html" class="product-link">Request Info →</a>
+          </div>
+        </div>
+        <div class="product-card fade-up">
+          <div class="product-img"><img src="https://static.wixstatic.com/media/bee7e3_0895aeeaedc646308833e019e8958783~mv2.png" alt="Braided Hat" /></div>
+          <div class="product-info">
+            <div class="product-name">Braided Hat</div>
+            <div class="product-badge"><span class="badge-tag">Badge Hat</span><span class="badge-tag">Embroidery</span><span class="badge-tag">Plain</span><span class="badge-tag">Logo</span></div>
+            <div class="product-meta"><div class="product-meta-row"><strong>Size:</strong> One Size</div><div class="product-meta-row"><strong>Colours:</strong> 14 available</div></div>
+            <a href="contact-us.html" class="product-link">Request Info →</a>
+          </div>
+        </div>
+        <div class="product-card fade-up fade-up-delay-1">
+          <div class="product-img"><img src="https://static.wixstatic.com/media/bee7e3_255dec9ab0aa4e3e875a09dd2009cedc~mv2.png" alt="XL Braided Hat" /></div>
+          <div class="product-info">
+            <div class="product-name">XL Braided Hat</div>
+            <div class="product-badge"><span class="badge-tag">Badge Hat</span><span class="badge-tag">Embroidery</span><span class="badge-tag">Plain</span><span class="badge-tag">Logo</span></div>
+            <div class="product-meta"><div class="product-meta-row"><strong>Size:</strong> One Size</div><div class="product-meta-row"><strong>Colours:</strong> 14 available</div></div>
+            <a href="contact-us.html" class="product-link">Request Info →</a>
+          </div>
+        </div>
+        <div class="product-card fade-up fade-up-delay-2">
+          <div class="product-img"><img src="https://static.wixstatic.com/media/bee7e3_03a4dcef942e42faa711aba78ef77d61~mv2.png" alt="Hijab Badge Hat" /></div>
+          <div class="product-info">
+            <div class="product-name">Hijab</div>
+            <div class="product-badge"><span class="badge-tag">Badge Hat</span><span class="badge-tag">Embroidery</span><span class="badge-tag">Plain</span><span class="badge-tag">Logo</span></div>
+            <div class="product-meta"><div class="product-meta-row"><strong>Size:</strong> One Size</div><div class="product-meta-row"><strong>Colours:</strong> 14 available</div></div>
+            <a href="contact-us.html" class="product-link">Request Info →</a>
+          </div>
+        </div>
+        <div class="product-card fade-up fade-up-delay-3">
+          <div class="product-img"><img src="https://static.wixstatic.com/media/bee7e3_cfe6ef16b3de43f38e58436b59c80459~mv2.png" alt="Surgical Hood" /></div>
+          <div class="product-info">
+            <div class="product-name">Surgical Hood</div>
+            <div class="product-badge"><span class="badge-tag">Badge Hat</span><span class="badge-tag">Embroidery</span><span class="badge-tag">Plain</span><span class="badge-tag">Logo</span></div>
+            <div class="product-meta"><div class="product-meta-row"><strong>Size:</strong> One Size</div><div class="product-meta-row"><strong>Colours:</strong> 14 available</div></div>
+            <a href="contact-us.html" class="product-link">Request Info →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FABRIC -->
+  <section style="background: var(--white);">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <p class="section-label">Material Technology</p>
+        <h2 class="section-title">Why Poly-Cotton Fabric?</h2>
+        <p class="section-body">Our premium 65% polyester / 35% cotton blend delivers the perfect balance of clinical performance, durability, and comfort for all-day theatre wear.</p>
+      </div>
+      <div class="fabric-layout">
+        <div class="fabric-list fade-up">
+          <div class="fabric-item"><div class="fabric-icon">🧫</div><div><div class="fabric-item-title">Hygiene Excellence</div><p class="fabric-item-body">Quick-drying fabric reduces bacterial growth potential and meets NHS infection control standards at 60–70°C industrial wash cycles.</p></div></div>
+          <div class="fabric-item"><div class="fabric-icon">💰</div><div><div class="fabric-item-title">Cost-Effective</div><p class="fabric-item-body">Minimal shrinkage, reduced replacement frequency, and lower energy costs than pure cotton alternatives.</p></div></div>
+          <div class="fabric-item"><div class="fabric-icon">💪</div><div><div class="fabric-item-title">Exceptional Durability</div><p class="fabric-item-body">Withstands hundreds of industrial wash/dry cycles at 70°C without losing shape or integrity.</p></div></div>
+          <div class="fabric-item"><div class="fabric-icon">😌</div><div><div class="fabric-item-title">Superior Comfort</div><p class="fabric-item-body">Breathable, moisture-wicking properties keep staff cool and comfortable during long procedures.</p></div></div>
+          <div class="fabric-item"><div class="fabric-icon">🎨</div><div><div class="fabric-item-title">Lasting Colour</div><p class="fabric-item-body">Advanced colour retention maintains professional appearance wash after wash without fading.</p></div></div>
+          <div class="colour-rec"><div class="colour-rec-title">💡 Colour Coordination Tip</div><p class="colour-rec-body">We recommend selecting the same colour for your hats as your scrubs. This creates a smart, coordinated look and fosters team identity. The most popular combination is Royal Blue hats with Royal Blue badges.</p></div>
+        </div>
+        <div class="fabric-callout fade-up fade-up-delay-1">
+          <div class="fabric-callout-title">Product Specifications</div>
+          <p class="fabric-callout-body">Every Eco Ninjas hat is manufactured to exacting standards in the United Kingdom, meeting the highest requirements for NHS operating theatres.</p>
+          <div class="fabric-spec"><span class="fabric-spec-label">Fabric Composition</span><span class="fabric-spec-value">65% Polyester, 35% Cotton</span></div>
+          <div class="fabric-spec"><span class="fabric-spec-label">Wash Temperature</span><span class="fabric-spec-value">Up to 70°C</span></div>
+          <div class="fabric-spec"><span class="fabric-spec-label">Wash Durability</span><span class="fabric-spec-value">100+ industrial cycles</span></div>
+          <div class="fabric-spec"><span class="fabric-spec-label">Colours Available</span><span class="fabric-spec-value">14 colours</span></div>
+          <div class="fabric-spec"><span class="fabric-spec-label">Styles</span><span class="fabric-spec-value">8 hat styles</span></div>
+          <div class="fabric-spec"><span class="fabric-spec-label">Badge Options</span><span class="fabric-spec-value">Blue, Yellow, White, Plain</span></div>
+          <div class="fabric-spec"><span class="fabric-spec-label">Manufacturing</span><span class="fabric-spec-value">Made in Britain 🇬🇧</span></div>
+          <div class="fabric-spec"><span class="fabric-spec-label">Procurement</span><span class="fabric-spec-value">Mediq NHS Framework</span></div>
+          <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="contact-us.html" class="btn-primary" style="flex:1; justify-content:center;">Request Samples</a>
+            <a href="contact-us.html" class="btn-white" style="flex:1; justify-content:center; border-color:rgba(76,175,125,0.3); color:#9dbfad;">Get Prices</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCRED -->
+  <div class="accred-strip"><div class="accred-strip-inner"><p class="accred-strip-label">Trusted credentials &amp; certifications</p><div class="accred-logos"><a href="https://static.wixstatic.com/media/bee7e3_af53c48345c14a3691766a09b0120ca7~mv2.jpg" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_c89409b881444048be2e9cf5912382de~mv2.jpg" alt="ISO 9001" /><span>ISO 9001 Certified</span></a><a href="https://www.birmingham.ac.uk/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_7f6346f65eff4bc6b34eb7011f9b2384~mv2.png" alt="Birmingham University" /><span>University Research</span></a><a href="https://medbis.mediq.co.uk/manufacturer/eco-ninjas/surgical-supplies/theatre-apparel/headwear" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_499e534783bb454da78d464a6bcb5939~mv2.png" alt="Mediq" /><span>NHS Framework Supplier</span></a><a href="https://www.madeinbritain.org/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_a0ddff1fa4b34ca7b35322b6d8ffb469~mv2.jpg" alt="Made in Britain" /><span>Made in Britain</span></a><a href="http://thecarbonstamp.com" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_1bcc6c0b6ba3431ca685b7ecf9a65e26~mv2.png" alt="Carbon Stamp" /><span>Carbon Stamp Verified</span></a><a href="https://registry.blockmarktech.com/certificates/989ff22c-4ba0-4bf1-8d6d-2a478ab67aa7/?share_key=i1S9mVubuLE4dTgEkEEk8eh2y3INi-t6Fo84YW5H58w" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_477dceb0212a4f9395d1b7cff431367e~mv2.png" alt="Cyber Essentials+" /><span>Cyber Essentials+</span></a></div></div></div>
+
+  <div class="cta-band"><div class="cta-inner"><div><h2 class="cta-title">Ready to Order or Request Samples?</h2><p class="cta-sub">Get in touch with our NHS specialists or order directly via the Mediq framework.</p></div><div class="cta-actions"><a href="contact-us.html" class="btn-primary">Request Sample Pack</a><a href="calculator.html" class="btn-white">Calculate Savings</a></div></div></div>
+
+  <footer><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><a class="logo" href="index.html" style="margin-bottom:16px; display:inline-flex;"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas" style="height:40px;" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><p class="footer-desc">Working towards a safer and more sustainable NHS. Reusable theatre caps and badge hats that save money, improve patient safety, and cut waste.</p><div class="footer-contact"><a href="tel:+443301025810">0330 102 5810</a><br /><a href="contact-us.html">Email Us</a></div><div class="social-links" style="margin-top:20px;"><a href="https://www.linkedin.com/company/econinjasltd" target="_blank" rel="noopener" class="social-link">in</a><a href="https://www.instagram.com/econinjasltd/" target="_blank" rel="noopener" class="social-link">ig</a><a href="https://www.facebook.com/Econinjasltd" target="_blank" rel="noopener" class="social-link">fb</a><a href="https://www.youtube.com/channel/UC0rCyhoutbU92iIk8zfsKIg" target="_blank" rel="noopener" class="social-link">yt</a></div></div><div><p class="footer-col-title">Products</p><ul class="footer-links"><li><a href="products.html">Theatre Badge Hats</a></li><li><a href="products.html">Infection Control</a></li><li><a href="products.html">Laundering Guide</a></li><li><a href="calculator.html">Cost Calculator</a></li></ul></div><div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about-us.html">About Eco Ninjas</a></li><li><a href="about-us.html">Our Mission</a></li><li><a href="about-us.html">Accreditations</a></li><li><a href="blog.html">Blog</a></li></ul></div><div><p class="footer-col-title">Support</p><ul class="footer-links"><li><a href="resource-hub.html">Resource Hub</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact-us.html">Contact Us</a></li><li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li></ul></div><div><p class="footer-col-title">Contact</p><ul class="footer-links"><li><a href="tel:+443301025810">0330 102 5810</a></li><li><a href="contact-us.html">Email Us</a></li><li><a href="contact-us.html">Open Account</a></li><li><a href="contact-us.html">Pricing</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Eco Ninjas Ltd | United Kingdom | <a href="accreditations.html">Terms</a> | <a href="accreditations.html">Privacy</a></p><p>Website by <a href="https://www.taskox.co.uk" target="_blank" rel="noopener">TaskOx</a></p></div></div></footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('menuClose');
+    toggle.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

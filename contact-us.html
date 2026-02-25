@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Eco Ninjas Theatre Caps UK | 0330 102 5810</title>
+  <meta name="description" content="Contact Eco Ninjas to request samples, open an NHS account, get prices, or arrange a consultation. Call 0330 102 5810 or fill in our contact form." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── CONTACT LAYOUT ─── */
+    .contact-layout { display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: start; }
+
+    /* ─── FORM TABS ─── */
+    .form-tabs { display: flex; gap: 0; border-bottom: 2px solid rgba(45,122,79,0.15); margin-bottom: 32px; }
+    .form-tab { padding: 12px 20px; font-size: 0.85rem; font-weight: 600; color: var(--text-light); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .form-tab.active { color: var(--green-mid); border-bottom-color: var(--green-mid); }
+    .form-tab:hover:not(.active) { color: var(--text-mid); }
+    .form-panel { display: none; }
+    .form-panel.active { display: block; }
+
+    /* ─── FORM STYLES ─── */
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { font-size: 0.8rem; font-weight: 600; color: var(--text-mid); letter-spacing: 0.03em; }
+    input, textarea, select {
+      padding: 11px 14px;
+      border: 1px solid rgba(45,122,79,0.25);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      width: 100%;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--green-bright);
+      box-shadow: 0 0 0 3px rgba(45,122,79,0.1);
+    }
+    textarea { resize: vertical; min-height: 110px; }
+    .form-submit { background: var(--green-mid); color: #fff; border: none; padding: 13px 28px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.25s; font-family: 'DM Sans', sans-serif; }
+    .form-submit:hover { background: var(--green-bright); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,122,79,0.3); }
+    .form-note { font-size: 0.78rem; color: var(--text-light); margin-top: -8px; }
+
+    /* ─── SIDEBAR ─── */
+    .contact-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .contact-info-card { background: var(--green-deep); border-radius: 14px; padding: 28px; }
+    .contact-info-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+    .contact-info-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(76,175,125,0.1); }
+    .contact-info-item:last-child { border-bottom: none; }
+    .contact-info-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+    .contact-info-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-light); margin-bottom: 2px; }
+    .contact-info-value { font-size: 0.88rem; color: #9dbfad; line-height: 1.4; }
+    .contact-info-value a { color: var(--green-light); text-decoration: none; font-weight: 600; }
+    .quick-actions { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; padding: 24px; }
+    .quick-actions-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 16px; }
+    .quick-action-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--green-pale); text-decoration: none; transition: all 0.2s; }
+    .quick-action-item:last-child { border-bottom: none; }
+    .quick-action-item:hover .quick-action-label { color: var(--green-mid); }
+    .quick-action-icon { font-size: 1.2rem; }
+    .quick-action-label { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+    .quick-action-sub { font-size: 0.75rem; color: var(--text-light); }
+    .quick-action-arrow { margin-left: auto; color: var(--green-light); font-size: 0.8rem; }
+
+    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } .contact-sidebar { order: -1; } .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .form-tabs { flex-wrap: wrap; } .form-tab { flex: 1; text-align: center; font-size: 0.78rem; padding: 10px 10px; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
+  <header id="header"><div class="nav-inner"><a class="logo" href="index.html"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas Logo" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html" class="nav-cta active">Contact Us</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
+  <nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" id="menuClose">&times;</button><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html">Contact Us</a></nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag">Get Started Today</div>
+      <h1>Get in Touch</h1>
+      <p>Request a sample pack, arrange a consultation, or speak with our NHS specialists. We usually reply within a few hours — or call us direct.</p>
+    </div>
+  </div>
+
+  <section style="background: var(--cream);">
+    <div class="section-inner">
+      <div class="contact-layout">
+        <!-- FORMS -->
+        <div class="fade-up">
+          <div class="form-tabs">
+            <div class="form-tab active" data-tab="general">General Enquiry</div>
+            <div class="form-tab" data-tab="account">Open Account</div>
+            <div class="form-tab" data-tab="prices">Request Prices</div>
+          </div>
+
+          <!-- GENERAL FORM -->
+          <div class="form-panel active" id="panel-general">
+            <div class="contact-form">
+              <div class="form-group"><label for="g-trust">Hospital / Trust Name *</label><input type="text" id="g-trust" placeholder="e.g. Somerset NHS Foundation Trust" required /></div>
+              <div class="form-row">
+                <div class="form-group"><label for="g-name">Your Name *</label><input type="text" id="g-name" placeholder="Full name" required /></div>
+                <div class="form-group"><label for="g-email">Email Address *</label><input type="email" id="g-email" placeholder="you@nhs.net" required /></div>
+              </div>
+              <div class="form-group"><label for="g-type">Enquiry Type</label>
+                <select id="g-type">
+                  <option value="">Select enquiry type...</option>
+                  <option>Request Consultation</option>
+                  <option>Request Quotation</option>
+                  <option>Technical Question</option>
+                  <option>Sample Pack Invoice</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group"><label for="g-message">Enquiry Details *</label><textarea id="g-message" placeholder="Please describe your enquiry..." required></textarea></div>
+              <div class="form-group"><label for="g-source">Where did you find us?</label><input type="text" id="g-source" placeholder="e.g. Google, colleague recommendation, LinkedIn..." /></div>
+              <p class="form-note">We usually respond within a few hours Mon–Fri, 9am–5pm. For urgent queries call 0330 102 5810.</p>
+              <button type="submit" class="form-submit">Send Enquiry →</button>
+            </div>
+          </div>
+
+          <!-- ACCOUNT FORM -->
+          <div class="form-panel" id="panel-account">
+            <p style="font-size:0.88rem; color:var(--text-mid); margin-bottom:20px; line-height:1.6;">The first step to ordering with Eco Ninjas is to fill out our account form. Once approved you will gain access to our online ordering portal.</p>
+            <div class="contact-form">
+              <div class="form-row">
+                <div class="form-group"><label for="a-name">Your Name *</label><input type="text" id="a-name" required /></div>
+                <div class="form-group"><label for="a-email">Email *</label><input type="email" id="a-email" required /></div>
+              </div>
+              <div class="form-group"><label for="a-trust">Hospital / Trust Name *</label><input type="text" id="a-trust" required /></div>
+              <div class="form-group"><label for="a-address">Address *</label><input type="text" id="a-address" placeholder="Address line 1" /></div>
+              <div class="form-row">
+                <div class="form-group"><label for="a-city">City *</label><input type="text" id="a-city" /></div>
+                <div class="form-group"><label for="a-postcode">Postcode *</label><input type="text" id="a-postcode" /></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label for="a-staff">Approx. Staff Numbers *</label><input type="number" id="a-staff" placeholder="e.g. 400" /></div>
+                <div class="form-group"><label for="a-finance">Finance/Accounts Email *</label><input type="email" id="a-finance" /></div>
+              </div>
+              <div class="form-group"><label for="a-range">Hat Range Interested In</label>
+                <select id="a-range">
+                  <option value="">Select range...</option>
+                  <option>Theatre Badge Hats — Full Range</option>
+                  <option>Braided Styles</option>
+                  <option>Hijab Range</option>
+                  <option>Surgical Hoods</option>
+                  <option>Not sure — require guidance</option>
+                </select>
+              </div>
+              <div class="form-group"><label for="a-source">Where did you find us?</label><input type="text" id="a-source" /></div>
+              <div class="form-group"><label for="a-comments">Additional Comments</label><textarea id="a-comments" placeholder="Any additional information..."></textarea></div>
+              <button type="submit" class="form-submit">Submit Account Application →</button>
+            </div>
+          </div>
+
+          <!-- PRICES FORM -->
+          <div class="form-panel" id="panel-prices">
+            <p style="font-size:0.88rem; color:var(--text-mid); margin-bottom:20px; line-height:1.6;">Fill out our short form to receive our latest prices and any available discounts — automatically sent within a few minutes.</p>
+            <div class="contact-form">
+              <div class="form-group"><label for="p-trust">Hospital / Trust Name *</label><input type="text" id="p-trust" required /></div>
+              <div class="form-row">
+                <div class="form-group"><label for="p-name">Your Name *</label><input type="text" id="p-name" required /></div>
+                <div class="form-group"><label for="p-area">Area / Location *</label><input type="text" id="p-area" placeholder="e.g. South West England" required /></div>
+              </div>
+              <div class="form-group"><label for="p-email">Email *</label><input type="email" id="p-email" required /></div>
+              <div class="form-row">
+                <div class="form-group"><label for="p-staff">Approx. Staff Numbers *</label><input type="number" id="p-staff" placeholder="e.g. 400" required /></div>
+                <div class="form-group"><label for="p-laundry">Laundry Type *</label>
+                  <select id="p-laundry" required>
+                    <option value="">Select laundry...</option>
+                    <option>Central NHS Laundry</option>
+                    <option>On-Site Laundry</option>
+                    <option>Commercial Laundry</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group"><label for="p-timing">When are you looking to place this order?</label>
+                <select id="p-timing">
+                  <option value="">Select timeframe...</option>
+                  <option>ASAP</option>
+                  <option>Within 1 month</option>
+                  <option>1–3 months</option>
+                  <option>3–6 months</option>
+                  <option>Just researching</option>
+                </select>
+              </div>
+              <div class="form-group"><label for="p-products">Please send prices for:</label><input type="text" id="p-products" placeholder="e.g. All badge hats, Braided styles, Hijabs..." /></div>
+              <div class="form-group"><label for="p-source">Where did you find us?</label><input type="text" id="p-source" /></div>
+              <div class="form-group"><label for="p-comments">Additional Notes</label><textarea id="p-comments" style="min-height:80px;" placeholder="Any other details..."></textarea></div>
+              <p class="form-note">Prices are sent automatically within minutes during business hours.</p>
+              <button type="submit" class="form-submit">Request Prices →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="contact-sidebar fade-up fade-up-delay-1">
+          <div class="contact-info-card">
+            <div class="contact-info-title">Contact Information</div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+              <div><div class="contact-info-label">Phone</div><div class="contact-info-value"><a href="tel:+443301025810">0330 102 5810</a><br /><span style="font-size:0.75rem; color:#5a8070;">Mon–Fri, 9am–5pm</span></div></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📧</div>
+              <div><div class="contact-info-label">Email</div><div class="contact-info-value">Use the contact form and we'll respond within 24 hrs</div></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+              <div><div class="contact-info-label">Location</div><div class="contact-info-value">Eco Ninjas, Warwick<br />United Kingdom</div></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">🛒</div>
+              <div><div class="contact-info-label">Order Portal</div><div class="contact-info-value"><a href="https://app.econinjas.co.uk/econinjas-portal">Access existing account →</a></div></div>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <div class="quick-actions-title">Popular Actions</div>
+            <a href="contact-us.html" class="quick-action-item">
+              <span class="quick-action-icon">📦</span>
+              <div><div class="quick-action-label">Request Samples</div><div class="quick-action-sub">See and feel the quality for yourself</div></div>
+              <span class="quick-action-arrow">→</span>
+            </a>
+            <a href="calculator.html" class="quick-action-item">
+              <span class="quick-action-icon">💷</span>
+              <div><div class="quick-action-label">Calculate Savings</div><div class="quick-action-sub">Interactive NHS cost calculator</div></div>
+              <span class="quick-action-arrow">→</span>
+            </a>
+            <a href="https://app.econinjas.co.uk/econinjas-portal" target="_blank" class="quick-action-item" rel="noopener">
+              <span class="quick-action-icon">💼</span>
+              <div><div class="quick-action-label">Open Account</div><div class="quick-action-sub">Start ordering via Eco Ninjas account</div></div>
+              <span class="quick-action-arrow">→</span>
+            </a>
+            <a href="https://medbis.mediq.co.uk/manufacturer/eco-ninjas/surgical-supplies/theatre-apparel/headwear" target="_blank" class="quick-action-item" rel="noopener">
+              <span class="quick-action-icon">🏥</span>
+              <div><div class="quick-action-label">Order via Mediq</div><div class="quick-action-sub">Purchase through NHS framework</div></div>
+              <span class="quick-action-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><a class="logo" href="index.html" style="margin-bottom:16px; display:inline-flex;"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas" style="height:40px;" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><p class="footer-desc">Working towards a safer and more sustainable NHS. Reusable theatre caps and badge hats that save money, improve patient safety, and cut waste.</p><div class="footer-contact"><a href="tel:+443301025810">0330 102 5810</a><br /><a href="contact-us.html">Email Us</a></div><div class="social-links" style="margin-top:20px;"><a href="https://www.linkedin.com/company/econinjasltd" target="_blank" rel="noopener" class="social-link">in</a><a href="https://www.instagram.com/econinjasltd/" target="_blank" rel="noopener" class="social-link">ig</a><a href="https://www.facebook.com/Econinjasltd" target="_blank" rel="noopener" class="social-link">fb</a><a href="https://www.youtube.com/channel/UC0rCyhoutbU92iIk8zfsKIg" target="_blank" rel="noopener" class="social-link">yt</a></div></div><div><p class="footer-col-title">Products</p><ul class="footer-links"><li><a href="products.html">Theatre Badge Hats</a></li><li><a href="products.html">Infection Control</a></li><li><a href="products.html">Laundering Guide</a></li><li><a href="calculator.html">Cost Calculator</a></li></ul></div><div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about-us.html">About Eco Ninjas</a></li><li><a href="about-us.html">Our Mission</a></li><li><a href="about-us.html">Accreditations</a></li><li><a href="blog.html">Blog</a></li></ul></div><div><p class="footer-col-title">Support</p><ul class="footer-links"><li><a href="resource-hub.html">Resource Hub</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact-us.html">Contact Us</a></li><li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li></ul></div><div><p class="footer-col-title">Contact</p><ul class="footer-links"><li><a href="tel:+443301025810">0330 102 5810</a></li><li><a href="contact-us.html">Email Us</a></li><li><a href="contact-us.html">Open Account</a></li><li><a href="contact-us.html">Pricing</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Eco Ninjas Ltd | United Kingdom | <a href="accreditations.html">Terms</a> | <a href="accreditations.html">Privacy</a></p><p>Website by <a href="https://www.taskox.co.uk" target="_blank" rel="noopener">TaskOx</a></p></div></div></footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('menuClose');
+    toggle.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+    // Form tabs
+    document.querySelectorAll('.form-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+    // Form submission (placeholder)
+    document.querySelectorAll('.form-submit').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        btn.textContent = '✓ Sent — we\'ll be in touch shortly!';
+        btn.style.background = 'var(--green-bright)';
+        btn.disabled = true;
+      });
+    });
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

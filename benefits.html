@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benefits | Cost Savings, Sustainability & Safety | Eco Ninjas</title>
+  <meta name="description" content="The triple benefits of Eco Ninjas reusable theatre caps: 48% cost savings, 90,000+ caps prevented from incineration, and 96% staff recognition rate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── BENEFIT TABS ─── */
+    .benefit-tabs { display: flex; gap: 0; border-bottom: 2px solid rgba(45,122,79,0.15); margin-bottom: 56px; }
+    .benefit-tab { padding: 14px 28px; font-size: 0.88rem; font-weight: 600; color: var(--text-light); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; white-space: nowrap; }
+    .benefit-tab.active { color: var(--green-mid); border-bottom-color: var(--green-mid); }
+    .benefit-tab:hover:not(.active) { color: var(--text-mid); }
+
+    /* ─── BENEFIT PANEL ─── */
+    .benefit-panel { display: none; }
+    .benefit-panel.active { display: block; }
+    .benefit-layout { display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: start; }
+    .benefit-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
+    .badge-financial { background: rgba(200,168,75,0.15); color: var(--gold); border: 1px solid rgba(200,168,75,0.3); }
+    .badge-environmental { background: rgba(76,175,125,0.15); color: var(--green-bright); border: 1px solid rgba(76,175,125,0.3); }
+    .badge-clinical { background: rgba(0,94,184,0.1); color: var(--nhs-blue); border: 1px solid rgba(0,94,184,0.2); }
+    .benefit-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700; color: var(--text-dark); margin-bottom: 16px; line-height: 1.15; }
+    .benefit-body { font-size: 1rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 28px; }
+    .benefit-checklist { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .benefit-check { display: flex; gap: 12px; align-items: flex-start; }
+    .check-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--green-pale); border: 2px solid var(--green-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.7rem; color: var(--green-mid); margin-top: 1px; }
+    .check-text { font-size: 0.92rem; color: var(--text-mid); line-height: 1.5; }
+    .check-text strong { color: var(--text-dark); font-weight: 600; }
+
+    /* ─── STATS SIDEBAR ─── */
+    .stats-sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .stat-highlight { background: var(--green-deep); border-radius: 14px; padding: 28px; text-align: center; }
+    .stat-highlight-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--green-light); display: block; line-height: 1; }
+    .stat-highlight-label { font-size: 0.82rem; color: #7aab8e; margin-top: 8px; line-height: 1.4; }
+    .calc-box { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; padding: 24px; }
+    .calc-box-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 16px; }
+    .calc-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--green-pale); font-size: 0.83rem; }
+    .calc-row:last-child { border-bottom: none; font-weight: 700; color: var(--green-mid); }
+    .calc-label { color: var(--text-mid); }
+    .calc-value { color: var(--text-dark); font-weight: 600; }
+    .quote-block { background: rgba(0,94,184,0.06); border-left: 3px solid var(--nhs-blue); border-radius: 0 10px 10px 0; padding: 20px; margin-top: 16px; }
+    .quote-text { font-size: 0.88rem; line-height: 1.65; color: var(--text-mid); font-style: italic; margin-bottom: 8px; }
+    .quote-source { font-size: 0.75rem; font-weight: 600; color: var(--green-bright); }
+
+    /* ─── NET ZERO SECTION ─── */
+    .net-zero { background: var(--green-deep); }
+    .net-zero .section-title { color: #fff; }
+    .net-zero .section-label { color: var(--green-light); }
+    .net-zero .section-body { color: #7aab8e; max-width: 100%; }
+    .nz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .nz-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(76,175,125,0.15); border-radius: 14px; padding: 28px; text-align: center; }
+    .nz-icon { font-size: 2rem; margin-bottom: 12px; }
+    .nz-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .nz-label { font-size: 0.78rem; color: var(--green-light); font-weight: 600; margin-bottom: 10px; }
+    .nz-body { font-size: 0.85rem; color: #7aab8e; line-height: 1.5; }
+
+    /* ─── ADDITIONAL BENEFITS ─── */
+    .additional-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .additional-item { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 12px; padding: 24px; display: flex; gap: 14px; align-items: flex-start; transition: all 0.2s; }
+    .additional-item:hover { border-color: rgba(45,122,79,0.5); box-shadow: 0 6px 24px rgba(14,45,31,0.07); }
+    .additional-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .additional-title { font-weight: 700; font-size: 0.88rem; color: var(--text-dark); margin-bottom: 5px; }
+    .additional-body { font-size: 0.83rem; color: var(--text-mid); line-height: 1.5; }
+
+    @media (max-width: 900px) { .benefit-layout { grid-template-columns: 1fr; } .benefit-tabs { overflow-x: auto; } .nz-grid { grid-template-columns: 1fr; } .additional-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .additional-grid { grid-template-columns: 1fr; } .benefit-tab { padding: 12px 16px; font-size: 0.82rem; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
+  <header id="header"><div class="nav-inner"><a class="logo" href="index.html"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas Logo" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html" class="active">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html" class="nav-cta">Contact Us</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
+  <nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" id="menuClose">&times;</button><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html">Contact Us</a></nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag">Three Pillars</div>
+      <h1>The Triple Benefits of<br />Reusable Theatre Caps</h1>
+      <p>Cost savings, environmental impact, and patient safety — all in one sustainable solution. Our solution isn't just better for the planet, it's better for your budget and your patients.</p>
+    </div>
+  </div>
+
+  <!-- BENEFITS TABS -->
+  <section style="background: var(--cream);">
+    <div class="section-inner">
+      <div class="benefit-tabs fade-up">
+        <div class="benefit-tab active" data-tab="financial">💷 Financial Savings</div>
+        <div class="benefit-tab" data-tab="environmental">🌿 Environmental</div>
+        <div class="benefit-tab" data-tab="clinical">🏥 Clinical Safety</div>
+      </div>
+
+      <!-- FINANCIAL -->
+      <div class="benefit-panel active" id="panel-financial">
+        <div class="benefit-layout">
+          <div class="fade-up">
+            <div class="benefit-badge badge-financial">Financial Benefit</div>
+            <h2 class="benefit-title">Save Over 48% on Theatre Cap Costs</h2>
+            <p class="benefit-body">Stop the recurring expense of disposable caps. Our reusable theatre hats pay for themselves within 6–12 months and continue delivering savings for years afterwards.</p>
+            <div class="benefit-checklist">
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Eliminate recurring purchases:</strong> No more monthly orders of disposable caps that go straight to incineration.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Reduce waste costs:</strong> Lower clinical waste disposal fees and processing expenses.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Long-term durability:</strong> Each hat lasts 100+ washes, providing years of reliable service.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Flexible ordering:</strong> Available through Mediq NHS framework or direct purchase.</div></div>
+            </div>
+            <a href="calculator.html" class="btn-primary">Calculate Your Savings</a>
+          </div>
+          <div class="stats-sidebar fade-up fade-up-delay-1">
+            <div class="stat-highlight"><span class="stat-highlight-num">63%</span><div class="stat-highlight-label">Cost savings over 3 years (400 staff, 3 caps/day)</div></div>
+            <div class="calc-box">
+              <div class="calc-box-title">Example Calculation (400 Staff)</div>
+              <div class="calc-row"><span class="calc-label">Disposable – 1 Year</span><span class="calc-value">£18,312</span></div>
+              <div class="calc-row"><span class="calc-label">Disposable – 3 Years</span><span class="calc-value">£54,936</span></div>
+              <div class="calc-row"><span class="calc-label">Reusable – 3 Years</span><span class="calc-value">£20,270</span></div>
+              <div class="calc-row"><span class="calc-label">3-Year Saving</span><span class="calc-value">£33,086</span></div>
+              <div class="calc-row" style="border-top: 2px solid var(--green-light); padding-top:12px; margin-top:4px;"><span class="calc-label">CO₂e Saving</span><span class="calc-value">15.18 Tonnes</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENVIRONMENTAL -->
+      <div class="benefit-panel" id="panel-environmental">
+        <div class="benefit-layout">
+          <div class="fade-up">
+            <div class="benefit-badge badge-environmental">Environmental Benefit</div>
+            <h2 class="benefit-title">Support Your Trust's Net Zero Commitment</h2>
+            <p class="benefit-body">The NHS has committed to reaching Net Zero carbon emissions by 2045. Every trust switching to reusable theatre caps makes a measurable contribution to this goal.</p>
+            <div class="benefit-checklist">
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Massive waste reduction:</strong> Prevent 90,000+ disposable caps per hospital from going to incineration annually.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Lower carbon footprint:</strong> Reduce CO₂ emissions by up to 3.2 tonnes per year per hospital.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Circular economy:</strong> Caps are recyclable at end-of-life, not incinerated.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>UK manufacturing:</strong> Reduced transport emissions and supports British jobs.</div></div>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-light); padding: 16px; background:var(--green-pale); border-radius:8px;">Eco Ninjas is proudly Carbon Stamp certified and commits 1% of revenue to carbon removal projects through Stripe Climate.</p>
+          </div>
+          <div class="stats-sidebar fade-up fade-up-delay-1">
+            <div class="stat-highlight"><span class="stat-highlight-num">90K+</span><div class="stat-highlight-label">Disposable caps prevented from incineration per hospital, per year</div></div>
+            <div class="stat-highlight" style="background: rgba(0,94,184,0.15); border: 1px solid rgba(0,94,184,0.2);"><span class="stat-highlight-num" style="color:#7ab4e8;">3.2T</span><div class="stat-highlight-label" style="color:#7aab8e;">CO₂ reduction per hospital per year</div></div>
+            <div class="stat-highlight" style="background: rgba(76,175,125,0.1); border: 1px solid rgba(76,175,125,0.2);"><span class="stat-highlight-num">Zero</span><div class="stat-highlight-label">Single-use hats — completely eliminated from the waste stream</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLINICAL -->
+      <div class="benefit-panel" id="panel-clinical">
+        <div class="benefit-layout">
+          <div class="fade-up">
+            <div class="benefit-badge badge-clinical">Clinical Benefit</div>
+            <h2 class="benefit-title">Dramatically Improve Patient Safety</h2>
+            <p class="benefit-body">Clear name and role identification transforms communication in the theatre environment — particularly during critical moments when knowing exactly who you're working with can be the difference between a smooth procedure and a delay.</p>
+            <div class="benefit-checklist">
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Instant role recognition:</strong> Staff recognition jumped from 41% to 96% at Somerset NHS Trust.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Better communication:</strong> Clear badges eliminate confusion during critical moments in surgery.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>WHO safety checklist:</strong> Supports the requirement to know all team member names and roles.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Patient confidence:</strong> Patients report feeling safer when they can identify all staff members.</div></div>
+              <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Training support:</strong> Students and trainees are clearly identified, improving supervision.</div></div>
+            </div>
+            <div class="quote-block">
+              <p class="quote-text">"The theatre environment is complex. Being able to see names and roles at a glance has transformed our team communication and reduced the cognitive load during procedures."</p>
+              <span class="quote-source">— Theatre Sister, Somerset NHS Foundation Trust</span>
+            </div>
+          </div>
+          <div class="stats-sidebar fade-up fade-up-delay-1">
+            <div class="stat-highlight"><span class="stat-highlight-num">96%</span><div class="stat-highlight-label">Staff recognition rate — up from just 41% before implementation</div></div>
+            <div class="calc-box">
+              <div class="calc-box-title">Key Safety Improvements</div>
+              <div class="benefit-checklist" style="gap:10px;">
+                <div class="benefit-check"><div class="check-icon" style="background:rgba(0,94,184,0.1); border-color:var(--nhs-blue); color:var(--nhs-blue);">✓</div><div class="check-text" style="font-size:0.82rem;">Reduces wrong-site surgery risk</div></div>
+                <div class="benefit-check"><div class="check-icon" style="background:rgba(0,94,184,0.1); border-color:var(--nhs-blue); color:var(--nhs-blue);">✓</div><div class="check-text" style="font-size:0.82rem;">Improves handover communication</div></div>
+                <div class="benefit-check"><div class="check-icon" style="background:rgba(0,94,184,0.1); border-color:var(--nhs-blue); color:var(--nhs-blue);">✓</div><div class="check-text" style="font-size:0.82rem;">Enhances team coordination</div></div>
+                <div class="benefit-check"><div class="check-icon" style="background:rgba(0,94,184,0.1); border-color:var(--nhs-blue); color:var(--nhs-blue);">✓</div><div class="check-text" style="font-size:0.82rem;">Supports student supervision</div></div>
+                <div class="benefit-check"><div class="check-icon" style="background:rgba(0,94,184,0.1); border-color:var(--nhs-blue); color:var(--nhs-blue);">✓</div><div class="check-text" style="font-size:0.82rem;">Builds patient trust</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NET ZERO -->
+  <section class="net-zero">
+    <div class="section-inner">
+      <div class="fade-up">
+        <p class="section-label">NHS Net Zero</p>
+        <h2 class="section-title">Supporting the NHS Net Zero Target</h2>
+        <p class="section-body">The NHS has committed to becoming the world's first Net Zero national health service by 2045. Switching to reusable theatre caps is a simple, proven way to make progress toward this goal.</p>
+      </div>
+      <div class="nz-grid">
+        <div class="nz-card fade-up"><div class="nz-icon">🎯</div><div class="nz-title">2032 Target</div><div class="nz-label">Near-term milestone</div><p class="nz-body">80% emissions reduction for NHS operations — reusable theatre products directly contribute to this goal.</p></div>
+        <div class="nz-card fade-up fade-up-delay-1"><div class="nz-icon">🌍</div><div class="nz-title">2045 Target</div><div class="nz-label">Full Net Zero</div><p class="nz-body">Net Zero carbon emissions across the entire NHS footprint — every trust switching to reusables plays a part.</p></div>
+        <div class="nz-card fade-up fade-up-delay-2"><div class="nz-icon">♻️</div><div class="nz-title">Circular Economy</div><div class="nz-label">Sustainable by design</div><p class="nz-body">Shift from single-use to sustainable, reusable products. Caps are recyclable at end-of-life, not incinerated.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDITIONAL BENEFITS -->
+  <section style="background: var(--cream);">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <p class="section-label">More Reasons to Switch</p>
+        <h2 class="section-title">Additional Benefits</h2>
+      </div>
+      <div class="additional-grid">
+        <div class="additional-item fade-up"><div class="additional-icon">👩🏽‍⚕️</div><div><div class="additional-title">Staff Morale</div><p class="additional-body">Professional appearance and clear identification boost staff pride and satisfaction across theatre teams.</p></div></div>
+        <div class="additional-item fade-up fade-up-delay-1"><div class="additional-icon">🌍</div><div><div class="additional-title">Inclusive Design</div><p class="additional-body">Suitable for all cultures and religions, including hijab-compatible options. Every team member represented.</p></div></div>
+        <div class="additional-item fade-up fade-up-delay-2"><div class="additional-icon">📦</div><div><div class="additional-title">Simple Implementation</div><p class="additional-body">Easy rollout process with full support and training materials. Most trusts complete implementation within 3–4 weeks.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="accred-strip"><div class="accred-strip-inner"><p class="accred-strip-label">Trusted credentials &amp; certifications</p><div class="accred-logos"><a href="#" class="accred-item"><img src="https://static.wixstatic.com/media/bee7e3_c89409b881444048be2e9cf5912382de~mv2.jpg" alt="ISO 9001" /><span>ISO 9001 Certified</span></a><a href="https://www.birmingham.ac.uk/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_7f6346f65eff4bc6b34eb7011f9b2384~mv2.png" alt="Birmingham University" /><span>University Research</span></a><a href="https://medbis.mediq.co.uk/manufacturer/eco-ninjas/surgical-supplies/theatre-apparel/headwear" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_499e534783bb454da78d464a6bcb5939~mv2.png" alt="Mediq" /><span>NHS Framework Supplier</span></a><a href="https://www.madeinbritain.org/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_a0ddff1fa4b34ca7b35322b6d8ffb469~mv2.jpg" alt="Made in Britain" /><span>Made in Britain</span></a><a href="http://thecarbonstamp.com" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_1bcc6c0b6ba3431ca685b7ecf9a65e26~mv2.png" alt="Carbon Stamp" /><span>Carbon Stamp Verified</span></a><a href="https://registry.blockmarktech.com/certificates/989ff22c-4ba0-4bf1-8d6d-2a478ab67aa7/?share_key=i1S9mVubuLE4dTgEkEEk8eh2y3INi-t6Fo84YW5H58w" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_477dceb0212a4f9395d1b7cff431367e~mv2.png" alt="Cyber Essentials+" /><span>Cyber Essentials+</span></a></div></div></div>
+
+  <div class="cta-band"><div class="cta-inner"><div><h2 class="cta-title">See These Benefits in Your Trust</h2><p class="cta-sub">Join the growing number of NHS hospitals saving money while improving care.</p></div><div class="cta-actions"><a href="contact-us.html" class="btn-primary">Request Sample Pack</a><a href="calculator.html" class="btn-white">Calculate Savings</a></div></div></div>
+
+  <footer><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><a class="logo" href="index.html" style="margin-bottom:16px; display:inline-flex;"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas" style="height:40px;" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><p class="footer-desc">Working towards a safer and more sustainable NHS. Reusable theatre caps and badge hats that save money, improve patient safety, and cut waste.</p><div class="footer-contact"><a href="tel:+443301025810">0330 102 5810</a><br /><a href="contact-us.html">Email Us</a></div><div class="social-links" style="margin-top:20px;"><a href="https://www.linkedin.com/company/econinjasltd" target="_blank" rel="noopener" class="social-link">in</a><a href="https://www.instagram.com/econinjasltd/" target="_blank" rel="noopener" class="social-link">ig</a><a href="https://www.facebook.com/Econinjasltd" target="_blank" rel="noopener" class="social-link">fb</a><a href="https://www.youtube.com/channel/UC0rCyhoutbU92iIk8zfsKIg" target="_blank" rel="noopener" class="social-link">yt</a></div></div><div><p class="footer-col-title">Products</p><ul class="footer-links"><li><a href="products.html">Theatre Badge Hats</a></li><li><a href="products.html">Infection Control</a></li><li><a href="products.html">Laundering Guide</a></li><li><a href="calculator.html">Cost Calculator</a></li></ul></div><div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about-us.html">About Eco Ninjas</a></li><li><a href="about-us.html">Our Mission</a></li><li><a href="about-us.html">Accreditations</a></li><li><a href="blog.html">Blog</a></li></ul></div><div><p class="footer-col-title">Support</p><ul class="footer-links"><li><a href="resource-hub.html">Resource Hub</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact-us.html">Contact Us</a></li><li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li></ul></div><div><p class="footer-col-title">Contact</p><ul class="footer-links"><li><a href="tel:+443301025810">0330 102 5810</a></li><li><a href="contact-us.html">Email Us</a></li><li><a href="contact-us.html">Open Account</a></li><li><a href="contact-us.html">Pricing</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Eco Ninjas Ltd | United Kingdom | <a href="accreditations.html">Terms</a> | <a href="accreditations.html">Privacy</a></p><p>Website by <a href="https://www.taskox.co.uk" target="_blank" rel="noopener">TaskOx</a></p></div></div></footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('menuClose');
+    toggle.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+    // Tabs
+    document.querySelectorAll('.benefit-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.benefit-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.benefit-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
