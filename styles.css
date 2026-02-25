@@ -33,11 +33,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 /* ─── HEADER ─── */
 header { position: sticky; top: 0; z-index: 100; background: rgba(250,248,243,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(45,122,79,0.12); transition: box-shadow 0.3s; }
 header.scrolled { box-shadow: 0 2px 24px rgba(14,45,31,0.1); }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-.logo img { height: 50px; width: auto; display: block; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 101px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; text-decoration: none; flex-shrink: 0; }
+.logo img { height: 56px; width: auto; display: block; }
 .logo-text { display: none; }
-.logo-sub { font-family: 'DM Sans', sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.03em; color: var(--green-mid); display: block; line-height: 1.3; text-transform: none; max-width: 220px; }
+.logo-sub { font-family: 'DM Sans', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.03em; color: var(--green-mid); display: block; line-height: 1.3; text-transform: none; max-width: 240px; }
 nav { display: flex; align-items: center; gap: 4px; }
 nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-mid); text-decoration: none; padding: 8px 12px; border-radius: 6px; transition: all 0.2s; white-space: nowrap; }
 nav a:hover { color: var(--green-mid); background: var(--green-pale); }
