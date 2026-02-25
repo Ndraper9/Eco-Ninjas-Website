@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Latest News & Insights | Eco Ninjas</title>
+  <meta name="description" content="Latest news, insights and guidance on reusable theatre caps, NHS sustainability, infection control and patient safety from the Eco Ninjas team." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── FEATURED POST ─── */
+    .featured-post { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid rgba(45,122,79,0.35); border-radius: 16px; overflow: hidden; background: var(--white); margin-bottom: 64px; transition: all 0.3s; }
+    .featured-post:hover { box-shadow: 0 16px 48px rgba(14,45,31,0.1); transform: translateY(-3px); border-color: rgba(45,122,79,0.5); }
+    .featured-img { position: relative; overflow: hidden; min-height: 380px; }
+    .featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .featured-post:hover .featured-img img { transform: scale(1.04); }
+    .featured-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(14,45,31,0.3) 0%, transparent 60%); }
+    .featured-badge { position: absolute; top: 20px; left: 20px; background: var(--gold); color: var(--green-deep); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
+    .featured-content { padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; }
+    .post-category { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 12px; }
+    .featured-title { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700; color: var(--text-dark); line-height: 1.2; margin-bottom: 16px; }
+    .featured-title a { text-decoration: none; color: inherit; }
+    .featured-title a:hover { color: var(--green-mid); }
+    .featured-excerpt { font-size: 0.93rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 24px; }
+    .post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .post-author-img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--green-pale); }
+    .post-author-name { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); }
+    .post-date { font-size: 0.78rem; color: var(--text-light); }
+    .post-read-time { font-size: 0.75rem; color: var(--text-light); display: flex; align-items: center; gap: 4px; }
+    .post-meta-divider { width: 3px; height: 3px; background: var(--text-light); border-radius: 50%; }
+    .read-more { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 700; color: var(--green-mid); text-decoration: none; transition: all 0.2s; }
+    .read-more:hover { color: var(--green-bright); gap: 10px; }
+
+    /* ─── CATEGORY FILTER ─── */
+    .category-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .cat-btn { padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid rgba(45,122,79,0.3); background: transparent; color: var(--text-mid); cursor: pointer; transition: all 0.2s; }
+    .cat-btn.active, .cat-btn:hover { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
+
+    /* ─── BLOG GRID ─── */
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .blog-card { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s; position: relative; }
+    .blog-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-mid), var(--green-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; z-index: 1; }
+    .blog-card:hover { border-color: rgba(45,122,79,0.5); box-shadow: 0 12px 40px rgba(14,45,31,0.09); transform: translateY(-5px); }
+    .blog-card:hover::before { transform: scaleX(1); }
+    .card-img { overflow: hidden; height: 200px; background: var(--green-pale); }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .blog-card:hover .card-img img { transform: scale(1.06); }
+    .card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; line-height: 1.3; flex: 1; }
+    .card-title a { text-decoration: none; color: inherit; }
+    .card-title a:hover { color: var(--green-mid); }
+    .card-excerpt { font-size: 0.83rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--green-pale); margin-top: auto; }
+    .card-author { display: flex; align-items: center; gap: 8px; }
+    .card-author img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+    .card-author-info { font-size: 0.75rem; }
+    .card-author-name { font-weight: 600; color: var(--text-dark); display: block; }
+    .card-author-date { color: var(--text-light); }
+    .card-read-time { font-size: 0.72rem; color: var(--text-light); }
+
+    /* ─── NEWSLETTER ─── */
+    .newsletter { background: var(--green-deep); border-radius: 16px; padding: 48px; text-align: center; margin-top: 64px; }
+    .newsletter-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .newsletter-sub { font-size: 0.95rem; color: #7aab8e; margin-bottom: 28px; }
+    .newsletter-form { display: flex; gap: 12px; max-width: 440px; margin: 0 auto; }
+    .newsletter-input { flex: 1; padding: 12px 16px; border: 1px solid rgba(76,175,125,0.3); border-radius: 8px; background: rgba(255,255,255,0.07); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; }
+    .newsletter-input::placeholder { color: #5a8070; }
+    .newsletter-input:focus { border-color: var(--green-light); }
+    .newsletter-btn { background: var(--green-light); color: var(--green-deep); border: none; padding: 12px 22px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; white-space: nowrap; }
+    .newsletter-btn:hover { background: #5fc98e; }
+
+    @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .featured-post { grid-template-columns: 1fr; } .featured-img { min-height: 240px; } .blog-grid { grid-template-columns: 1fr; } .newsletter { padding: 32px 24px; } .newsletter-form { flex-direction: column; } .featured-content { padding: 28px 24px; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
+  <header id="header"><div class="nav-inner"><a class="logo" href="index.html"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas Logo" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html" class="active">Blog</a><a href="contact-us.html" class="nav-cta">Contact Us</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
+  <nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" id="menuClose">&times;</button><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html">Contact Us</a></nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag">Insights & News</div>
+      <h1>Latest from<br />Eco Ninjas</h1>
+      <p>Guidance, research and insights on sustainable theatre caps, NHS sustainability, infection control and patient safety.</p>
+    </div>
+  </div>
+
+  <section style="background: var(--cream);">
+    <div class="section-inner">
+
+      <!-- FEATURED POST -->
+      <div class="featured-post fade-up">
+        <div class="featured-img">
+          <img src="https://static.wixstatic.com/media/bee7e3_b07a7a8e62084ef68aefac232318fddc~mv2.jpg" alt="Eco Ninjas staff wearing reusable name and role badge hats" />
+          <div class="featured-img-overlay"></div>
+          <span class="featured-badge">Latest Post</span>
+        </div>
+        <div class="featured-content">
+          <p class="post-category">Theatre Hats · Infection Control</p>
+          <h2 class="featured-title"><a href="blog-myths.html">5 Common Myths About Reusable Theatre Caps Debunked</a></h2>
+          <p class="featured-excerpt">Separating fact from fiction. Change in healthcare often meets resistance — we address the five most persistent myths about reusable theatre caps and what the evidence actually shows.</p>
+          <div class="post-meta">
+            <img src="https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/afdf2b00-97bc-4e78-bb3c-ed81830f9c20/1611252189878-nd%20profile.PNG/v1/fill/w_320,h_320/file.jpg" alt="Neil Draper" class="post-author-img" onerror="this.style.display='none'" />
+            <div>
+              <div class="post-author-name">Neil Draper</div>
+              <div style="display:flex; gap:8px; align-items:center;"><span class="post-date">February 2025</span><span class="post-meta-divider"></span><span class="post-read-time">3 min read</span></div>
+            </div>
+          </div>
+          <a href="blog-myths.html" class="read-more">Read Article <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- CATEGORY FILTER -->
+      <div class="category-bar fade-up">
+        <button class="cat-btn active" data-cat="all">All Posts</button>
+        <button class="cat-btn" data-cat="theatre-hats">Theatre Hats</button>
+        <button class="cat-btn" data-cat="sustainability">Sustainability</button>
+        <button class="cat-btn" data-cat="patient-safety">Patient Safety</button>
+        <button class="cat-btn" data-cat="implementation">Implementation</button>
+      </div>
+
+      <!-- BLOG GRID -->
+      <div class="blog-grid">
+
+        <div class="blog-card fade-up" data-category="patient-safety theatre-hats">
+          <div class="card-img">
+            <img src="https://static.wixstatic.com/media/bee7e3_581f80d7ec96403bbad0d415ae4fb26f~mv2.jpg" alt="Surgeons wearing Eco Ninjas badge hats" />
+          </div>
+          <div class="card-body">
+            <p class="post-category">Patient Safety</p>
+            <h3 class="card-title"><a href="blog-identification.html">See the Name, Know the Role: How Visible Identification Transforms Theatre Communication</a></h3>
+            <p class="card-excerpt">Picture this: you're a scrub nurse in the middle of a complex procedure. Something doesn't look right. You want to speak up, but the person across the table is masked, gowned, and wearing a disposable cap that looks identical to everyone else's.</p>
+            <div class="card-footer">
+              <div class="card-author">
+                <img src="https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/afdf2b00-97bc-4e78-bb3c-ed81830f9c20/1611252189878-nd%20profile.PNG/v1/fill/w_320,h_320/file.jpg" alt="Neil Draper" onerror="this.style.display='none'" />
+                <div class="card-author-info"><span class="card-author-name">Neil Draper</span><span class="card-author-date">18 Feb 2025</span></div>
+              </div>
+              <span class="card-read-time">3 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up fade-up-delay-1" data-category="implementation">
+          <div class="card-img">
+            <img src="https://static.wixstatic.com/media/807a47335c38440cbd771b17899cdd44.jpg" alt="Group meeting — implementing reusable theatre caps" />
+          </div>
+          <div class="card-body">
+            <p class="post-category">Implementation</p>
+            <h3 class="card-title"><a href="blog-implementation.html">How to Successfully Implement Reusable Theatre Caps: A Practical Guide</a></h3>
+            <p class="card-excerpt">You've made the decision to switch from disposable to reusable theatre caps. The business case is approved, the budget is allocated. But where do you actually start? Implementation matters as much as the decision itself.</p>
+            <div class="card-footer">
+              <div class="card-author">
+                <img src="https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/afdf2b00-97bc-4e78-bb3c-ed81830f9c20/1611252189878-nd%20profile.PNG/v1/fill/w_320,h_320/file.jpg" alt="Neil Draper" onerror="this.style.display='none'" />
+                <div class="card-author-info"><span class="card-author-name">Neil Draper</span><span class="card-author-date">11 Feb 2025</span></div>
+              </div>
+              <span class="card-read-time">4 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up fade-up-delay-2" data-category="sustainability">
+          <div class="card-img">
+            <img src="https://static.wixstatic.com/media/bee7e3_eedaf7a0d9154310946d8e1c4029dd25~mv2.png" alt="Hospital laundering room" />
+          </div>
+          <div class="card-body">
+            <p class="post-category">Sustainability</p>
+            <h3 class="card-title"><a href="blog-environmental.html">The Hidden Environmental Cost of Disposable Scrub Caps</a></h3>
+            <p class="card-excerpt">When we think about healthcare's environmental footprint, we often focus on big-ticket items. But sometimes the smallest items, multiplied across thousands of procedures, create impacts that far exceed their individual size.</p>
+            <div class="card-footer">
+              <div class="card-author">
+                <img src="https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/afdf2b00-97bc-4e78-bb3c-ed81830f9c20/1611252189878-nd%20profile.PNG/v1/fill/w_320,h_320/file.jpg" alt="Neil Draper" onerror="this.style.display='none'" />
+                <div class="card-author-info"><span class="card-author-name">Neil Draper</span><span class="card-author-date">2 Feb 2025</span></div>
+              </div>
+              <span class="card-read-time">3 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up" data-category="sustainability">
+          <div class="card-img" style="background: var(--green-pale); display:flex; align-items:center; justify-content:center;">
+            <img src="https://static.wixstatic.com/media/11062b_29153d68327e443b889640e85310e7ee~mv2.jpg" alt="Business case for reusable theatre caps" />
+          </div>
+          <div class="card-body">
+            <p class="post-category">Sustainability · Finance</p>
+            <h3 class="card-title"><a href="blog.html">The Business Case for Reusable Theatre Caps</a></h3>
+            <p class="card-excerpt">How to build a compelling financial and clinical argument for switching to reusable theatre caps within your NHS trust's procurement and sustainability framework.</p>
+            <div class="card-footer">
+              <div class="card-author">
+                <img src="https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/afdf2b00-97bc-4e78-bb3c-ed81830f9c20/1611252189878-nd%20profile.PNG/v1/fill/w_320,h_320/file.jpg" alt="Neil Draper" onerror="this.style.display='none'" />
+                <div class="card-author-info"><span class="card-author-name">Neil Draper</span><span class="card-author-date">Jan 2025</span></div>
+              </div>
+              <span class="card-read-time">4 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up fade-up-delay-1" data-category="theatre-hats">
+          <div class="card-img">
+            <img src="https://static.wixstatic.com/media/bee7e3_208983ef2a5c413d9e6de4fb78b06928~mv2.png" alt="Surgeon wearing Eco Ninjas badge hat" />
+          </div>
+          <div class="card-body">
+            <p class="post-category">Theatre Hats</p>
+            <h3 class="card-title"><a href="blog.html">Choosing the Right Theatre Cap Style for Your Team</a></h3>
+            <p class="card-excerpt">From braided hats to hammock styles and theatre hijabs — a guide to selecting the right hat styles for the diverse needs of your NHS theatre team.</p>
+            <div class="card-footer">
+              <div class="card-author">
+                <img src="https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/afdf2b00-97bc-4e78-bb3c-ed81830f9c20/1611252189878-nd%20profile.PNG/v1/fill/w_320,h_320/file.jpg" alt="Neil Draper" onerror="this.style.display='none'" />
+                <div class="card-author-info"><span class="card-author-name">Neil Draper</span><span class="card-author-date">Jan 2025</span></div>
+              </div>
+              <span class="card-read-time">3 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up fade-up-delay-2" data-category="patient-safety">
+          <div class="card-img">
+            <img src="https://static.wixstatic.com/media/bee7e3_9db803d9761f44ecb83a27eb4620be30~mv2.jpg" alt="Somerset NHS theatre staff" />
+          </div>
+          <div class="card-body">
+            <p class="post-category">Patient Safety · Case Study</p>
+            <h3 class="card-title"><a href="case-studies.html">Somerset NHS: 96% Staff Recognition in 3 Weeks</a></h3>
+            <p class="card-excerpt">How Musgrove Park Hospital transformed theatre communication and achieved a 96% staff recognition rate within weeks of implementing Eco Ninjas badge hats.</p>
+            <div class="card-footer">
+              <div class="card-author">
+                <img src="https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/afdf2b00-97bc-4e78-bb3c-ed81830f9c20/1611252189878-nd%20profile.PNG/v1/fill/w_320,h_320/file.jpg" alt="Neil Draper" onerror="this.style.display='none'" />
+                <div class="card-author-info"><span class="card-author-name">Neil Draper</span><span class="card-author-date">Apr 2024</span></div>
+              </div>
+              <span class="card-read-time">5 min read</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- NEWSLETTER -->
+      <div class="newsletter fade-up">
+        <h2 class="newsletter-title">Stay up to date</h2>
+        <p class="newsletter-sub">Get the latest news, NHS sustainability insights, and product updates straight to your inbox.</p>
+        <div class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" />
+          <button class="newsletter-btn" onclick="this.textContent='✓ Subscribed!'; this.style.background='#2d7a4f'; this.disabled=true;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cta-band"><div class="cta-inner"><div><h2 class="cta-title">Ready to Make the Switch?</h2><p class="cta-sub">Request a sample pack or speak with our NHS specialists today.</p></div><div class="cta-actions"><a href="contact-us.html" class="btn-primary">Get in Touch</a><a href="case-studies.html" class="btn-white">View Case Studies</a></div></div></div>
+
+  <footer><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><a class="logo" href="index.html" style="margin-bottom:16px; display:inline-flex;"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas" style="height:40px;" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><p class="footer-desc">Working towards a safer and more sustainable NHS. Reusable theatre caps and badge hats that save money, improve patient safety, and cut waste.</p><div class="footer-contact"><a href="tel:+443301025810">0330 102 5810</a><br /><a href="contact-us.html">Email Us</a></div><div class="social-links" style="margin-top:20px;"><a href="https://www.linkedin.com/company/econinjasltd" target="_blank" rel="noopener" class="social-link">in</a><a href="https://www.instagram.com/econinjasltd/" target="_blank" rel="noopener" class="social-link">ig</a><a href="https://www.facebook.com/Econinjasltd" target="_blank" rel="noopener" class="social-link">fb</a><a href="https://www.youtube.com/channel/UC0rCyhoutbU92iIk8zfsKIg" target="_blank" rel="noopener" class="social-link">yt</a></div></div><div><p class="footer-col-title">Products</p><ul class="footer-links"><li><a href="products.html">Theatre Badge Hats</a></li><li><a href="products.html">Infection Control</a></li><li><a href="products.html">Laundering Guide</a></li><li><a href="calculator.html">Cost Calculator</a></li></ul></div><div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about-us.html">About Eco Ninjas</a></li><li><a href="about-us.html">Our Mission</a></li><li><a href="about-us.html">Accreditations</a></li><li><a href="blog.html">Blog</a></li></ul></div><div><p class="footer-col-title">Support</p><ul class="footer-links"><li><a href="resource-hub.html">Resource Hub</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact-us.html">Contact Us</a></li><li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li></ul></div><div><p class="footer-col-title">Contact</p><ul class="footer-links"><li><a href="tel:+443301025810">0330 102 5810</a></li><li><a href="contact-us.html">Email Us</a></li><li><a href="contact-us.html">Open Account</a></li><li><a href="contact-us.html">Pricing</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Eco Ninjas Ltd | United Kingdom | <a href="accreditations.html">Terms</a> | <a href="accreditations.html">Privacy</a></p><p>Website by <a href="https://www.taskox.co.uk" target="_blank" rel="noopener">TaskOx</a></p></div></div></footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('menuClose');
+    toggle.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+    // Category filter
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.blog-card').forEach(card => {
+          const cats = card.dataset.category || '';
+          card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+        });
+      });
+    });
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

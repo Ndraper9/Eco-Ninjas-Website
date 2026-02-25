@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>See the Name, Know the Role: How Visible Identification Transforms Theatre Communication | Eco Ninjas</title>
+  <meta name="description" content="Why knowing who's who in the operating theatre is a patient safety issue. How visible identification transforms theatre team communication." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-layout { display: grid; grid-template-columns: 1fr 320px; gap: 60px; align-items: start; }
+    .article-body { min-width: 0; }
+    .article-header { margin-bottom: 36px; }
+    .article-breadcrumb { font-size: 0.78rem; color: var(--text-light); margin-bottom: 20px; }
+    .article-breadcrumb a { color: var(--green-bright); text-decoration: none; }
+    .article-cats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .article-cat { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 12px; background: var(--green-pale); color: var(--green-bright); border: 1px solid rgba(45,122,79,0.2); }
+    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--text-dark); line-height: 1.15; margin-bottom: 16px; }
+    .article-subtitle { font-size: 1.05rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+    .article-meta { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-top: 1px solid rgba(45,122,79,0.1); border-bottom: 1px solid rgba(45,122,79,0.1); flex-wrap: wrap; }
+    .article-author { display: flex; align-items: center; gap: 10px; }
+    .article-author img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--green-pale); }
+    .article-author-name { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); display: block; }
+    .article-author-role { font-size: 0.75rem; color: var(--text-light); }
+    .article-meta-divider { width: 1px; height: 32px; background: rgba(45,122,79,0.15); }
+    .article-meta-item { font-size: 0.8rem; color: var(--text-light); }
+    .article-meta-item strong { color: var(--text-mid); display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+    .article-hero-img { border-radius: 14px; overflow: hidden; margin-bottom: 40px; }
+    .article-hero-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .article-content { font-size: 1rem; line-height: 1.85; color: var(--text-mid); }
+    .article-content h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin: 40px 0 14px; line-height: 1.2; }
+    .article-content p { margin-bottom: 18px; }
+    .article-content strong { color: var(--text-dark); font-weight: 600; }
+    .article-content blockquote { border-left: 3px solid var(--green-light); margin: 28px 0; padding: 16px 20px; background: var(--green-pale); border-radius: 0 10px 10px 0; font-style: italic; color: var(--text-mid); }
+    .stat-callout { background: var(--green-deep); border-radius: 14px; padding: 28px; margin: 32px 0; display: flex; gap: 24px; align-items: center; }
+    .stat-callout-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--green-light); line-height: 1; flex-shrink: 0; }
+    .stat-callout-text { font-size: 0.95rem; color: #9dbfad; line-height: 1.6; }
+    .stat-callout-text strong { color: #fff; }
+    .share-bar { display: flex; align-items: center; gap: 12px; padding: 24px 0; border-top: 1px solid rgba(45,122,79,0.1); border-bottom: 1px solid rgba(45,122,79,0.1); margin: 40px 0; flex-wrap: wrap; }
+    .share-label { font-size: 0.82rem; font-weight: 600; color: var(--text-mid); }
+    .share-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; text-decoration: none; border: 1px solid; transition: all 0.2s; }
+    .share-linkedin { color: #0077b5; border-color: rgba(0,119,181,0.3); }
+    .share-linkedin:hover { background: rgba(0,119,181,0.08); }
+    .share-twitter { color: #1da1f2; border-color: rgba(29,161,242,0.3); }
+    .share-twitter:hover { background: rgba(29,161,242,0.08); }
+    .article-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
+    .toc-card { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; padding: 24px; }
+    .toc-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 16px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .toc-list a { font-size: 0.83rem; color: var(--text-mid); text-decoration: none; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; transition: color 0.2s; }
+    .toc-list a:hover { color: var(--green-mid); }
+    .toc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; margin-top: 6px; }
+    .sidebar-cta { background: var(--green-deep); border-radius: 14px; padding: 24px; text-align: center; }
+    .sidebar-cta-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .sidebar-cta-body { font-size: 0.83rem; color: #7aab8e; line-height: 1.5; margin-bottom: 18px; }
+    .related-posts { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; padding: 24px; }
+    .related-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 16px; }
+    .related-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--green-pale); text-decoration: none; transition: all 0.2s; }
+    .related-item:last-child { border-bottom: none; }
+    .related-item:hover .related-item-title { color: var(--green-mid); }
+    .related-item-img { width: 56px; height: 48px; border-radius: 6px; overflow: hidden; flex-shrink: 0; }
+    .related-item-img img { width: 100%; height: 100%; object-fit: cover; }
+    .related-item-title { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); line-height: 1.3; }
+    .related-item-date { font-size: 0.72rem; color: var(--text-light); margin-top: 3px; }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } .article-hero-img img { height: 260px; } .stat-callout { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
+  <header id="header"><div class="nav-inner"><a class="logo" href="index.html"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas Logo" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html" class="active">Blog</a><a href="contact-us.html" class="nav-cta">Contact Us</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
+  <nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" id="menuClose">&times;</button><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html">Contact Us</a></nav>
+
+  <section style="background: var(--cream); padding-top: 60px;">
+    <div class="section-inner">
+      <div class="article-layout">
+        <div class="article-body fade-up">
+          <div class="article-header">
+            <div class="article-breadcrumb"><a href="index.html">Home</a> → <a href="blog.html">Blog</a> → Patient Safety</div>
+            <div class="article-cats"><span class="article-cat">Patient Safety</span><span class="article-cat">Theatre Hats</span></div>
+            <h1 class="article-title">See the Name, Know the Role: How Visible Identification Transforms Theatre Communication</h1>
+            <p class="article-subtitle">Why knowing who's who in the operating theatre is a patient safety issue</p>
+            <div class="article-meta">
+              <div class="article-author">
+                <img src="https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/afdf2b00-97bc-4e78-bb3c-ed81830f9c20/1611252189878-nd%20profile.PNG/v1/fill/w_320,h_320/file.jpg" alt="Neil Draper" onerror="this.style.display='none'" />
+                <div><span class="article-author-name">Neil Draper</span><span class="article-author-role">Eco Ninjas</span></div>
+              </div>
+              <div class="article-meta-divider"></div>
+              <div class="article-meta-item"><strong>Published</strong>18 February 2025</div>
+              <div class="article-meta-divider"></div>
+              <div class="article-meta-item"><strong>Read Time</strong>3 minutes</div>
+            </div>
+          </div>
+
+          <div class="article-hero-img">
+            <img src="https://static.wixstatic.com/media/bee7e3_581f80d7ec96403bbad0d415ae4fb26f~mv2.jpg" alt="Surgeons wearing Eco Ninjas reusable name and role badge hats" />
+          </div>
+
+          <div class="article-content">
+            <p>Picture this: you're a scrub nurse in the middle of a complex procedure. Something doesn't look right. You want to speak up, but the person across the table is masked, gowned, and wearing a disposable cap that looks identical to everyone else's. Are they the consultant? A registrar? A visiting surgeon you've never met? In that moment of uncertainty, would you feel confident raising a concern?</p>
+            <p>This scenario plays out countless times in operating theatres across the country. The psychological barrier to speaking up is real, and it's made worse when staff can't easily identify their colleagues. Theatre Badge Hats address this fundamental problem by making names and roles visible at a glance.</p>
+
+            <h2 id="psychology">The Psychology of Speaking Up</h2>
+            <p>Human factors research tells us that healthcare professionals are more likely to voice concerns when they feel psychologically safe doing so. Knowing someone's name is a powerful enabler of communication. It's much easier to say "Sarah, I'm worried about the patient's blood pressure" than "Excuse me, I don't know your name, but..."</p>
+            <p>Hierarchy also matters in theatre settings. When a junior team member can immediately see that the person making a decision is a senior consultant, they understand the context of that decision. Equally, when they can see they're working alongside peers, collaborative discussion flows more naturally. Visible role identification helps everyone navigate these dynamics appropriately.</p>
+
+            <h2 id="recognition">From 41% to 96%: The Recognition Gap</h2>
+            <div class="stat-callout">
+              <div class="stat-callout-num">96%</div>
+              <div class="stat-callout-text"><strong>Staff recognition after implementing badge hats</strong> — up from just 41% without visible identification. That's not a marginal improvement; it's a transformation in how the team functions.</div>
+            </div>
+            <p>Studies examining staff identification in operating theatres have found that without clear visible identification, team members correctly identify colleagues' names and roles only around 41% of the time. That's barely better than guessing. In an environment where precision matters in everything from drug calculations to surgical technique, accepting such poor communication seems extraordinary.</p>
+            <p>When theatre teams adopt visible name and role badges on their headwear, recognition rates jump to over 96%. Suddenly, the WHO Surgical Safety Checklist introductions become meaningful rather than performative. People actually know who they're working with.</p>
+
+            <h2 id="checklist">Supporting the Surgical Safety Checklist</h2>
+            <p>The WHO Surgical Safety Checklist explicitly calls for team introductions before procedures begin. The intention is excellent: ensure everyone knows each other's names and roles before working together on a patient. In practice, these introductions often happen in a rushed mumble, with people forgetting names almost immediately.</p>
+            <p>Visible identification doesn't replace verbal introductions, but it reinforces them. When the circulating nurse can glance up and confirm that yes, that's Dr. Patel the anaesthetist, the introduction has lasting value. Throughout the procedure, anyone can remind themselves who's who without awkwardly asking "Sorry, what was your name again?"</p>
+
+            <h2 id="relationships">Building Relationships Across Shifts</h2>
+            <p>Operating theatres are busy places with rotating staff, bank workers, and colleagues from different specialties coming together for specific procedures. The consultant who operates once a week in your theatre might work alongside dozens of different scrub nurses over a year. Building lasting professional relationships in these circumstances is challenging.</p>
+            <p>Visible name badges accelerate relationship-building. When you can address someone by name throughout a procedure, you're laying foundations for future collaboration. Over time, these micro-interactions accumulate into genuine professional connections that benefit teamwork and ultimately patient care.</p>
+
+            <h2 id="students">Including Students and Trainees</h2>
+            <p>Medical students, nursing students, and ODPs in training face particular challenges in operating theatres. They're learning complex skills while navigating unfamiliar social dynamics. Not knowing who to ask for help, or hesitating to approach senior colleagues, can impair their educational experience.</p>
+            <p>When everyone wears identification showing their role, students can immediately see who's at their level and who's senior. They know who the consultant is, who the registrar is, and who might be a fellow student. This clarity reduces anxiety and supports more effective learning.</p>
+
+            <h2 id="simple">A Simple Change with Profound Effects</h2>
+            <p>Improving theatre communication doesn't require expensive technology or extensive retraining. It requires making information visible that should always have been visible. When every team member can see every other team member's name and role, communication barriers fall away.</p>
+            <p>Theatre Badge Hats provide this visibility in a practical, comfortable form that integrates seamlessly with existing workflows. The detachable badges can be updated as people change roles, while the caps themselves withstand repeated industrial laundering. It's a sustainable solution to a persistent patient safety problem.</p>
+            <blockquote><strong>See the Name. Know the Role. Trust the Team.</strong> Request a sample pack to see how Theatre Badge Hats could improve communication in your operating theatres.</blockquote>
+
+            <div class="share-bar">
+              <span class="share-label">Share this article:</span>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://econinjas.co.uk/blog-identification.html" target="_blank" class="share-btn share-linkedin" rel="noopener">in LinkedIn</a>
+              <a href="https://twitter.com/intent/tweet?text=See+the+Name+Know+the+Role&url=https://econinjas.co.uk/blog-identification.html" target="_blank" class="share-btn share-twitter" rel="noopener">✕ Twitter</a>
+            </div>
+          </div>
+          <div style="margin-top: 40px;"><a href="blog.html" style="display:inline-flex; align-items:center; gap:8px; font-size:0.88rem; font-weight:600; color:var(--green-mid); text-decoration:none;">← Back to Blog</a></div>
+        </div>
+
+        <div class="article-sidebar fade-up fade-up-delay-1">
+          <div class="toc-card">
+            <div class="toc-title">In This Article</div>
+            <ul class="toc-list">
+              <li><a href="#psychology"><span class="toc-dot"></span>The Psychology of Speaking Up</a></li>
+              <li><a href="#recognition"><span class="toc-dot"></span>From 41% to 96%: The Gap</a></li>
+              <li><a href="#checklist"><span class="toc-dot"></span>WHO Safety Checklist</a></li>
+              <li><a href="#relationships"><span class="toc-dot"></span>Building Relationships</a></li>
+              <li><a href="#students"><span class="toc-dot"></span>Students &amp; Trainees</a></li>
+              <li><a href="#simple"><span class="toc-dot"></span>A Simple Change</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-cta">
+            <div class="sidebar-cta-title">See the difference</div>
+            <p class="sidebar-cta-body">96% staff recognition in 3 weeks. Read the Somerset NHS case study to see real results.</p>
+            <a href="case-studies.html" class="btn-primary" style="width:100%; justify-content:center;">Read Case Study</a>
+            <a href="contact-us.html" style="display:block; text-align:center; margin-top:10px; font-size:0.82rem; color:#7aab8e; text-decoration:none;">Request Sample Pack →</a>
+          </div>
+          <div class="related-posts">
+            <div class="related-title">Related Articles</div>
+            <a href="blog-myths.html" class="related-item">
+              <div class="related-item-img"><img src="https://static.wixstatic.com/media/bee7e3_b07a7a8e62084ef68aefac232318fddc~mv2.jpg" alt="" /></div>
+              <div><div class="related-item-title">5 Common Myths About Reusable Theatre Caps Debunked</div><div class="related-item-date">Feb 2025</div></div>
+            </a>
+            <a href="blog-implementation.html" class="related-item">
+              <div class="related-item-img"><img src="https://static.wixstatic.com/media/807a47335c38440cbd771b17899cdd44.jpg" alt="" /></div>
+              <div><div class="related-item-title">How to Successfully Implement Reusable Theatre Caps</div><div class="related-item-date">11 Feb 2025</div></div>
+            </a>
+            <a href="blog-environmental.html" class="related-item">
+              <div class="related-item-img"><img src="https://static.wixstatic.com/media/bee7e3_eedaf7a0d9154310946d8e1c4029dd25~mv2.png" alt="" /></div>
+              <div><div class="related-item-title">The Hidden Environmental Cost of Disposable Caps</div><div class="related-item-date">2 Feb 2025</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band"><div class="cta-inner"><div><h2 class="cta-title">Transform Communication in Your Theatre</h2><p class="cta-sub">Request a sample pack or speak with our NHS specialists today.</p></div><div class="cta-actions"><a href="contact-us.html" class="btn-primary">Get in Touch</a><a href="case-studies.html" class="btn-white">View Case Studies</a></div></div></div>
+
+  <footer><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><a class="logo" href="index.html" style="margin-bottom:16px; display:inline-flex;"><img src="https://static.wixstatic.com/media/bee7e3_a787afaccff94ed79eae674d5852cd0b~mv2.png" alt="Eco Ninjas" style="height:40px;" onerror="this.style.display='none'" /><div><span class="logo-text">Eco Ninjas</span><span class="logo-sub">Sustainable Healthcare</span></div></a><p class="footer-desc">Working towards a safer and more sustainable NHS.</p><div class="footer-contact"><a href="tel:+443301025810">0330 102 5810</a></div><div class="social-links" style="margin-top:20px;"><a href="https://www.linkedin.com/company/econinjasltd" target="_blank" rel="noopener" class="social-link">in</a><a href="https://www.instagram.com/econinjasltd/" target="_blank" rel="noopener" class="social-link">ig</a><a href="https://www.facebook.com/Econinjasltd" target="_blank" rel="noopener" class="social-link">fb</a></div></div><div><p class="footer-col-title">Products</p><ul class="footer-links"><li><a href="products.html">Theatre Badge Hats</a></li><li><a href="benefits.html">Benefits</a></li><li><a href="case-studies.html">Case Studies</a></li></ul></div><div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about-us.html">About Us</a></li><li><a href="blog.html">Blog</a></li><li><a href="resource-hub.html">Resource Hub</a></li></ul></div><div><p class="footer-col-title">Contact</p><ul class="footer-links"><li><a href="contact-us.html">Contact Us</a></li><li><a href="contact-us.html">Open Account</a></li><li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Eco Ninjas Ltd | <a href="accreditations.html">Terms</a> | <a href="accreditations.html">Privacy</a></p><p>Website by <a href="https://www.taskox.co.uk" target="_blank" rel="noopener">TaskOx</a></p></div></div></footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
