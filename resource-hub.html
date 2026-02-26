@@ -58,14 +58,14 @@
     .hub-body-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
     /* ─── CATEGORY FILTER ─── */
-    .cat-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .cat-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
     .cat-btn { padding: 7px 16px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; border: 1px solid rgba(45,122,79,0.25); background: #fff; color: var(--text-mid); cursor: pointer; transition: all 0.18s; }
     .cat-btn:hover, .cat-btn.active { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
 
     /* ─── RESOURCE LIST ROWS ─── */
     .resource-list { display: flex; flex-direction: column; gap: 10px; }
-    .res-row { display: flex; align-items: center; gap: 20px; background: #fff; border: 1px solid rgba(45,122,79,0.15); border-radius: 12px; padding: 18px 22px; transition: all 0.22s; }
-    .res-row:hover { border-color: rgba(45,122,79,0.35); box-shadow: 0 4px 20px rgba(14,45,31,0.07); transform: translateX(4px); }
+    .res-row { display: flex; align-items: center; gap: 20px; background: #fff; border: 1px solid rgba(45,122,79,0.35); border-radius: 12px; padding: 18px 22px; transition: all 0.22s; }
+    .res-row:hover { border-color: var(--green-mid); box-shadow: 0 4px 20px rgba(14,45,31,0.09); transform: translateX(4px); }
     .res-row-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .icon-case { background: rgba(76,175,125,0.1); color: var(--green-mid); }
     .icon-sop { background: rgba(0,94,184,0.09); color: var(--nhs-blue); }
@@ -184,6 +184,15 @@
 
     <div class="featured-strip">
       <div class="featured-strip-inner">
+      <div class="cat-filter">
+          <button class="cat-btn active" data-cat="all">All Resources</button>
+          <button class="cat-btn" data-cat="case-study">Case Studies</button>
+          <button class="cat-btn" data-cat="sop">SOPs &amp; Guides</button>
+          <button class="cat-btn" data-cat="research">Research</button>
+          <button class="cat-btn" data-cat="testing">Lab Testing</button>
+          <button class="cat-btn" data-cat="poster">Templates</button>
+          <button class="cat-btn" data-cat="videos">Videos</button>
+        </div>
         <div class="featured-label">Most Downloaded</div>
         <div class="featured-row">
           <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" rel="noopener" class="featured-card">
@@ -211,14 +220,7 @@
     <div class="hub-body">
       <div class="hub-body-inner">
 
-        <div class="cat-filter">
-          <button class="cat-btn active" data-cat="all">All Resources</button>
-          <button class="cat-btn" data-cat="case-study">Case Studies</button>
-          <button class="cat-btn" data-cat="sop">SOPs &amp; Guides</button>
-          <button class="cat-btn" data-cat="research">Research</button>
-          <button class="cat-btn" data-cat="testing">Lab Testing</button>
-          <button class="cat-btn" data-cat="poster">Templates</button>
-        </div>
+
 
         <!-- CASE STUDIES -->
         <div class="cat-section-head" data-section="case-study"><div class="cat-section-title">Case Studies</div><div class="cat-section-line"></div><div class="cat-section-count">5 documents</div></div>
@@ -543,12 +545,21 @@
       });
     });
 
-    // Download filter
+    // Download filter (Videos pill switches tab)
     document.querySelectorAll('.cat-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        const cat = btn.dataset.cat;
+        if (cat === 'videos') {
+          // Switch to videos tab
+          document.querySelectorAll('.hub-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.hub-section').forEach(s => s.classList.remove('active'));
+          document.querySelector('.hub-tab[data-tab="videos"]').classList.add('active');
+          document.getElementById('tab-videos').classList.add('active');
+          window.scrollTo({ top: document.querySelector('.hub-tabs').offsetTop - 4, behavior: 'smooth' });
+          return;
+        }
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const cat = btn.dataset.cat;
         document.querySelectorAll('.res-row').forEach(row => {
           row.style.display = (cat === 'all' || row.dataset.cat === cat) ? '' : 'none';
         });
