@@ -99,7 +99,8 @@ section { padding: 96px 0; }
 footer { background: var(--green-deep); color: #7aab8e; padding: 72px 0 36px; }
 .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
-.footer-brand .logo img { height: 51px; filter: brightness(0) invert(1); }
+.footer-brand .logo { background: #0e2d1f; }
+.footer-brand .logo img { height: 51px; mix-blend-mode: multiply; display: block; }
 .footer-brand .logo-text { display: none; }
 .footer-brand .logo-sub { color: #ffffff; margin-bottom: 16px; max-width: 200px; }
 .footer-desc { font-size: 0.85rem; line-height: 1.7; color: #5a8070; margin-bottom: 20px; }
