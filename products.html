@@ -368,22 +368,26 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 48px;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: center;
-      justify-content: space-between;
-      gap: 32px;
       position: relative;
     }
+    .calc-banner-left { display: flex; flex-direction: column; gap: 16px; }
+    .calc-banner-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
     .calc-banner-icon-wrap {
-      width: 72px; height: 72px;
+      width: 56px; height: 56px;
       background: rgba(76,175,125,0.12);
       border: 1px solid rgba(76,175,125,0.25);
-      border-radius: 16px;
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+      color: var(--green-light);
     }
-    .calc-stats-row { display: flex; gap: 14px; flex-shrink: 0; }
-    .calc-banner-text { flex: 1; min-width: 0; }
     .calc-banner-label {
       font-size: 0.72rem;
       font-weight: 700;
@@ -420,15 +424,14 @@
     .calc-stat {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 16px 24px;
+      align-items: flex-start;
+      padding: 20px 22px;
       background: rgba(76,175,125,0.08);
       border: 1px solid rgba(76,175,125,0.2);
-      border-radius: 10px;
-      min-width: 120px;
+      border-radius: 12px;
     }
-    .calc-stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--green-light); line-height: 1; }
-    .calc-stat-label { font-size: 0.7rem; font-weight: 600; color: #7aab8e; text-align: center; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .calc-stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--green-light); line-height: 1; margin-bottom: 6px; }
+    .calc-stat-label { font-size: 0.7rem; font-weight: 600; color: #7aab8e; text-align: left; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.3; }
 
     /* ─── BADGE COLOURS ─── */
     .badge-colour-grid {
@@ -472,7 +475,7 @@
       border: 1px solid rgba(45,122,79,0.15);
       border-radius: 10px;
     }
-    .fabric-prop-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .fabric-prop-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--green-pale); border-radius: 10px; color: var(--green-mid); flex-shrink: 0; }
     .fabric-prop-title { font-weight: 700; font-size: 0.88rem; color: var(--text-dark); margin-bottom: 3px; }
     .fabric-prop-body { font-size: 0.83rem; line-height: 1.5; color: var(--text-mid); }
     .laundry-card {
@@ -540,9 +543,8 @@
     @media (max-width: 768px) {
       .fabric-care-grid { grid-template-columns: 1fr; }
       .badge-colour-grid { grid-template-columns: repeat(2, 1fr); }
-      .calc-banner-inner { flex-direction: column; align-items: flex-start; }
-      .calc-stats-row { flex-wrap: wrap; }
-      .calc-banner-icon-wrap { display: none; }
+      .calc-banner-inner { grid-template-columns: 1fr; gap: 32px; }
+      .calc-banner-right { grid-template-columns: 1fr 1fr; }
       .care-symbols { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
@@ -600,28 +602,28 @@
       <div class="features-grid">
         <div class="feature-item">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/><path d="M8 12h.01M16 12h.01"/></svg>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/><path d="M8 12h.01M16 12h.01"/></svg>
           </div>
           <div class="feature-title">Name &amp; Role Badges</div>
           <p class="feature-body">Removable clip badges, proven to improve staff recognition by 95.9%</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l1 14h16l1-14"/><path d="M1 6h22"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M8 11c0 2 1 3 4 3s4-1 4-3"/></svg>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l1 14h16l1-14"/><path d="M1 6h22"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M8 11c0 2 1 3 4 3s4-1 4-3"/></svg>
           </div>
           <div class="feature-title">Centrally Launderable</div>
           <p class="feature-body">Meets NHS infection control standards — washes at 70°C</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
           </div>
           <div class="feature-title">14 Colours Available</div>
           <p class="feature-body">Match your scrubs for a coordinated, professional team appearance</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
           </div>
           <div class="feature-title">100+ Wash Durability</div>
           <p class="feature-body">Industrial wash cycles without loss of shape, colour, or structure</p>
@@ -634,24 +636,23 @@
   <!-- CALCULATOR BANNER -->
   <div class="calc-banner">
     <div class="calc-banner-inner">
-      <div class="calc-banner-icon-wrap">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#4ccf8a;"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 12h.01M12 12h.01M16 12h.01M8 17h.01M12 17h.01M16 17h.01"/></svg>
-      </div>
-      <div class="calc-banner-text">
+      <div class="calc-banner-left">
+        <div class="calc-banner-icon-wrap">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 12h.01M12 12h.01M16 12h.01M8 17h.01M12 17h.01M16 17h.01"/></svg>
+        </div>
         <div class="calc-banner-label">Cost Savings Calculator</div>
         <div class="calc-banner-title">See exactly how much your trust could save</div>
-        <div class="calc-banner-sub">NHS trusts save up to 90% vs disposables. Enter your theatre team size and get an instant projected breakdown.</div>
-      </div>
-      <div class="calc-stats-row">
-        <div class="calc-stat"><span class="calc-stat-num">90%</span><span class="calc-stat-label">Waste Reduction</span></div>
-        <div class="calc-stat"><span class="calc-stat-num">£000s</span><span class="calc-stat-label">Annual Savings</span></div>
-        <div class="calc-stat"><span class="calc-stat-num">100+</span><span class="calc-stat-label">Wash Cycles</span></div>
-      </div>
-      <div class="calc-banner-actions">
+        <div class="calc-banner-sub">NHS trusts typically save up to 90% vs disposables. Enter your theatre team size for a projected annual breakdown.</div>
         <a href="calculator.html" class="btn-calc">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 12h.01M12 12h.01M16 12h.01M8 17h.01M12 17h.01M16 17h.01"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 13 9 20 9"/><path d="M20 14v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7"/></svg>
           Calculate My Savings
         </a>
+      </div>
+      <div class="calc-banner-right">
+        <div class="calc-stat"><span class="calc-stat-num">90%</span><span class="calc-stat-label">Cost Saving vs Disposables</span></div>
+        <div class="calc-stat"><span class="calc-stat-num">100+</span><span class="calc-stat-label">Industrial Wash Cycles</span></div>
+        <div class="calc-stat"><span class="calc-stat-num">£000s</span><span class="calc-stat-label">Projected Annual Savings</span></div>
+        <div class="calc-stat"><span class="calc-stat-num">95.9%</span><span class="calc-stat-label">Improved Staff Recognition</span></div>
       </div>
     </div>
   </div>
@@ -715,10 +716,10 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 70°C Wash</span>
-          <span class="wash-icon">🔥 Iron Med</span>
-          <span class="wash-icon">🚫 No Bleach</span>
-          <span class="wash-icon">💨 Tumble Low</span>
+          <span class="wash-icon">70°C Wash</span>
+          <span class="wash-icon">◈ Iron Med</span>
+          <span class="wash-icon">✕ No Bleach</span>
+          <span class="wash-icon">↺ Tumble Low</span>
         </div>
         <div class="product-cta">
           <a href="contact-us.html" class="btn-primary">Request Samples</a>
@@ -768,10 +769,10 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 70°C Wash</span>
-          <span class="wash-icon">🔥 Iron Med</span>
-          <span class="wash-icon">🚫 No Bleach</span>
-          <span class="wash-icon">💨 Tumble Low</span>
+          <span class="wash-icon">70°C Wash</span>
+          <span class="wash-icon">◈ Iron Med</span>
+          <span class="wash-icon">✕ No Bleach</span>
+          <span class="wash-icon">↺ Tumble Low</span>
         </div>
         <div class="product-cta">
           <a href="contact-us.html" class="btn-primary">Request Samples</a>
@@ -821,10 +822,10 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 70°C Wash</span>
-          <span class="wash-icon">🔥 Iron Med</span>
-          <span class="wash-icon">🚫 No Bleach</span>
-          <span class="wash-icon">💨 Tumble Low</span>
+          <span class="wash-icon">70°C Wash</span>
+          <span class="wash-icon">◈ Iron Med</span>
+          <span class="wash-icon">✕ No Bleach</span>
+          <span class="wash-icon">↺ Tumble Low</span>
         </div>
         <div class="product-cta">
           <a href="contact-us.html" class="btn-primary">Request Samples</a>
@@ -874,10 +875,10 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 70°C Wash</span>
-          <span class="wash-icon">🔥 Iron Med</span>
-          <span class="wash-icon">🚫 No Bleach</span>
-          <span class="wash-icon">💨 Tumble Low</span>
+          <span class="wash-icon">70°C Wash</span>
+          <span class="wash-icon">◈ Iron Med</span>
+          <span class="wash-icon">✕ No Bleach</span>
+          <span class="wash-icon">↺ Tumble Low</span>
         </div>
         <div class="product-cta">
           <a href="contact-us.html" class="btn-primary">Request Samples</a>
@@ -927,10 +928,10 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 70°C Wash</span>
-          <span class="wash-icon">🔥 Iron Med</span>
-          <span class="wash-icon">🚫 No Bleach</span>
-          <span class="wash-icon">💨 Tumble Low</span>
+          <span class="wash-icon">70°C Wash</span>
+          <span class="wash-icon">◈ Iron Med</span>
+          <span class="wash-icon">✕ No Bleach</span>
+          <span class="wash-icon">↺ Tumble Low</span>
         </div>
         <div class="product-cta">
           <a href="contact-us.html" class="btn-primary">Request Samples</a>
@@ -980,10 +981,10 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 70°C Wash</span>
-          <span class="wash-icon">🔥 Iron Med</span>
-          <span class="wash-icon">🚫 No Bleach</span>
-          <span class="wash-icon">💨 Tumble Low</span>
+          <span class="wash-icon">70°C Wash</span>
+          <span class="wash-icon">◈ Iron Med</span>
+          <span class="wash-icon">✕ No Bleach</span>
+          <span class="wash-icon">↺ Tumble Low</span>
         </div>
         <div class="product-cta">
           <a href="contact-us.html" class="btn-primary">Request Samples</a>
@@ -1033,10 +1034,10 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 70°C Wash</span>
-          <span class="wash-icon">🔥 Iron Med</span>
-          <span class="wash-icon">🚫 No Bleach</span>
-          <span class="wash-icon">💨 Tumble Low</span>
+          <span class="wash-icon">70°C Wash</span>
+          <span class="wash-icon">◈ Iron Med</span>
+          <span class="wash-icon">✕ No Bleach</span>
+          <span class="wash-icon">↺ Tumble Low</span>
         </div>
         <div class="product-cta">
           <a href="contact-us.html" class="btn-primary">Request Samples</a>
@@ -1272,23 +1273,23 @@
       <div class="fabric-care-grid">
         <div class="fabric-props">
           <div class="fabric-prop fade-up">
-            <div class="fabric-prop-icon">🧵</div>
+            <div class="fabric-prop-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
             <div><div class="fabric-prop-title">145gsm Polycotton 65/35%</div><div class="fabric-prop-body">Premium lightweight polycotton delivers the ideal balance of breathability and durability. 4oz fabric feels comfortable during all-day wear while maintaining structural integrity through hundreds of industrial washes.</div></div>
           </div>
           <div class="fabric-prop fade-up">
-            <div class="fabric-prop-icon">🌡️</div>
+            <div class="fabric-prop-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
             <div><div class="fabric-prop-title">Industrial Wash at 70°C</div><div class="fabric-prop-body">Meets NHS infection control standards for thermal disinfection. Compatible with Elis and other NHS-approved central laundry providers. Designed to be laundered centrally alongside scrubs — eliminating concerns associated with home washing.</div></div>
           </div>
           <div class="fabric-prop fade-up">
-            <div class="fabric-prop-icon">🎨</div>
+            <div class="fabric-prop-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
             <div><div class="fabric-prop-title">Superior Colour Retention</div><div class="fabric-prop-body">Colourfast dyes maintain professional appearance wash after wash. No fading or colour bleed even after 100+ industrial wash cycles. Vibrant NHS-compliant colours throughout the product's working life.</div></div>
           </div>
           <div class="fabric-prop fade-up">
-            <div class="fabric-prop-icon">⚡</div>
+            <div class="fabric-prop-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
             <div><div class="fabric-prop-title">Quick-Drying &amp; Crease Resistant</div><div class="fabric-prop-body">Quick-drying properties reduce bacterial growth between washes. Easy-care finish resists wrinkles for a professional look throughout the shift. Moisture-wicking fabric keeps wearers comfortable during long procedures.</div></div>
           </div>
           <div class="fabric-prop fade-up">
-            <div class="fabric-prop-icon">✅</div>
+            <div class="fabric-prop-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
             <div><div class="fabric-prop-title">Latex Free &amp; Hypoallergenic</div><div class="fabric-prop-body">All elastic components are latex-free, suitable for wearers with latex sensitivities. Lightweight construction minimises pressure during extended wear. Minimal shrinkage and excellent wear resistance throughout the product's lifespan.</div></div>
           </div>
         </div>

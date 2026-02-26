@@ -42,7 +42,7 @@
     .secondary-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .achievement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
     .achievement-item { padding: 16px; background: var(--green-pale); border: 1px solid rgba(45,122,79,0.15); border-radius: 10px; }
-    .achievement-icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .achievement-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: var(--green-pale); border-radius: 12px; color: var(--green-mid); margin-bottom: 16px; }
     .achievement-title { font-size: 0.82rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
     .achievement-body { font-size: 0.78rem; color: var(--text-mid); line-height: 1.4; }
 
@@ -156,10 +156,14 @@
         </div>
         <div class="fade-up fade-up-delay-1">
           <div class="achievement-grid">
-            <div class="achievement-item"><div class="achievement-icon">🏆</div><div class="achievement-title">Award Recognition</div><p class="achievement-body">First NHS trust to win regional sustainability award for theatre cap initiative.</p></div>
-            <div class="achievement-item"><div class="achievement-icon">🔬</div><div class="achievement-title">Evidence Generation</div><p class="achievement-body">Provided real-world data informing NHS-wide adoption strategies.</p></div>
-            <div class="achievement-item"><div class="achievement-icon">👩🏽‍⚕️</div><div class="achievement-title">Staff Satisfaction</div><p class="achievement-body">High acceptance rates — anaesthetists noticed immediate communication improvements.</p></div>
-            <div class="achievement-item"><div class="achievement-icon">📚</div><div class="achievement-title">Best Practice</div><p class="achievement-body">Implementation learnings shared across NHS trusts nationally.</p></div>
+            <div class="achievement-item"><div class="achievement-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 0 1-2-2V5h4M18 9h2a2 2 0 0 0 2-2V5h-4"/><path d="M6 5h12v7a6 6 0 0 1-12 0V5z"/><path d="M12 18v3m-4 0h8"/></svg></div><div class="achievement-title">Award Recognition</div><p class="achievement-body">First NHS trust to win regional sustainability award for theatre cap initiative.</p></div>
+            <div class="achievement-item"><div class="achievement-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l4 8"/><path d="M6 21h12M5 21l5-7"/><path d="M15 8l2-5M8 3h8"/></svg></div><div class="achievement-title">Evidence Generation</div><p class="achievement-body">Provided real-world data informing NHS-wide adoption strategies.</p></div>
+            <div class="achievement-item"><div class="achievement-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 11h2m-1-1v2"/></svg></div><div class="achievement-title">Staff Satisfaction</div><p class="achievement-body">High acceptance rates — anaesthetists noticed immediate communication improvements.</p></div>
+            <div class="achievement-item"><div class="achievement-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="achievement-title">Best Practice</div><p class="achievement-body">Implementation learnings shared across NHS trusts nationally.</p></div>
           </div>
           <div class="case-stat-box" style="margin-top:20px; text-align:center; background:var(--green-pale); border:1px solid rgba(45,122,79,0.2);">
             <span class="case-stat-num" style="color:var(--green-mid);">£2,500</span>

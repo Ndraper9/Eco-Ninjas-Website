@@ -32,12 +32,12 @@
     .resource-meta { font-size: 0.75rem; color: var(--text-light); margin-bottom: 16px; }
     .resource-download { display: flex; align-items: center; gap: 8px; font-size: 0.83rem; font-weight: 700; color: var(--green-mid); text-decoration: none; padding: 10px 14px; background: var(--green-pale); border-radius: 8px; transition: all 0.2s; }
     .resource-download:hover { background: var(--green-light); color: var(--green-deep); }
-    .download-icon { font-size: 1rem; }
+    .download-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--green-mid); flex-shrink: 0; }
 
     /* ─── TRENDING SECTION ─── */
     .trending-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
     .trending-card { background: var(--green-deep); border-radius: 14px; padding: 32px; display: flex; gap: 20px; align-items: flex-start; }
-    .trending-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .trending-icon { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: var(--green-pale); border-radius: 14px; color: var(--green-mid); flex-shrink: 0; }
     .trending-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
     .trending-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
     .trending-desc { font-size: 0.83rem; color: #7aab8e; line-height: 1.5; margin-bottom: 16px; }
@@ -72,7 +72,8 @@
       </div>
       <div class="trending-layout fade-up">
         <div class="trending-card">
-          <div class="trending-icon">📊</div>
+          <div class="trending-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <div>
             <div class="trending-tag">🔥 Most Downloaded</div>
             <div class="trending-title">Somerset NHS Foundation Trust Case Study</div>
@@ -81,7 +82,8 @@
           </div>
         </div>
         <div class="trending-card">
-          <div class="trending-icon">📋</div>
+          <div class="trending-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
           <div>
             <div class="trending-tag">🔥 Trending</div>
             <div class="trending-title">Somerset NHS Standard Operating Procedure</div>
@@ -108,7 +110,8 @@
           <div class="resource-title">Somerset NHS Foundation Trust</div>
           <p class="resource-desc">Implementing a sustainable, inclusive, and operationally efficient identification solution for surgical teams. Musgrove Park Hospital, April 2024.</p>
           <div class="resource-meta">Somerset NHS Foundation Trust • 2024</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
         </div>
         <div class="resource-card fade-up fade-up-delay-1" data-category="sop">
           <span class="resource-trending">🔥 Trending</span>
@@ -116,56 +119,63 @@
           <div class="resource-title">Badge & Theatre Cap Maintenance SOP</div>
           <p class="resource-desc">Standard Operating Procedure for badge and theatre cap maintenance — covering laundering, badge storage, and daily use protocols.</p>
           <div class="resource-meta">Somerset NHS Foundation Trust • 2024</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
         </div>
         <div class="resource-card fade-up fade-up-delay-2" data-category="case-study">
           <span class="resource-type type-case-study">Case Study</span>
           <div class="resource-title">Royal Liverpool Hospital — Dr. Mruga Diwan</div>
           <p class="resource-desc">Tackling excess waste by switching to reusable theatre hats. Introduction of named reusable caps for theatre staff at a major NHS trust.</p>
           <div class="resource-meta">Royal Liverpool Hospital • 2022</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_5e5ebc4a7cc0423a802e5c6ce887b823.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_5e5ebc4a7cc0423a802e5c6ce887b823.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
         </div>
         <div class="resource-card fade-up" data-category="testing">
           <span class="resource-type type-testing">Lab Testing</span>
           <div class="resource-title">Badge Separation Testing — TWI Cambridge</div>
           <p class="resource-desc">Objective: to carry out badge 'separation' testing on three clinical hats. Independent testing by TWI, Cambridge validates badge integrity and safety.</p>
           <div class="resource-meta">TWI Cambridge • Independent Testing</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_a377f13fd47846d98b5e3fc8336ae684.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_a377f13fd47846d98b5e3fc8336ae684.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
         </div>
         <div class="resource-card fade-up fade-up-delay-1" data-category="testing">
           <span class="resource-type type-testing">Lab Testing</span>
           <div class="resource-title">Badge Degradation Test — Birmingham University</div>
           <p class="resource-desc">Confirming badges remain unchanged when exposed to common cleaning products: Actichlor, Clinell, and 70% Isopropyl Alcohol (IPA).</p>
           <div class="resource-meta">AMCASH at Birmingham University</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_f86727b912e240d2a9631222fb4bf068.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_f86727b912e240d2a9631222fb4bf068.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
         </div>
         <div class="resource-card fade-up fade-up-delay-2" data-category="research">
           <span class="resource-type type-research">Research</span>
           <div class="resource-title">Demand Hub Review — Dr Gillian McNab</div>
           <p class="resource-desc">Expert review of hospital theatre cloth hats. Gathered information from NHS hospital staff who have implemented or are planning to implement cloth hats in the theatre environment.</p>
           <div class="resource-meta">Dr Gillian McNab • NHS Research</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_e62e7a17a2524a57b7e3efb208d5bc11.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_e62e7a17a2524a57b7e3efb208d5bc11.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
         </div>
         <div class="resource-card fade-up" data-category="research">
           <span class="resource-type type-research">Research</span>
           <div class="resource-title">Microbial Evaluation — Dr Gillian McNab</div>
           <p class="resource-desc">Laboratory investigative report to evaluate microbes on theatre hats. Demonstrates that personalised reusable cloth hats can safely replace disposable hats.</p>
           <div class="resource-meta">Dr Gillian McNab • Lab Investigation</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_d6b4bbc16c5e4290800828e5b0d235a4.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_d6b4bbc16c5e4290800828e5b0d235a4.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
         </div>
         <div class="resource-card fade-up fade-up-delay-1" data-category="research">
           <span class="resource-type type-research">Research</span>
           <div class="resource-title">Clinical Services Journal (CSJ)</div>
           <p class="resource-desc">The team brief is an important part of effective team working in theatres. An innovative but simple initiative ensures everyone feels part of the team while tackling environmental and infection challenges.</p>
           <div class="resource-meta">Clinical Services Journal • Published Article</div>
-          <a href="contact-us.html" class="resource-download"><span class="download-icon">📩</span> Request Access</a>
+          <a href="contact-us.html" class="resource-download"><span class="download-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> Request Access</a>
         </div>
         <div class="resource-card fade-up fade-up-delay-2" data-category="case-study">
           <span class="resource-type type-case-study">Case Study</span>
           <div class="resource-title">Liverpool University Hospitals</div>
           <p class="resource-desc">Award-winning early adoption case study. Winner of the Northwest Coast Research and Innovation Sustainability Award 2022.</p>
           <div class="resource-meta">Liverpool University Hospitals • 2022</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_c22a35400db64288bf8a519d94fb8d14.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">⬇</span> Download PDF</a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_c22a35400db64288bf8a519d94fb8d14.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
         </div>
       </div>
     </div>

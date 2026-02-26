@@ -26,7 +26,7 @@
     .value-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-mid), var(--green-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
     .value-card:hover { box-shadow: 0 12px 40px rgba(14,45,31,0.08); transform: translateY(-4px); border-color: rgba(45,122,79,0.5); }
     .value-card:hover::before { transform: scaleX(1); }
-    .value-icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .value-icon { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: var(--green-pale); border-radius: 14px; color: var(--green-mid); margin-bottom: 16px; }
     .value-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
     .value-body { font-size: 0.88rem; line-height: 1.65; color: var(--text-mid); }
 
@@ -165,17 +165,20 @@
       </div>
       <div class="values-grid">
         <div class="value-card fade-up">
-          <div class="value-icon">🌍</div>
+          <div class="value-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <h3 class="value-title">Sustainability First</h3>
           <p class="value-body">We're committed to reducing healthcare's environmental impact through practical, proven solutions that hospitals can implement today. Carbon Stamp certified and Net Zero committed.</p>
         </div>
         <div class="value-card fade-up fade-up-delay-1">
-          <div class="value-icon">🏥</div>
+          <div class="value-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="1"/><path d="M9 21v-6h6v6M12 8v4M10 10h4"/></svg></div>
           <h3 class="value-title">Patient Safety</h3>
           <p class="value-body">Clinical safety is non-negotiable. Our products enhance patient outcomes through improved staff communication and identification — proven in NHS theatres across the UK.</p>
         </div>
         <div class="value-card fade-up fade-up-delay-2">
-          <div class="value-icon">💷</div>
+          <div class="value-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M22 10H2M6 14h.01"/></svg></div>
           <h3 class="value-title">Economic Value</h3>
           <p class="value-body">Sustainability shouldn't cost more. Our solutions deliver significant financial savings alongside environmental benefits — delivering 48% cost reduction over 3 years.</p>
         </div>
