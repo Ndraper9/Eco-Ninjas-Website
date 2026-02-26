@@ -350,6 +350,190 @@
       .spec-grid { grid-template-columns: 1fr; }
       .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
     }
+
+    /* ─── CALCULATOR BANNER ─── */
+    .calc-banner {
+      background: linear-gradient(135deg, var(--green-deep) 0%, #0a2e1a 100%);
+      padding: 48px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .calc-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(76,175,125,0.15) 0%, transparent 70%);
+    }
+    .calc-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+    }
+    .calc-banner-text {}
+    .calc-banner-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 8px;
+    }
+    .calc-banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .calc-banner-sub { font-size: 0.9rem; color: #7aab8e; }
+    .calc-banner-actions { display: flex; gap: 14px; flex-shrink: 0; flex-wrap: wrap; }
+    .btn-calc {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-light);
+      color: var(--green-deep);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 16px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .btn-calc:hover { background: #5fc98e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(76,175,125,0.4); }
+    .calc-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 24px;
+      background: rgba(76,175,125,0.08);
+      border: 1px solid rgba(76,175,125,0.2);
+      border-radius: 10px;
+      min-width: 120px;
+    }
+    .calc-stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--green-light); line-height: 1; }
+    .calc-stat-label { font-size: 0.7rem; font-weight: 600; color: #7aab8e; text-align: center; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ─── BADGE COLOURS ─── */
+    .badge-colour-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .badge-colour-item {
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .badge-colour-dot {
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .badge-colour-info {}
+    .badge-colour-name { font-size: 0.8rem; font-weight: 600; }
+    .badge-colour-type { font-size: 0.68rem; color: #888; margin-top: 1px; }
+
+    /* ─── FABRIC & CARE ─── */
+    .fabric-care-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .fabric-props { display: flex; flex-direction: column; gap: 12px; }
+    .fabric-prop {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      background: var(--white);
+      border: 1px solid rgba(45,122,79,0.15);
+      border-radius: 10px;
+    }
+    .fabric-prop-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .fabric-prop-title { font-weight: 700; font-size: 0.88rem; color: var(--text-dark); margin-bottom: 3px; }
+    .fabric-prop-body { font-size: 0.83rem; line-height: 1.5; color: var(--text-mid); }
+    .laundry-card {
+      background: var(--green-deep);
+      border-radius: 16px;
+      padding: 36px;
+    }
+    .laundry-card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+    .laundry-specs { display: flex; flex-direction: column; gap: 0; }
+    .laundry-spec {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(76,175,125,0.12);
+      font-size: 0.87rem;
+    }
+    .laundry-spec:last-child { border-bottom: none; }
+    .laundry-spec-label { color: #7aab8e; }
+    .laundry-spec-value { color: #fff; font-weight: 600; }
+    .care-symbols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .care-symbol {
+      background: rgba(76,175,125,0.08);
+      border: 1px solid rgba(76,175,125,0.15);
+      border-radius: 10px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .care-symbol-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .care-symbol-text { font-size: 0.7rem; font-weight: 600; color: #7aab8e; line-height: 1.3; }
+
+    /* ─── COMPARISON TABLE ─── */
+    .compare-wrap { overflow-x: auto; margin-top: 48px; border-radius: 16px; border: 1px solid rgba(45,122,79,0.15); }
+    .compare-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+    .compare-table th {
+      background: var(--green-deep);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 14px 16px;
+      text-align: left;
+    }
+    .compare-table th:first-child { border-radius: 16px 0 0 0; }
+    .compare-table th:last-child { border-radius: 0 16px 0 0; }
+    .compare-table td {
+      padding: 13px 16px;
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      border-bottom: 1px solid rgba(45,122,79,0.08);
+      vertical-align: middle;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: var(--cream); }
+    .compare-table tr:hover td { background: rgba(45,122,79,0.04); }
+    .compare-table td:first-child { font-weight: 700; color: var(--green-mid); }
+    .check { color: var(--green-bright); font-weight: 700; }
+    .dash { color: #bbb; }
+
+    @media (max-width: 768px) {
+      .fabric-care-grid { grid-template-columns: 1fr; }
+      .badge-colour-grid { grid-template-columns: repeat(2, 1fr); }
+      .calc-banner-inner { flex-direction: column; align-items: flex-start; }
+      .care-symbols { grid-template-columns: repeat(3, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -404,9 +588,28 @@
     <div class="features-inner">
       <div class="features-grid">
         <div class="feature-item"><div class="feature-icon">🏷️</div><div class="feature-title">Name &amp; Role Badges</div><p class="feature-body">Removable clip badges, proven to improve staff recognition by 95.9%</p></div>
-        <div class="feature-item"><div class="feature-icon">🧺</div><div class="feature-title">Centrally Launderable</div><p class="feature-body">Meets NHS infection control standards — washes at 60–70°C</p></div>
+        <div class="feature-item"><div class="feature-icon">🧺</div><div class="feature-title">Centrally Launderable</div><p class="feature-body">Meets NHS infection control standards — washes at 70°C</p></div>
         <div class="feature-item"><div class="feature-icon">🎨</div><div class="feature-title">14 Colours</div><p class="feature-body">Match your scrubs for a coordinated, professional team appearance</p></div>
         <div class="feature-item"><div class="feature-icon">💪</div><div class="feature-title">100+ Wash Durability</div><p class="feature-body">Industrial wash cycles without loss of shape, colour, or structure</p></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CALCULATOR BANNER -->
+  <div class="calc-banner">
+    <div class="calc-banner-inner">
+      <div class="calc-banner-text">
+        <div class="calc-banner-label">💰 Cost Savings Calculator</div>
+        <div class="calc-banner-title">See exactly how much your trust could save</div>
+        <div class="calc-banner-sub">NHS trusts save up to 90% vs disposables. Enter your theatre team size and get an instant breakdown.</div>
+      </div>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+        <div class="calc-stat"><span class="calc-stat-num">90%</span><span class="calc-stat-label">Waste Reduction</span></div>
+        <div class="calc-stat"><span class="calc-stat-num">£000s</span><span class="calc-stat-label">Annual Savings</span></div>
+        <div class="calc-banner-actions">
+          <a href="calculator.html" class="btn-calc">⚡ Calculate My Savings</a>
+        </div>
       </div>
     </div>
   </div>
@@ -423,6 +626,9 @@
       <a href="#surgical-hood" class="product-nav-link"><span class="product-nav-dot"></span>Surgical Hood</a>
       <a href="#customisation" class="product-nav-link"><span class="product-nav-dot"></span>Customisation</a>
       <a href="#colours" class="product-nav-link"><span class="product-nav-dot"></span>Colours</a>
+      <a href="#badges" class="product-nav-link"><span class="product-nav-dot"></span>Badges</a>
+      <a href="#fabric-care" class="product-nav-link"><span class="product-nav-dot"></span>Fabric &amp; Care</a>
+      <a href="#compare" class="product-nav-link"><span class="product-nav-dot"></span>Compare</a>
       <a href="#how-to-order" class="product-nav-link"><span class="product-nav-dot"></span>How to Order</a>
     </div>
   </div>
@@ -467,7 +673,7 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 60°C Wash</span>
+          <span class="wash-icon">🌡️ 70°C Wash</span>
           <span class="wash-icon">🔥 Iron Med</span>
           <span class="wash-icon">🚫 No Bleach</span>
           <span class="wash-icon">💨 Tumble Low</span>
@@ -520,7 +726,7 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 60°C Wash</span>
+          <span class="wash-icon">🌡️ 70°C Wash</span>
           <span class="wash-icon">🔥 Iron Med</span>
           <span class="wash-icon">🚫 No Bleach</span>
           <span class="wash-icon">💨 Tumble Low</span>
@@ -573,7 +779,7 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 60°C Wash</span>
+          <span class="wash-icon">🌡️ 70°C Wash</span>
           <span class="wash-icon">🔥 Iron Med</span>
           <span class="wash-icon">🚫 No Bleach</span>
           <span class="wash-icon">💨 Tumble Low</span>
@@ -626,7 +832,7 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 60°C Wash</span>
+          <span class="wash-icon">🌡️ 70°C Wash</span>
           <span class="wash-icon">🔥 Iron Med</span>
           <span class="wash-icon">🚫 No Bleach</span>
           <span class="wash-icon">💨 Tumble Low</span>
@@ -679,7 +885,7 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 60°C Wash</span>
+          <span class="wash-icon">🌡️ 70°C Wash</span>
           <span class="wash-icon">🔥 Iron Med</span>
           <span class="wash-icon">🚫 No Bleach</span>
           <span class="wash-icon">💨 Tumble Low</span>
@@ -732,7 +938,7 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 60°C Wash</span>
+          <span class="wash-icon">🌡️ 70°C Wash</span>
           <span class="wash-icon">🔥 Iron Med</span>
           <span class="wash-icon">🚫 No Bleach</span>
           <span class="wash-icon">💨 Tumble Low</span>
@@ -785,13 +991,132 @@
         </div>
         <div class="wash-care">
           <span class="wash-care-label">Care:</span>
-          <span class="wash-icon">🌡️ 60°C Wash</span>
+          <span class="wash-icon">🌡️ 70°C Wash</span>
           <span class="wash-icon">🔥 Iron Med</span>
           <span class="wash-icon">🚫 No Bleach</span>
           <span class="wash-icon">💨 Tumble Low</span>
         </div>
         <div class="product-cta">
           <a href="contact-us.html" class="btn-primary">Request Samples</a>
+          <a href="contact-us.html" class="btn-secondary">Get Pricing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       PRODUCT 8 — BADGES
+  ═══════════════════════════════════════════════ -->
+  <div class="product-showcase" id="badges">
+    <div class="showcase-inner">
+      <div class="showcase-gallery">
+        <div class="gallery-main">
+          <img id="img-badge-main" src="https://static.wixstatic.com/media/bee7e3_0595bfe0e9af4a51997272462598d5e0~mv2.png/v1/fill/w_525,h_700,fp_0.51_0.38,q_90,enc_avif,quality_auto/bee7e3_0595bfe0e9af4a51997272462598d5e0~mv2.png" alt="Eco Ninjas Name and Role Badges" />
+        </div>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb active" onclick="switchImg('badge','https://static.wixstatic.com/media/bee7e3_0595bfe0e9af4a51997272462598d5e0~mv2.png/v1/fill/w_525,h_700,fp_0.51_0.38,q_90,enc_avif,quality_auto/bee7e3_0595bfe0e9af4a51997272462598d5e0~mv2.png',this)"><img src="https://static.wixstatic.com/media/bee7e3_0595bfe0e9af4a51997272462598d5e0~mv2.png/v1/fill/w_525,h_700,fp_0.51_0.38,q_90,enc_avif,quality_auto/bee7e3_0595bfe0e9af4a51997272462598d5e0~mv2.png" alt="" /></div>
+          <div class="gallery-thumb" onclick="switchImg('badge','https://static.wixstatic.com/media/bee7e3_162c3309a73e496db3c904bf60bb264a~mv2.png/v1/fill/w_525,h_700,fp_0.51_0.38,q_90,enc_avif,quality_auto/bee7e3_162c3309a73e496db3c904bf60bb264a~mv2.png',this)"><img src="https://static.wixstatic.com/media/bee7e3_162c3309a73e496db3c904bf60bb264a~mv2.png/v1/fill/w_525,h_700,fp_0.51_0.38,q_90,enc_avif,quality_auto/bee7e3_162c3309a73e496db3c904bf60bb264a~mv2.png" alt="" /></div>
+          <div class="gallery-thumb" onclick="switchImg('badge','https://static.wixstatic.com/media/bee7e3_e0f2cf27a6704d4b852f163205637c84~mv2.jpg/v1/fill/w_207,h_109,q_90,enc_avif,quality_auto/bee7e3_e0f2cf27a6704d4b852f163205637c84~mv2.jpg',this)"><img src="https://static.wixstatic.com/media/bee7e3_e0f2cf27a6704d4b852f163205637c84~mv2.jpg/v1/fill/w_207,h_109,q_90,enc_avif,quality_auto/bee7e3_e0f2cf27a6704d4b852f163205637c84~mv2.jpg" alt="Yellow writeable badge" /></div>
+          <div class="gallery-thumb" onclick="switchImg('badge','https://static.wixstatic.com/media/bee7e3_987ad13c5758428fab2bf648b9e69e11~mv2.png/v1/fill/w_525,h_700,fp_0.46_0.25,q_90,enc_avif,quality_auto/bee7e3_987ad13c5758428fab2bf648b9e69e11~mv2.png',this)"><img src="https://static.wixstatic.com/media/bee7e3_987ad13c5758428fab2bf648b9e69e11~mv2.png/v1/fill/w_525,h_700,fp_0.46_0.25,q_90,enc_avif,quality_auto/bee7e3_987ad13c5758428fab2bf648b9e69e11~mv2.png" alt="" /></div>
+        </div>
+      </div>
+      <div class="showcase-info">
+        <p class="product-number">Product 08 of 08</p>
+        <h2 class="product-showcase-title">Name &amp; Role Badges</h2>
+        <div class="product-showcase-desc">
+          <p>Digitally printed onto a coated polyester substrate and laminated with a protective film. Badges have excellent resistance to industrial laundering with accreditation to ISO 11611 and flame retardant properties — they withstand hundreds of wash cycles without fading or peeling.</p>
+          <p>Proven to improve staff recognition by <strong>95.9%</strong>, enhancing patient confidence and team morale. Available in 16 colours across printed and writeable options. Secure attachment stays in place throughout active shifts. Can be ordered with new caps or added to existing Eco Ninjas theatre caps.</p>
+          <p><em>Character guidance: We recommend no more than 20 characters for names and roles. Shorter names are easier to read quickly — essential in surgical settings where fast identification matters.</em></p>
+        </div>
+        <div class="spec-grid">
+          <div class="spec-pill"><div class="spec-pill-label">Total Colours</div><div class="spec-pill-value">16 colours</div></div>
+          <div class="spec-pill"><div class="spec-pill-label">Size</div><div class="spec-pill-value">One Size (Clip-on)</div></div>
+          <div class="spec-pill"><div class="spec-pill-label">Material</div><div class="spec-pill-value">Polyester Substrate</div></div>
+          <div class="spec-pill"><div class="spec-pill-label">Certification</div><div class="spec-pill-value">ISO 11611 / Flame Retardant</div></div>
+        </div>
+        <div>
+          <div class="spec-pill-label" style="margin-bottom:10px;">Badge Types</div>
+          <div class="style-tags">
+            <span class="style-tag">Printed</span>
+            <span class="style-tag">Writeable (Yellow, Red, White)</span>
+            <span class="style-tag">Industrial Wash Rated</span>
+          </div>
+        </div>
+
+        <!-- Badge Colour Grid -->
+        <div>
+          <div class="spec-pill-label" style="margin-bottom:10px;">16 Badge Colours</div>
+          <div class="badge-colour-grid">
+            <div class="badge-colour-item" style="background:#fff8e0;">
+              <div class="badge-colour-dot" style="background:#f5c800;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Yellow</div><div class="badge-colour-type">Writeable</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#fff5f5;">
+              <div class="badge-colour-dot" style="background:#e63946;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Red</div><div class="badge-colour-type">Writeable</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f8f8f8;">
+              <div class="badge-colour-dot" style="background:#fff; border:2px solid #ddd;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">White</div><div class="badge-colour-type">Writeable</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f0f3fa;">
+              <div class="badge-colour-dot" style="background:#1a2b5f;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Navy</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f0f5fd;">
+              <div class="badge-colour-dot" style="background:#1a5fb4;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Royal</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f0f6ff;">
+              <div class="badge-colour-dot" style="background:#2a7dc9;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Hos Blue</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f0f8ff;">
+              <div class="badge-colour-dot" style="background:#7bbde0;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Pale Blue</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f0faf4;">
+              <div class="badge-colour-dot" style="background:#1a5c35;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Bottle</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f3faf5;">
+              <div class="badge-colour-dot" style="background:#4a8c5c;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Light Green</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f5fbf7;">
+              <div class="badge-colour-dot" style="background:#7ec8a0;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Mint Green</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f0fbfb;">
+              <div class="badge-colour-dot" style="background:#00a8a8;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Turquoise</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#fff5f5;">
+              <div class="badge-colour-dot" style="background:#c0392b;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Red</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#faf4ff;">
+              <div class="badge-colour-dot" style="background:#7b2d8b;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Purple</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f5f7f5;">
+              <div class="badge-colour-dot" style="background:#607d6b;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Gun Metal</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f6f7f8;">
+              <div class="badge-colour-dot" style="background:#8e9eab;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Pearl Grey</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+            <div class="badge-colour-item" style="background:#f5f0f2;">
+              <div class="badge-colour-dot" style="background:#6b1a2b;"></div>
+              <div class="badge-colour-info"><div class="badge-colour-name" style="color:#333;">Maroon</div><div class="badge-colour-type">Printed</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-cta">
+          <a href="contact-us.html" class="btn-primary">Order Badges</a>
           <a href="contact-us.html" class="btn-secondary">Get Pricing</a>
         </div>
       </div>
@@ -890,6 +1215,170 @@
       </div>
     </div>
   </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       FABRIC & CARE
+  ═══════════════════════════════════════════════ -->
+  <section id="fabric-care">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <p class="section-label">Specification</p>
+        <h2 class="section-title">Fabric &amp; Care Guide</h2>
+        <p class="section-body">All Eco Ninjas theatre caps are manufactured from a premium 145gsm polycotton blend, engineered specifically for the demands of NHS central laundry facilities.</p>
+      </div>
+      <div class="fabric-care-grid">
+        <div class="fabric-props">
+          <div class="fabric-prop fade-up">
+            <div class="fabric-prop-icon">🧵</div>
+            <div><div class="fabric-prop-title">145gsm Polycotton 65/35%</div><div class="fabric-prop-body">Premium lightweight polycotton delivers the ideal balance of breathability and durability. 4oz fabric feels comfortable during all-day wear while maintaining structural integrity through hundreds of industrial washes.</div></div>
+          </div>
+          <div class="fabric-prop fade-up">
+            <div class="fabric-prop-icon">🌡️</div>
+            <div><div class="fabric-prop-title">Industrial Wash at 70°C</div><div class="fabric-prop-body">Meets NHS infection control standards for thermal disinfection. Compatible with Elis and other NHS-approved central laundry providers. Designed to be laundered centrally alongside scrubs — eliminating concerns associated with home washing.</div></div>
+          </div>
+          <div class="fabric-prop fade-up">
+            <div class="fabric-prop-icon">🎨</div>
+            <div><div class="fabric-prop-title">Superior Colour Retention</div><div class="fabric-prop-body">Colourfast dyes maintain professional appearance wash after wash. No fading or colour bleed even after 100+ industrial wash cycles. Vibrant NHS-compliant colours throughout the product's working life.</div></div>
+          </div>
+          <div class="fabric-prop fade-up">
+            <div class="fabric-prop-icon">⚡</div>
+            <div><div class="fabric-prop-title">Quick-Drying &amp; Crease Resistant</div><div class="fabric-prop-body">Quick-drying properties reduce bacterial growth between washes. Easy-care finish resists wrinkles for a professional look throughout the shift. Moisture-wicking fabric keeps wearers comfortable during long procedures.</div></div>
+          </div>
+          <div class="fabric-prop fade-up">
+            <div class="fabric-prop-icon">✅</div>
+            <div><div class="fabric-prop-title">Latex Free &amp; Hypoallergenic</div><div class="fabric-prop-body">All elastic components are latex-free, suitable for wearers with latex sensitivities. Lightweight construction minimises pressure during extended wear. Minimal shrinkage and excellent wear resistance throughout the product's lifespan.</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="laundry-card fade-up">
+            <div class="laundry-card-title">Laundering Specifications</div>
+            <div class="laundry-specs">
+              <div class="laundry-spec"><span class="laundry-spec-label">Wash Temperature</span><span class="laundry-spec-value">70°C (Industrial)</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Iron Setting</span><span class="laundry-spec-value">Medium Heat</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Tumble Dry</span><span class="laundry-spec-value">Low Heat</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Bleach</span><span class="laundry-spec-value">Do Not Bleach</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Dry Clean</span><span class="laundry-spec-value">Do Not Dry Clean</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Wash Cycles (Rated)</span><span class="laundry-spec-value">100+ Cycles</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Fabric Weight</span><span class="laundry-spec-value">145gsm / 4oz</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Composition</span><span class="laundry-spec-value">65% Polyester / 35% Cotton</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Latex Free</span><span class="laundry-spec-value">Yes — All Styles</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Manufacturing</span><span class="laundry-spec-value">Made in Britain 🇬🇧</span></div>
+              <div class="laundry-spec"><span class="laundry-spec-label">Procurement</span><span class="laundry-spec-value">Mediq NHS Framework</span></div>
+            </div>
+            <div class="care-symbols">
+              <div class="care-symbol"><div class="care-symbol-icon">🌡️</div><div class="care-symbol-text">Wash 70°C</div></div>
+              <div class="care-symbol"><div class="care-symbol-icon">🔥</div><div class="care-symbol-text">Iron Medium</div></div>
+              <div class="care-symbol"><div class="care-symbol-icon">🚫</div><div class="care-symbol-text">No Bleach</div></div>
+              <div class="care-symbol"><div class="care-symbol-icon">💨</div><div class="care-symbol-text">Tumble Low</div></div>
+              <div class="care-symbol"><div class="care-symbol-icon">🚿</div><div class="care-symbol-text">No Dry Clean</div></div>
+              <div class="care-symbol"><div class="care-symbol-icon">✅</div><div class="care-symbol-text">Latex Free</div></div>
+            </div>
+          </div>
+          <div style="margin-top:20px; padding:20px 24px; background:var(--green-pale); border:1px solid rgba(45,122,79,0.2); border-radius:12px; font-size:0.87rem; color:var(--text-mid); line-height:1.65;">
+            <strong style="color:var(--text-dark);">Central Laundry:</strong> Eco Ninjas theatre caps are designed to be laundered centrally alongside scrubs, eliminating infection control concerns associated with home washing. We work with Elis and other NHS-approved laundry providers to ensure seamless integration with your trust's existing laundry processes.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       COMPARISON TABLE
+  ═══════════════════════════════════════════════ -->
+  <section id="compare" style="background:var(--cream);">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <p class="section-label">Quick Reference</p>
+        <h2 class="section-title">Compare All Styles</h2>
+        <p class="section-body">Use this table to identify the right cap for each member of your team at a glance.</p>
+      </div>
+      <div class="compare-wrap fade-up">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Style</th>
+              <th>Sizes</th>
+              <th>Colours</th>
+              <th>Badge Hat</th>
+              <th>Embroidery</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#elastic-back" style="color:var(--green-mid); text-decoration:none;">Elastic Back</a></td>
+              <td>S, M, L, XL</td>
+              <td>14</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td>General use — all clinical environments</td>
+            </tr>
+            <tr>
+              <td><a href="#bandana" style="color:var(--green-mid); text-decoration:none;">Bandana</a></td>
+              <td>Reg / Large</td>
+              <td>14</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td>Adjustable fit, all head sizes</td>
+            </tr>
+            <tr>
+              <td><a href="#hammock" style="color:var(--green-mid); text-decoration:none;">Hammock</a></td>
+              <td>Reg / Large</td>
+              <td>14</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td>Long / thick hair, prevents headaches</td>
+            </tr>
+            <tr>
+              <td><a href="#braid" style="color:var(--green-mid); text-decoration:none;">Braid Hat</a></td>
+              <td>One Size</td>
+              <td>14</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td>Hip-length braids, thin hair types</td>
+            </tr>
+            <tr>
+              <td><a href="#xl-braid" style="color:var(--green-mid); text-decoration:none;">XL Braided</a></td>
+              <td>One Size</td>
+              <td>14</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td>Extra long braids, maximum coverage</td>
+            </tr>
+            <tr>
+              <td><a href="#hijab" style="color:var(--green-mid); text-decoration:none;">Hijab</a></td>
+              <td>One Size</td>
+              <td>14</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td>Full coverage, cultural requirements</td>
+            </tr>
+            <tr>
+              <td><a href="#surgical-hood" style="color:var(--green-mid); text-decoration:none;">Surgical Hood</a></td>
+              <td>One Size</td>
+              <td>4</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td>Maximum sterile field protection</td>
+            </tr>
+            <tr>
+              <td><a href="#badges" style="color:var(--green-mid); text-decoration:none;">Badges</a></td>
+              <td>One Size</td>
+              <td>16</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="dash">—</span></td>
+              <td>Staff ID, writeable or printed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:24px; text-align:center; font-size:0.85rem; color:var(--text-mid);">
+        All styles available as Plain, Badge Hat, Embroidery, or Logo. All fabric: 145gsm Polycotton 65/35%, industrial wash rated to 70°C, latex free.
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════
        HOW TO ORDER
