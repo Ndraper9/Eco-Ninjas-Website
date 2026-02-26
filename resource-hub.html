@@ -3,199 +3,509 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resource Hub | Downloads & Documentation | Eco Ninjas</title>
-  <meta name="description" content="Download case studies, SOPs, research papers and testing documentation to support your NHS theatre cap implementation." />
+  <title>Resource Hub | Downloads, Research & Videos | Eco Ninjas</title>
+  <meta name="description" content="Access NHS case studies, SOPs, lab research, clinical videos and patient stories supporting the case for reusable theatre caps." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ─── FILTER BAR ─── */
-    .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
-    .filter-btn { padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid rgba(45,122,79,0.3); background: transparent; color: var(--text-mid); cursor: pointer; transition: all 0.2s; }
-    .filter-btn.active, .filter-btn:hover { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
+    /* ─── HUB HERO ─── */
+    .hub-hero { background: var(--green-deep); padding: 72px 0 0; position: relative; overflow: hidden; }
+    .hub-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 90% 60%, rgba(76,175,125,0.12) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 10% 30%, rgba(76,175,125,0.07) 0%, transparent 60%); }
+    .hub-hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
+    .hub-hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); margin-bottom: 18px; }
+    .hub-hero-tag::before { content: ''; display: block; width: 24px; height: 2px; background: var(--green-light); }
+    .hub-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 16px; max-width: 560px; }
+    .hub-hero-sub { font-size: 1rem; color: #7aab8e; max-width: 480px; line-height: 1.65; margin-bottom: 40px; }
+    .hub-stats { display: flex; gap: 0; margin-bottom: 0; }
+    .hub-stat { padding: 18px 28px; border-top: 1px solid rgba(76,175,125,0.2); border-right: 1px solid rgba(76,175,125,0.15); }
+    .hub-stat:first-child { border-left: 1px solid rgba(76,175,125,0.15); }
+    .hub-stat-num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--green-light); line-height: 1; }
+    .hub-stat-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #5a8070; margin-top: 3px; }
 
-    /* ─── RESOURCE CARDS ─── */
-    .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .resource-card { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: all 0.3s; }
-    .resource-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-mid), var(--green-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
-    .resource-card:hover { border-color: rgba(45,122,79,0.5); box-shadow: 0 12px 40px rgba(14,45,31,0.08); transform: translateY(-4px); }
-    .resource-card:hover::before { transform: scaleX(1); }
-    .resource-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 12px; display: inline-block; margin-bottom: 14px; }
-    .type-case-study { background: rgba(76,175,125,0.12); color: var(--green-bright); border: 1px solid rgba(76,175,125,0.2); }
-    .type-sop { background: rgba(0,94,184,0.1); color: var(--nhs-blue); border: 1px solid rgba(0,94,184,0.2); }
-    .type-research { background: rgba(200,168,75,0.12); color: var(--gold); border: 1px solid rgba(200,168,75,0.25); }
-    .type-testing { background: rgba(156,39,176,0.08); color: #7b1fa2; border: 1px solid rgba(156,39,176,0.2); }
-    .resource-trending { position: absolute; top: 16px; right: 16px; background: rgba(200,168,75,0.15); border: 1px solid rgba(200,168,75,0.3); color: var(--gold); font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 10px; letter-spacing: 0.06em; }
-    .resource-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; line-height: 1.3; flex: 1; }
-    .resource-desc { font-size: 0.83rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 20px; flex: 1; }
-    .resource-meta { font-size: 0.75rem; color: var(--text-light); margin-bottom: 16px; }
-    .resource-download { display: flex; align-items: center; gap: 8px; font-size: 0.83rem; font-weight: 700; color: var(--green-mid); text-decoration: none; padding: 10px 14px; background: var(--green-pale); border-radius: 8px; transition: all 0.2s; }
-    .resource-download:hover { background: var(--green-light); color: var(--green-deep); }
-    .download-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--green-mid); flex-shrink: 0; }
+    /* ─── TAB NAV ─── */
+    .hub-tabs { background: var(--green-deep); border-bottom: 1px solid rgba(76,175,125,0.2); position: sticky; top: 0; z-index: 80; }
+    .hub-tabs-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; gap: 0; }
+    .hub-tab { padding: 18px 28px; font-size: 0.83rem; font-weight: 600; color: #5a8070; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; display: flex; align-items: center; gap: 8px; letter-spacing: 0.02em; }
+    .hub-tab:hover { color: #7aab8e; }
+    .hub-tab.active { color: var(--green-light); border-bottom-color: var(--green-light); }
+    .hub-tab-count { background: rgba(76,175,125,0.15); color: var(--green-light); font-size: 0.65rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; }
+    .hub-tab.active .hub-tab-count { background: var(--green-light); color: var(--green-deep); }
 
-    /* ─── TRENDING SECTION ─── */
-    .trending-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
-    .trending-card { background: var(--green-deep); border-radius: 14px; padding: 32px; display: flex; gap: 20px; align-items: flex-start; }
-    .trending-icon { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: var(--green-pale); border-radius: 14px; color: var(--green-mid); flex-shrink: 0; }
-    .trending-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .trending-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .trending-desc { font-size: 0.83rem; color: #7aab8e; line-height: 1.5; margin-bottom: 16px; }
-    .trending-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: var(--green-light); text-decoration: none; }
-    .trending-link:hover { color: #5fc98e; }
+    /* ─── SECTION WRAPPER ─── */
+    .hub-section { display: none; }
+    .hub-section.active { display: block; }
 
-    @media (max-width: 900px) { .resources-grid { grid-template-columns: repeat(2, 1fr); } .trending-layout { grid-template-columns: 1fr; } }
-    @media (max-width: 600px) { .resources-grid { grid-template-columns: 1fr; } }
+    /* ─── FEATURED DOWNLOADS ─── */
+    .featured-strip { background: #fff; border-bottom: 1px solid rgba(45,122,79,0.1); padding: 40px 0; }
+    .featured-strip-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .featured-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    .featured-label::after { content: ''; flex: 1; height: 1px; background: rgba(45,122,79,0.15); }
+    .featured-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .featured-card { display: flex; gap: 20px; align-items: flex-start; padding: 24px; border: 1px solid rgba(45,122,79,0.2); border-left: 4px solid var(--green-mid); border-radius: 12px; background: var(--green-pale); transition: all 0.25s; text-decoration: none; }
+    .featured-card:hover { border-left-color: var(--green-bright); box-shadow: 0 8px 32px rgba(14,45,31,0.1); transform: translateY(-2px); }
+    .featured-card-icon { width: 48px; height: 48px; background: var(--green-deep); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--green-light); }
+    .featured-card-body { flex: 1; min-width: 0; }
+    .featured-card-badge { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
+    .hot-dot { width: 6px; height: 6px; background: #e05a2b; border-radius: 50%; display: inline-block; }
+    .featured-card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; line-height: 1.3; }
+    .featured-card-desc { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 14px; }
+    .featured-card-dl { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 700; color: var(--green-mid); }
+
+    /* ─── DOWNLOADS BODY ─── */
+    .hub-body { background: var(--cream); padding: 48px 0 72px; }
+    .hub-body-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    /* ─── CATEGORY FILTER ─── */
+    .cat-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .cat-btn { padding: 7px 16px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; border: 1px solid rgba(45,122,79,0.25); background: #fff; color: var(--text-mid); cursor: pointer; transition: all 0.18s; }
+    .cat-btn:hover, .cat-btn.active { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
+
+    /* ─── RESOURCE LIST ROWS ─── */
+    .resource-list { display: flex; flex-direction: column; gap: 10px; }
+    .res-row { display: flex; align-items: center; gap: 20px; background: #fff; border: 1px solid rgba(45,122,79,0.15); border-radius: 12px; padding: 18px 22px; transition: all 0.22s; }
+    .res-row:hover { border-color: rgba(45,122,79,0.35); box-shadow: 0 4px 20px rgba(14,45,31,0.07); transform: translateX(4px); }
+    .res-row-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icon-case { background: rgba(76,175,125,0.1); color: var(--green-mid); }
+    .icon-sop { background: rgba(0,94,184,0.09); color: var(--nhs-blue); }
+    .icon-research { background: rgba(200,168,75,0.12); color: var(--gold); }
+    .icon-testing { background: rgba(130,50,180,0.09); color: #7b1fa2; }
+    .icon-guide { background: rgba(230,120,30,0.1); color: #c06010; }
+    .icon-poster { background: rgba(220,50,90,0.09); color: #b01040; }
+    .res-row-body { flex: 1; min-width: 0; }
+    .res-row-type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2px; }
+    .type-col-case { color: var(--green-bright); }
+    .type-col-sop { color: var(--nhs-blue); }
+    .type-col-research { color: var(--gold); }
+    .type-col-testing { color: #7b1fa2; }
+    .type-col-guide { color: #c06010; }
+    .type-col-poster { color: #b01040; }
+    .res-row-title { font-weight: 700; font-size: 0.9rem; color: var(--text-dark); margin-bottom: 2px; line-height: 1.35; }
+    .res-row-meta { font-size: 0.73rem; color: var(--text-light); }
+    .res-row-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .res-tag { font-size: 0.61rem; font-weight: 700; padding: 3px 9px; border-radius: 8px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .res-tag-hot { background: rgba(224,90,43,0.1); color: #c04010; border: 1px solid rgba(224,90,43,0.2); }
+    .res-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 0.77rem; font-weight: 700; color: var(--green-deep); background: var(--green-pale); border: 1px solid rgba(45,122,79,0.2); padding: 8px 14px; border-radius: 8px; text-decoration: none; transition: all 0.18s; white-space: nowrap; }
+    .res-btn:hover { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
+    .res-btn-pptx { color: #c06010; background: rgba(230,120,30,0.07); border-color: rgba(230,120,30,0.2); }
+    .res-btn-pptx:hover { background: #c06010; color: #fff; border-color: #c06010; }
+
+    /* ─── SECTION DIVIDERS ─── */
+    .cat-section-head { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+    .cat-section-head:first-child { margin-top: 0; }
+    .cat-section-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); white-space: nowrap; }
+    .cat-section-line { flex: 1; height: 1px; background: rgba(45,122,79,0.15); }
+    .cat-section-count { font-size: 0.7rem; font-weight: 700; color: #7aab8e; letter-spacing: 0.08em; }
+
+    /* ─── VIDEO GRID ─── */
+    .video-body { background: #f4f7f4; padding: 48px 0 72px; }
+    .video-body-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .video-sub-tabs { display: flex; gap: 8px; margin-bottom: 32px; border-bottom: 1px solid rgba(45,122,79,0.12); }
+    .vtab { padding: 10px 20px; font-size: 0.82rem; font-weight: 600; color: var(--text-mid); background: none; border: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.18s; }
+    .vtab.active { color: var(--green-mid); border-bottom-color: var(--green-mid); }
+    .vtab:hover { color: var(--green-mid); }
+    .video-sub { display: none; }
+    .video-sub.active { display: block; }
+    .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .video-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid rgba(45,122,79,0.12); transition: all 0.25s; text-decoration: none; display: block; }
+    .video-card:hover { box-shadow: 0 12px 40px rgba(14,45,31,0.12); transform: translateY(-4px); }
+    .video-thumb { position: relative; aspect-ratio: 16/9; background: var(--green-deep); overflow: hidden; }
+    .video-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .video-card:hover .video-thumb img { transform: scale(1.05); }
+    .video-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(14,45,31,0.35); transition: background 0.25s; }
+    .video-card:hover .video-play { background: rgba(14,45,31,0.15); }
+    .play-btn { width: 48px; height: 48px; background: rgba(255,255,255,0.92); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+    .video-card:hover .play-btn { transform: scale(1.1); background: #fff; }
+    .play-btn svg { margin-left: 3px; }
+    .video-badge { position: absolute; top: 10px; left: 10px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(14,45,31,0.72); color: var(--green-light); padding: 3px 9px; border-radius: 6px; }
+    .video-card-body { padding: 16px 18px; }
+    .video-card-title { font-weight: 700; font-size: 0.88rem; color: var(--text-dark); line-height: 1.35; margin-bottom: 5px; }
+    .video-card-desc { font-size: 0.77rem; color: var(--text-mid); line-height: 1.5; }
+    .stories-intro { font-size: 0.9rem; color: var(--text-mid); max-width: 600px; margin-bottom: 32px; line-height: 1.65; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .featured-row { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+      .hub-stats { flex-wrap: wrap; }
+    }
+    @media (max-width: 640px) {
+      .hub-hero-inner, .featured-strip-inner, .hub-body-inner, .video-body-inner { padding: 0 20px; }
+      .hub-tabs-inner { padding: 0 8px; overflow-x: auto; scrollbar-width: none; }
+      .hub-tab { padding: 14px 14px; font-size: 0.76rem; }
+      .video-grid { grid-template-columns: 1fr; }
+      .res-row { flex-wrap: wrap; gap: 12px; }
+      .res-row-right { width: 100%; justify-content: flex-end; }
+    }
   </style>
 </head>
 <body>
+
   <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
   <header id="header"><div class="nav-inner"><a class="logo" href="index.html"><img src="eco-ninjas-logo.jpg" alt="Eco Ninjas Logo" onerror="this.style.display='none'" /><span class="logo-sub">See the Name, Know the Role, Trust the Team</span></a><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html" class="active">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html" class="nav-cta">Contact Us</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button></div></header>
   <nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" id="menuClose">&times;</button><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="products.html">Products</a><a href="benefits.html">Benefits</a><a href="case-studies.html">Case Studies</a><a href="resource-hub.html">Resource Hub</a><a href="blog.html">Blog</a><a href="contact-us.html">Contact Us</a></nav>
 
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="page-hero-tag">Documentation</div>
-      <h1>Resources &amp; Support</h1>
-      <p>Everything you need to implement and succeed with reusable theatre caps. Access comprehensive guides, research papers, and educational materials.</p>
+  <!-- HERO -->
+  <div class="hub-hero">
+    <div class="hub-hero-inner">
+      <div class="hub-hero-tag">Knowledge Centre</div>
+      <h1>Resources &amp; Evidence Library</h1>
+      <p class="hub-hero-sub">Independent research, NHS case studies, laboratory testing, and educational video content — everything you need to build the case for reusable theatre caps.</p>
+      <div class="hub-stats">
+        <div class="hub-stat"><div class="hub-stat-num">14</div><div class="hub-stat-label">Documents</div></div>
+        <div class="hub-stat"><div class="hub-stat-num">12</div><div class="hub-stat-label">Videos</div></div>
+        <div class="hub-stat"><div class="hub-stat-num">6</div><div class="hub-stat-label">Patient Stories</div></div>
+        <div class="hub-stat"><div class="hub-stat-num">5+</div><div class="hub-stat-label">NHS Trusts</div></div>
+      </div>
     </div>
   </div>
 
-  <section style="background: var(--cream);">
-    <div class="section-inner">
+  <!-- TAB NAV -->
+  <div class="hub-tabs">
+    <div class="hub-tabs-inner">
+      <button class="hub-tab active" data-tab="downloads">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Downloads &amp; Research <span class="hub-tab-count">14</span>
+      </button>
+      <button class="hub-tab" data-tab="videos">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Education Videos <span class="hub-tab-count">6</span>
+      </button>
+      <button class="hub-tab" data-tab="stories">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Patient &amp; Staff Stories <span class="hub-tab-count">6</span>
+      </button>
+    </div>
+  </div>
 
-      <!-- TRENDING -->
-      <div class="section-header fade-up">
-        <p class="section-label">Most Popular</p>
-        <h2 class="section-title">Trending Downloads</h2>
-        <p class="section-body">Our most downloaded resources — trusted by NHS trusts across the UK.</p>
-      </div>
-      <div class="trending-layout fade-up">
-        <div class="trending-card">
-          <div class="trending-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <div>
-            <div class="trending-tag">🔥 Most Downloaded</div>
-            <div class="trending-title">Somerset NHS Foundation Trust Case Study</div>
-            <p class="trending-desc">Demonstrates 48% cost savings and 95.9% staff recognition improvements. The definitive NHS proof-of-concept for reusable badge hats.</p>
-            <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" class="trending-link" rel="noopener">Download PDF →</a>
-          </div>
-        </div>
-        <div class="trending-card">
-          <div class="trending-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
-          <div>
-            <div class="trending-tag">🔥 Trending</div>
-            <div class="trending-title">Somerset NHS Standard Operating Procedure</div>
-            <p class="trending-desc">Step-by-step SOP for badge and theatre cap maintenance. The practical guide your infection control team and theatre managers need.</p>
-            <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" class="trending-link" rel="noopener">Download PDF →</a>
-          </div>
-        </div>
-      </div>
+  <!-- ═══ DOWNLOADS TAB ═══ -->
+  <div class="hub-section active" id="tab-downloads">
 
-      <!-- FILTER -->
-      <div class="filter-bar fade-up">
-        <button class="filter-btn active" data-filter="all">All Resources</button>
-        <button class="filter-btn" data-filter="case-study">Case Studies</button>
-        <button class="filter-btn" data-filter="sop">SOPs & Guides</button>
-        <button class="filter-btn" data-filter="research">Research</button>
-        <button class="filter-btn" data-filter="testing">Testing & Lab Reports</button>
-      </div>
-
-      <!-- RESOURCE GRID -->
-      <div class="resources-grid">
-        <div class="resource-card fade-up" data-category="case-study">
-          <span class="resource-trending">🔥 Trending</span>
-          <span class="resource-type type-case-study">Case Study</span>
-          <div class="resource-title">Somerset NHS Foundation Trust</div>
-          <p class="resource-desc">Implementing a sustainable, inclusive, and operationally efficient identification solution for surgical teams. Musgrove Park Hospital, April 2024.</p>
-          <div class="resource-meta">Somerset NHS Foundation Trust • 2024</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
-        </div>
-        <div class="resource-card fade-up fade-up-delay-1" data-category="sop">
-          <span class="resource-trending">🔥 Trending</span>
-          <span class="resource-type type-sop">SOP</span>
-          <div class="resource-title">Badge & Theatre Cap Maintenance SOP</div>
-          <p class="resource-desc">Standard Operating Procedure for badge and theatre cap maintenance — covering laundering, badge storage, and daily use protocols.</p>
-          <div class="resource-meta">Somerset NHS Foundation Trust • 2024</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
-        </div>
-        <div class="resource-card fade-up fade-up-delay-2" data-category="case-study">
-          <span class="resource-type type-case-study">Case Study</span>
-          <div class="resource-title">Royal Liverpool Hospital — Dr. Mruga Diwan</div>
-          <p class="resource-desc">Tackling excess waste by switching to reusable theatre hats. Introduction of named reusable caps for theatre staff at a major NHS trust.</p>
-          <div class="resource-meta">Royal Liverpool Hospital • 2022</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_5e5ebc4a7cc0423a802e5c6ce887b823.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
-        </div>
-        <div class="resource-card fade-up" data-category="testing">
-          <span class="resource-type type-testing">Lab Testing</span>
-          <div class="resource-title">Badge Separation Testing — TWI Cambridge</div>
-          <p class="resource-desc">Objective: to carry out badge 'separation' testing on three clinical hats. Independent testing by TWI, Cambridge validates badge integrity and safety.</p>
-          <div class="resource-meta">TWI Cambridge • Independent Testing</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_a377f13fd47846d98b5e3fc8336ae684.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
-        </div>
-        <div class="resource-card fade-up fade-up-delay-1" data-category="testing">
-          <span class="resource-type type-testing">Lab Testing</span>
-          <div class="resource-title">Badge Degradation Test — Birmingham University</div>
-          <p class="resource-desc">Confirming badges remain unchanged when exposed to common cleaning products: Actichlor, Clinell, and 70% Isopropyl Alcohol (IPA).</p>
-          <div class="resource-meta">AMCASH at Birmingham University</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_f86727b912e240d2a9631222fb4bf068.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
-        </div>
-        <div class="resource-card fade-up fade-up-delay-2" data-category="research">
-          <span class="resource-type type-research">Research</span>
-          <div class="resource-title">Demand Hub Review — Dr Gillian McNab</div>
-          <p class="resource-desc">Expert review of hospital theatre cloth hats. Gathered information from NHS hospital staff who have implemented or are planning to implement cloth hats in the theatre environment.</p>
-          <div class="resource-meta">Dr Gillian McNab • NHS Research</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_e62e7a17a2524a57b7e3efb208d5bc11.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
-        </div>
-        <div class="resource-card fade-up" data-category="research">
-          <span class="resource-type type-research">Research</span>
-          <div class="resource-title">Microbial Evaluation — Dr Gillian McNab</div>
-          <p class="resource-desc">Laboratory investigative report to evaluate microbes on theatre hats. Demonstrates that personalised reusable cloth hats can safely replace disposable hats.</p>
-          <div class="resource-meta">Dr Gillian McNab • Lab Investigation</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_d6b4bbc16c5e4290800828e5b0d235a4.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
-        </div>
-        <div class="resource-card fade-up fade-up-delay-1" data-category="research">
-          <span class="resource-type type-research">Research</span>
-          <div class="resource-title">Clinical Services Journal (CSJ)</div>
-          <p class="resource-desc">The team brief is an important part of effective team working in theatres. An innovative but simple initiative ensures everyone feels part of the team while tackling environmental and infection challenges.</p>
-          <div class="resource-meta">Clinical Services Journal • Published Article</div>
-          <a href="contact-us.html" class="resource-download"><span class="download-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> Request Access</a>
-        </div>
-        <div class="resource-card fade-up fade-up-delay-2" data-category="case-study">
-          <span class="resource-type type-case-study">Case Study</span>
-          <div class="resource-title">Liverpool University Hospitals</div>
-          <p class="resource-desc">Award-winning early adoption case study. Winner of the Northwest Coast Research and Innovation Sustainability Award 2022.</p>
-          <div class="resource-meta">Liverpool University Hospitals • 2022</div>
-          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_c22a35400db64288bf8a519d94fb8d14.pdf" target="_blank" class="resource-download" rel="noopener"><span class="download-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Download PDF</a>
+    <div class="featured-strip">
+      <div class="featured-strip-inner">
+        <div class="featured-label">Most Downloaded</div>
+        <div class="featured-row">
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" rel="noopener" class="featured-card">
+            <div class="featured-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <div class="featured-card-body">
+              <div class="featured-card-badge"><span class="hot-dot"></span> Top Download &middot; Case Study</div>
+              <div class="featured-card-title">Somerset NHS Foundation Trust — Musgrove Park</div>
+              <div class="featured-card-desc">48% cost savings and 95.9% staff recognition improvement. The definitive NHS proof-of-concept for reusable badge hats. April 2024.</div>
+              <div class="featured-card-dl"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</div>
+            </div>
+          </a>
+          <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" rel="noopener" class="featured-card">
+            <div class="featured-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="featured-card-body">
+              <div class="featured-card-badge"><span class="hot-dot"></span> Trending &middot; SOP</div>
+              <div class="featured-card-title">Somerset NHS — Standard Operating Procedure</div>
+              <div class="featured-card-desc">Step-by-step SOP covering laundering, badge storage, daily use protocols, and infection control compliance requirements.</div>
+              <div class="featured-card-dl"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
-  </section>
+
+    <div class="hub-body">
+      <div class="hub-body-inner">
+
+        <div class="cat-filter">
+          <button class="cat-btn active" data-cat="all">All Resources</button>
+          <button class="cat-btn" data-cat="case-study">Case Studies</button>
+          <button class="cat-btn" data-cat="sop">SOPs &amp; Guides</button>
+          <button class="cat-btn" data-cat="research">Research</button>
+          <button class="cat-btn" data-cat="testing">Lab Testing</button>
+          <button class="cat-btn" data-cat="poster">Templates</button>
+        </div>
+
+        <!-- CASE STUDIES -->
+        <div class="cat-section-head" data-section="case-study"><div class="cat-section-title">Case Studies</div><div class="cat-section-line"></div><div class="cat-section-count">5 documents</div></div>
+        <div class="resource-list">
+          <div class="res-row" data-cat="case-study">
+            <div class="res-row-icon icon-case"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-case">Case Study</div>
+              <div class="res-row-title">Somerset NHS Foundation Trust — Musgrove Park Hospital</div>
+              <div class="res-row-meta">Somerset NHS &middot; 2024 &middot; 48% cost saving &middot; 95.9% staff recognition improvement</div>
+            </div>
+            <div class="res-row-right">
+              <span class="res-tag res-tag-hot">Trending</span>
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_53f0f35549624786a47f6ea9c84c9967.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="case-study">
+            <div class="res-row-icon icon-case"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-case">Case Study</div>
+              <div class="res-row-title">Royal Liverpool Hospital — Dr Mruga Diwan (Original)</div>
+              <div class="res-row-meta">Royal Liverpool Hospital &middot; 2022 &middot; Tackling excess waste by switching to reusable theatre hats</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_5e5ebc4a7cc0423a802e5c6ce887b823.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="case-study">
+            <div class="res-row-icon icon-case"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-case">Case Study — Follow-Up</div>
+              <div class="res-row-title">Royal Liverpool Hospital — Dr Mruga Diwan (Follow-Up)</div>
+              <div class="res-row-meta">Royal Liverpool Hospital &middot; 2023 &middot; Patient safety; 70% of adverse incidents linked to miscommunication (WHO)</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_71a2e1f941c141d1af9bf8aef617d5b5.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="case-study">
+            <div class="res-row-icon icon-case"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-case">Case Study</div>
+              <div class="res-row-title">Liverpool University Hospitals</div>
+              <div class="res-row-meta">Liverpool University Hospitals &middot; 2022 &middot; Northwest Coast Research &amp; Innovation Sustainability Award Winner</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_c22a35400db64288bf8a519d94fb8d14.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="case-study">
+            <div class="res-row-icon icon-case"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-case">Case Study</div>
+              <div class="res-row-title">Black Maternity Matters — Great Western Hospital, Swindon</div>
+              <div class="res-row-meta">Great Western Hospital &middot; Making theatre experiences more comfortable and inclusive for patients and staff</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_abb38db9af1f4b89b7002c1dc2033883.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOPs -->
+        <div class="cat-section-head" data-section="sop"><div class="cat-section-title">SOPs &amp; Operational Guides</div><div class="cat-section-line"></div><div class="cat-section-count">1 document</div></div>
+        <div class="resource-list">
+          <div class="res-row" data-cat="sop">
+            <div class="res-row-icon icon-sop"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-sop">Standard Operating Procedure</div>
+              <div class="res-row-title">Badge &amp; Theatre Cap Maintenance SOP — Somerset NHS</div>
+              <div class="res-row-meta">Somerset NHS Foundation Trust &middot; 2024 &middot; Laundering, storage, daily protocols, infection control</div>
+            </div>
+            <div class="res-row-right">
+              <span class="res-tag res-tag-hot">Trending</span>
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_3ea7ca4d40b64b6189c77cd59c905262.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESEARCH -->
+        <div class="cat-section-head" data-section="research"><div class="cat-section-title">Research &amp; Published Articles</div><div class="cat-section-line"></div><div class="cat-section-count">4 documents</div></div>
+        <div class="resource-list">
+          <div class="res-row" data-cat="research">
+            <div class="res-row-icon icon-research"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-research">Research Review</div>
+              <div class="res-row-title">Demand Hub Review — Dr Gillian McNab</div>
+              <div class="res-row-meta">NHS Research &middot; Expert review of hospital theatre cloth hat adoption across NHS trusts</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_e62e7a17a2524a57b7e3efb208d5bc11.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="research">
+            <div class="res-row-icon icon-research"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-research">Lab Investigation</div>
+              <div class="res-row-title">Microbial Evaluation of Theatre Hats — Dr Gillian McNab</div>
+              <div class="res-row-meta">University of Birmingham &middot; Personalised reusable cloth hats can safely replace disposable hats</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_d6b4bbc16c5e4290800828e5b0d235a4.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="research">
+            <div class="res-row-icon icon-research"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-research">Published Article</div>
+              <div class="res-row-title">Clinical Services Journal (CSJ) — Theatre Team Identification</div>
+              <div class="res-row-meta">Clinical Services Journal &middot; Team briefs, environmental impact, and infection control in surgical theatres</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_f1527791ebc748418565c39c4487cf5e.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="research">
+            <div class="res-row-icon icon-research"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-research">Published Article</div>
+              <div class="res-row-title">Badges: A Simple Solution for Safer Surgery — Danielle Checketts</div>
+              <div class="res-row-meta">Published Article &middot; Knowing who's who in healthcare settings improves patient and medic experience</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_6e4d9646230b4d9dbc2e2fb86ed7a738.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TESTING -->
+        <div class="cat-section-head" data-section="testing"><div class="cat-section-title">Independent Lab Testing</div><div class="cat-section-line"></div><div class="cat-section-count">2 documents</div></div>
+        <div class="resource-list">
+          <div class="res-row" data-cat="testing">
+            <div class="res-row-icon icon-testing"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l4 8"/><path d="M6 21h12M5 21l5-7"/><path d="M15 8l2-5M8 3h8"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-testing">Lab Report</div>
+              <div class="res-row-title">Badge Separation Testing — TWI Cambridge</div>
+              <div class="res-row-meta">TWI Cambridge &middot; Independent testing validating badge integrity, separation resistance, and clinical safety</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_a377f13fd47846d98b5e3fc8336ae684.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="testing">
+            <div class="res-row-icon icon-testing"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l4 8"/><path d="M6 21h12M5 21l5-7"/><path d="M15 8l2-5M8 3h8"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-testing">Lab Report</div>
+              <div class="res-row-title">Badge Degradation Test — Birmingham University (AMCASH)</div>
+              <div class="res-row-meta">University of Birmingham &middot; Tested against Actichlor, Clinell, and 70% Isopropyl Alcohol (IPA)</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_f86727b912e240d2a9631222fb4bf068.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GUIDES & TEMPLATES -->
+        <div class="cat-section-head" data-section="guide"><div class="cat-section-title">Implementation Guides &amp; Templates</div><div class="cat-section-line"></div><div class="cat-section-count">2 documents</div></div>
+        <div class="resource-list">
+          <div class="res-row" data-cat="poster">
+            <div class="res-row-icon icon-guide"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-guide">Implementation Guide</div>
+              <div class="res-row-title">UK Theatre Cap Challenge — Mrs Scarlett McNally</div>
+              <div class="res-row-meta">NHS Guide &middot; Information for trusts on the Theatre Cap Challenge and how to lead the switch</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_8e8144936e9f4b3a95b8edbac0e1be17.pdf" target="_blank" rel="noopener" class="res-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF</a>
+            </div>
+          </div>
+          <div class="res-row" data-cat="poster">
+            <div class="res-row-icon icon-poster"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v3"/><polyline points="14 2 14 8 20 8"/><path d="M2 15h10M5 12l-3 3 3 3"/></svg></div>
+            <div class="res-row-body">
+              <div class="res-row-type type-col-poster">Editable Template</div>
+              <div class="res-row-title">Editable Badge Hat Staff Poster (PowerPoint)</div>
+              <div class="res-row-meta">Eco Ninjas &middot; Dec 2024 &middot; Print-ready poster to prepare staff for the transition to reusable badge hats</div>
+            </div>
+            <div class="res-row-right">
+              <a href="https://www.econinjas.co.uk/_files/ugd/bee7e3_e1e0fa3291b94dfa9519778f9b9cbc84.pptx" target="_blank" rel="noopener" class="res-btn res-btn-pptx"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PPTX</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /downloads tab -->
+
+
+  <!-- ═══ EDUCATION VIDEOS TAB ═══ -->
+  <div class="hub-section" id="tab-videos">
+    <div class="video-body">
+      <div class="video-body-inner">
+        <div class="video-sub-tabs">
+          <button class="vtab active" data-vsub="edu">Product &amp; Education</button>
+          <button class="vtab" data-vsub="clinical">Clinical &amp; Conference</button>
+        </div>
+        <div class="video-sub active" id="vsub-edu">
+          <div class="video-grid">
+            <a href="https://youtu.be/tfEIW_LpE_Y" target="_blank" rel="noopener" class="video-card">
+              <div class="video-thumb"><img src="https://img.youtube.com/vi/tfEIW_LpE_Y/hqdefault.jpg" alt="Badge Hat pilot at Musgrove Park" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Trending</span></div>
+              <div class="video-card-body"><div class="video-card-title">Badge Hat Pilot at Musgrove Park</div><div class="video-card-desc">The first NHS trust in the UK to roll out Eco Ninjas name and role badge hats — watch the launch.</div></div>
+            </a>
+            <a href="https://youtu.be/mistj-Kai5Y" target="_blank" rel="noopener" class="video-card">
+              <div class="video-thumb"><img src="https://img.youtube.com/vi/mistj-Kai5Y/hqdefault.jpg" alt="Educating Theatres" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Trending</span></div>
+              <div class="video-card-body"><div class="video-card-title">Educating Theatres</div><div class="video-card-desc">An educational video making the journey of learning about theatre caps engaging and accessible.</div></div>
+            </a>
+            <a href="https://youtu.be/0ZOQqkMud9o" target="_blank" rel="noopener" class="video-card">
+              <div class="video-thumb"><img src="https://img.youtube.com/vi/0ZOQqkMud9o/hqdefault.jpg" alt="Ordering Tutorial" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Tutorial</span></div>
+              <div class="video-card-body"><div class="video-card-title">Ordering Tutorial — 2,000 Hats for 400 Staff</div><div class="video-card-desc">See how a large order is placed in just a few minutes using the Eco Ninjas portal.</div></div>
+            </a>
+            <a href="https://youtu.be/1kPlv14E4CE" target="_blank" rel="noopener" class="video-card">
+              <div class="video-thumb"><img src="https://img.youtube.com/vi/1kPlv14E4CE/hqdefault.jpg" alt="Braided Hat Fitting" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">How-To</span></div>
+              <div class="video-card-body"><div class="video-card-title">Braided Hat Fitting Guide</div><div class="video-card-desc">Emily demonstrates how easily a lot of hair fits into the braided hat — quicker than you might expect.</div></div>
+            </a>
+            <a href="https://youtu.be/6T4VIhbmp4c" target="_blank" rel="noopener" class="video-card">
+              <div class="video-thumb"><img src="https://img.youtube.com/vi/6T4VIhbmp4c/hqdefault.jpg" alt="Maria Koijck Waste" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Impact</span></div>
+              <div class="video-card-body"><div class="video-card-title">Maria Koijck — The Waste Problem</div><div class="video-card-desc">A striking visual demonstration of the sheer volume of waste generated by disposable theatre caps.</div></div>
+            </a>
+            <a href="https://youtube.com/shorts/KHMH7uoWUlo" target="_blank" rel="noopener" class="video-card">
+              <div class="video-thumb"><img src="https://img.youtube.com/vi/KHMH7uoWUlo/hqdefault.jpg" alt="AfPP Manchester" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Conference</span></div>
+              <div class="video-card-body"><div class="video-card-title">AfPP Manchester — Rumbidzai Kufa</div><div class="video-card-desc">Interview on the challenges facing theatre teams and what needs to change in NHS culture.</div></div>
+            </a>
+          </div>
+        </div>
+        <div class="video-sub" id="vsub-clinical">
+          <div class="video-grid">
+            <a href="https://youtu.be/pEu0xwbMYD8" target="_blank" rel="noopener" class="video-card">
+              <div class="video-thumb"><img src="https://img.youtube.com/vi/pEu0xwbMYD8/hqdefault.jpg" alt="Dr Gillian McNab" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Clinical</span></div>
+              <div class="video-card-body"><div class="video-card-title">Dr Gillian McNab — Research Fellow</div><div class="video-card-desc">Dr McNab explains the science behind bringing healthcare products to market at the Demand Hub.</div></div>
+            </a>
+            <a href="https://youtu.be/eEAsTIzBx4U" target="_blank" rel="noopener" class="video-card">
+              <div class="video-thumb"><img src="https://img.youtube.com/vi/eEAsTIzBx4U/hqdefault.jpg" alt="Dr Mruga Diwan" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Clinical</span></div>
+              <div class="video-card-body"><div class="video-card-title">Dr Mruga Diwan — Royal Liverpool</div><div class="video-card-desc">Dr Diwan shares the many reasons for switching to reusable theatre hats, including the clinical case at Royal Liverpool.</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /videos tab -->
+
+
+  <!-- ═══ PATIENT STORIES TAB ═══ -->
+  <div class="hub-section" id="tab-stories">
+    <div class="video-body" style="background:#fff;">
+      <div class="video-body-inner">
+        <p class="stories-intro">Real interviews from patients and staff who have experienced or trialled Eco Ninjas name &amp; role badge hats in theatre settings. Their stories make the case for identification more powerfully than any data alone.</p>
+        <div class="video-grid">
+          <a href="https://youtu.be/ixd3Sx1jFp8" target="_blank" rel="noopener" class="video-card">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/ixd3Sx1jFp8/hqdefault.jpg" alt="John, Patient" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Patient Story</span></div>
+            <div class="video-card-body"><div class="video-card-title">John — Hip Replacement Patient</div><div class="video-card-desc">John reflects on his theatre experience and why knowing who's who matters from a patient's perspective.</div></div>
+          </a>
+          <a href="https://youtu.be/-Wy0hOO9uh0" target="_blank" rel="noopener" class="video-card">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/-Wy0hOO9uh0/hqdefault.jpg" alt="Daniel, Birthing Partner" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Patient Story</span></div>
+            <div class="video-card-body"><div class="video-card-title">Daniel — Birthing Partner</div><div class="video-card-desc">Daniel's account of being indistinguishable from theatre staff when his wife gave birth to twins.</div></div>
+          </a>
+          <a href="https://youtu.be/4Gtx0V9cinQ" target="_blank" rel="noopener" class="video-card">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/4Gtx0V9cinQ/hqdefault.jpg" alt="Kim, Patient" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Patient Story</span></div>
+            <div class="video-card-body"><div class="video-card-title">Kim — First Time in Theatre</div><div class="video-card-desc">Kim explains the anxiety of not knowing who any of the clinicians were after coming round from anaesthetic.</div></div>
+          </a>
+          <a href="https://youtu.be/BYpPFFgeVW0" target="_blank" rel="noopener" class="video-card">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/BYpPFFgeVW0/hqdefault.jpg" alt="Rita, Emergency Patient" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Patient Story</span></div>
+            <div class="video-card-body"><div class="video-card-title">Rita — Emergency Theatre Patient</div><div class="video-card-desc">Rita was rushed into theatre surrounded by 15 staff all looking alike. A powerful case for identification.</div></div>
+          </a>
+          <a href="https://youtu.be/pEu0xwbMYD8" target="_blank" rel="noopener" class="video-card">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/pEu0xwbMYD8/hqdefault.jpg" alt="Dr Gillian McNab" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Staff Story</span></div>
+            <div class="video-card-body"><div class="video-card-title">Dr Gillian McNab — Research Perspective</div><div class="video-card-desc">Dr McNab on her research into theatre cap adoption and the evidence behind the shift to reusables.</div></div>
+          </a>
+          <a href="https://youtu.be/eEAsTIzBx4U" target="_blank" rel="noopener" class="video-card">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/eEAsTIzBx4U/hqdefault.jpg" alt="Dr Mruga Diwan" loading="lazy" /><div class="video-play"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><span class="video-badge">Staff Story</span></div>
+            <div class="video-card-body"><div class="video-card-title">Dr Mruga Diwan — Clinical Lead</div><div class="video-card-desc">Dr Diwan on leading the Royal Liverpool pilot and why reusable caps are the future for theatre teams.</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /stories tab -->
+
 
   <div class="cta-band"><div class="cta-inner"><div><h2 class="cta-title">Can't Find What You're Looking For?</h2><p class="cta-sub">Our NHS specialists can provide bespoke documentation, infection control reports, and procurement support.</p></div><div class="cta-actions"><a href="contact-us.html" class="btn-primary">Contact Us</a><a href="case-studies.html" class="btn-white">View Case Studies</a></div></div></div>
 
   <div class="accred-strip"><div class="accred-strip-inner"><p class="accred-strip-label">Trusted credentials &amp; certifications</p><div class="accred-logos"><a href="https://static.wixstatic.com/media/bee7e3_af53c48345c14a3691766a09b0120ca7~mv2.jpg" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_c89409b881444048be2e9cf5912382de~mv2.jpg" alt="ISO 9001" /><span>ISO 9001 Certified</span></a><a href="https://www.birmingham.ac.uk/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_7f6346f65eff4bc6b34eb7011f9b2384~mv2.png" alt="Birmingham University" /><span>University Research</span></a><a href="https://medbis.mediq.co.uk/manufacturer/eco-ninjas/surgical-supplies/theatre-apparel/headwear" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_499e534783bb454da78d464a6bcb5939~mv2.png" alt="Mediq" /><span>NHS Framework Supplier</span></a><a href="https://www.madeinbritain.org/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_a0ddff1fa4b34ca7b35322b6d8ffb469~mv2.jpg" alt="Made in Britain" /><span>Made in Britain</span></a><a href="http://thecarbonstamp.com" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_1bcc6c0b6ba3431ca685b7ecf9a65e26~mv2.png" alt="Carbon Stamp" /><span>Carbon Stamp Verified</span></a><a href="https://registry.blockmarktech.com/certificates/989ff22c-4ba0-4bf1-8d6d-2a478ab67aa7/?share_key=i1S9mVubuLE4dTgEkEEk8eh2y3INi-t6Fo84YW5H58w" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_477dceb0212a4f9395d1b7cff431367e~mv2.png" alt="Cyber Essentials+" /><span>Cyber Essentials+</span></a></div></div></div>
-<footer>
+
+  <footer>
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="logo" href="index.html" style="margin-bottom:16px;">
-            <img src="eco-ninjas-logo.jpg" alt="Eco Ninjas" style="height:51px;" onerror="this.style.display='none'" />
-            <span class="logo-sub">See the Name, Know the Role, Trust the Team</span>
-          </a>
+          <a class="logo" href="index.html" style="margin-bottom:16px;"><img src="eco-ninjas-logo.jpg" alt="Eco Ninjas" style="height:51px;" onerror="this.style.display='none'" /><span class="logo-sub">See the Name, Know the Role, Trust the Team</span></a>
           <p class="footer-desc">Working towards a safer and more sustainable NHS. Reusable theatre caps and badge hats that save money, improve patient safety, and cut waste.</p>
-          <div class="footer-contact">
-            <a href="tel:+443301025810">0330 102 5810</a><br />
-          </div>
+          <div class="footer-contact"><a href="tel:+443301025810">0330 102 5810</a><br /></div>
           <div class="social-links" style="margin-top:20px;">
             <a href="https://www.linkedin.com/company/econinjasltd" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">in</a>
             <a href="https://www.instagram.com/econinjasltd/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">ig</a>
@@ -203,42 +513,10 @@
             <a href="https://www.youtube.com/channel/UC0rCyhoutbU92iIk8zfsKIg" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">yt</a>
           </div>
         </div>
-        <div>
-          <p class="footer-col-title">Products</p>
-          <ul class="footer-links">
-            <li><a href="/products.html">Theatre Badge Hats</a></li>
-            <li><a href="/products.html">Infection Control</a></li>
-            <li><a href="/products.html">Laundering Guide</a></li>
-            <li><a href="/calculator.html">Cost Calculator</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer-col-title">Company</p>
-          <ul class="footer-links">
-            <li><a href="/about-us.html">About Eco Ninjas</a></li>
-            <li><a href="/about-us.html">Our Mission</a></li>
-            <li><a href="/about-us.html">Accreditations</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer-col-title">Support</p>
-          <ul class="footer-links">
-            <li><a href="/resource-hub.html">Resource Hub</a></li>
-            <li><a href="/case-studies.html">FAQ</a></li>
-            <li><a href="/contact-us.html">Contact Us</a></li>
-            <li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer-col-title">Contact</p>
-          <ul class="footer-links">
-            <li><a href="tel:+443301025810">0330 102 5810</a></li>
-            <li><a href="/contact-us.html">Email Us</a></li>
-            <li><a href="/contact-us.html">Open Account</a></li>
-            <li><a href="/contact-us.html">Pricing</a></li>
-          </ul>
-        </div>
+        <div><p class="footer-col-title">Products</p><ul class="footer-links"><li><a href="/products.html">Theatre Badge Hats</a></li><li><a href="/products.html">Infection Control</a></li><li><a href="/products.html">Laundering Guide</a></li><li><a href="/calculator.html">Cost Calculator</a></li></ul></div>
+        <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="/about-us.html">About Eco Ninjas</a></li><li><a href="/about-us.html">Our Mission</a></li><li><a href="/about-us.html">Accreditations</a></li><li><a href="/blog.html">Blog</a></li></ul></div>
+        <div><p class="footer-col-title">Support</p><ul class="footer-links"><li><a href="/resource-hub.html">Resource Hub</a></li><li><a href="/case-studies.html">Case Studies</a></li><li><a href="/contact-us.html">Contact Us</a></li><li><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a></li></ul></div>
+        <div><p class="footer-col-title">Contact</p><ul class="footer-links"><li><a href="tel:+443301025810">0330 102 5810</a></li><li><a href="/contact-us.html">Email Us</a></li><li><a href="/contact-us.html">Open Account</a></li><li><a href="/contact-us.html">Pricing</a></li></ul></div>
       </div>
       <div class="footer-bottom">
         <p>© 2025 Eco Ninjas Ltd | United Kingdom | <a href="/accreditations.html">Terms</a> | <a href="/accreditations.html">Privacy</a></p>
@@ -250,25 +528,60 @@
   <script>
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
-    const toggle = document.getElementById('menuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    const closeBtn = document.getElementById('menuClose');
-    toggle.addEventListener('click', () => mobileNav.classList.add('open'));
-    closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
-    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
-    // Filter
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+    document.getElementById('mobileNav').querySelectorAll('a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open')));
+
+    // Main tabs
+    document.querySelectorAll('.hub-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.hub-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.hub-section').forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        window.scrollTo({ top: document.querySelector('.hub-tabs').offsetTop - 4, behavior: 'smooth' });
+      });
+    });
+
+    // Download filter
+    document.querySelectorAll('.cat-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.resource-card').forEach(card => {
-          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.res-row').forEach(row => {
+          row.style.display = (cat === 'all' || row.dataset.cat === cat) ? '' : 'none';
+        });
+        document.querySelectorAll('.cat-section-head').forEach(head => {
+          if (cat === 'all') { head.style.display = ''; }
+          else {
+            const sec = head.dataset.section;
+            head.style.display = (sec === cat || (cat === 'poster' && sec === 'guide')) ? '' : 'none';
+          }
         });
       });
     });
-    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Video sub-tabs
+    document.querySelectorAll('.vtab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.vtab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.video-sub').forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('vsub-' + tab.dataset.vsub).classList.add('active');
+      });
+    });
+
+    // Fade-in animations
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; obs.unobserve(e.target); } });
+    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.res-row, .video-card, .featured-card').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(14px)';
+      el.style.transition = `opacity 0.4s ease ${i * 0.04}s, transform 0.4s ease ${i * 0.04}s`;
+      obs.observe(el);
+    });
   </script>
 </body>
 </html>
