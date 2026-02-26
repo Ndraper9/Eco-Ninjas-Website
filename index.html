@@ -804,6 +804,17 @@
     .showcase-footer a:hover { color: var(--green-bright); }
     .showcase-dot { color: rgba(45,122,79,0.3); font-size: 1.2rem; }
     @media (max-width: 768px) { .showcase-grid { grid-template-columns: 1fr; } }
+
+    /* ─── ACCRED STRIP ─── */
+    .accred-strip { background: var(--white); padding: 48px 0; border-top: 1px solid rgba(45,122,79,0.08); border-bottom: 1px solid rgba(45,122,79,0.08); }
+    .accred-strip-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .accred-strip-label { text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-bottom: 32px; }
+    .accred-logos { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .accred-item { display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; transition: all 0.2s; opacity: 0.7; }
+    .accred-item:hover { opacity: 1; transform: translateY(-2px); }
+    .accred-item img { height: 44px; width: auto; object-fit: contain; filter: grayscale(40%); transition: filter 0.2s; }
+    .accred-item:hover img { filter: grayscale(0%); }
+    .accred-item span { font-size: 0.7rem; font-weight: 600; color: var(--text-light); text-align: center; letter-spacing: 0.04em; }
   </style>
 </head>
 <body>
@@ -1078,7 +1089,7 @@
     </div>
   </div>
 
-  <div class="accred-strip"><div class="accred-strip-inner"><p class="accred-strip-label">Trusted credentials &amp; certifications</p><div class="accred-logos"><a href="https://static.wixstatic.com/media/bee7e3_af53c48345c14a3691766a09b0120ca7~mv2.jpg" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_c89409b881444048be2e9cf5912382de~mv2.jpg" alt="ISO 9001" /><span>ISO 9001 Certified</span></a><a href="https://www.birmingham.ac.uk/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_7f6346f65eff4bc6b34eb7011f9b2384~mv2.png" alt="Birmingham University" /><span>University Research</span></a><a href="https://medbis.mediq.co.uk/manufacturer/eco-ninjas/surgical-supplies/theatre-apparel/headwear" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_499e534783bb454da78d464a6bcb5939~mv2.png" alt="Mediq" /><span>NHS Framework Supplier</span></a><a href="https://www.madeinbritain.org/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_a0ddff1fa4b34ca7b35322b6d8ffb469~mv2.jpg" alt="Made in Britain" /><span>Made in Britain</span></a><a href="http://thecarbonstamp.com" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_1bcc6c0b6ba3431ca685b7ecf9a65e26~mv2.png" alt="Carbon Stamp" /><span>Carbon Stamp Verified</span></a><a href="https://registry.blockmarktech.com/certificates/989ff22c-4ba0-4bf1-8d6d-2a478ab67aa7/?share_key=i1S9mVubuLE4dTgEkEEk8eh2y3INi-t6Fo84YW5H58w" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_477dceb0212a4f9395d1b7cff431367e~mv2.png" alt="Cyber Essentials+" /><span>Cyber Essentials+</span></a></div></div></div>
+  <div class="accred-strip"><div class="accred-strip-inner"><p class="accred-strip-label">Trusted credentials &amp; certifications</p><div class="accred-logos"><a href="https://www.british-assessment.co.uk/verify/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_c89409b881444048be2e9cf5912382de~mv2.jpg" alt="ISO 9001" /><span>ISO 9001 Certified</span></a><a href="https://www.birmingham.ac.uk/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_7f6346f65eff4bc6b34eb7011f9b2384~mv2.png" alt="Birmingham University" /><span>University Research</span></a><a href="https://medbis.mediq.co.uk/manufacturer/eco-ninjas/surgical-supplies/theatre-apparel/headwear" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_499e534783bb454da78d464a6bcb5939~mv2.png" alt="Mediq" /><span>NHS Framework Supplier</span></a><a href="https://www.madeinbritain.org/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_a0ddff1fa4b34ca7b35322b6d8ffb469~mv2.jpg" alt="Made in Britain" /><span>Made in Britain</span></a><a href="http://thecarbonstamp.com" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_1bcc6c0b6ba3431ca685b7ecf9a65e26~mv2.png" alt="Carbon Stamp" /><span>Carbon Stamp Verified</span></a><a href="https://registry.blockmarktech.com/certificates/989ff22c-4ba0-4bf1-8d6d-2a478ab67aa7/?share_key=i1S9mVubuLE4dTgEkEEk8eh2y3INi-t6Fo84YW5H58w" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_477dceb0212a4f9395d1b7cff431367e~mv2.png" alt="Cyber Essentials+" /><span>Cyber Essentials+</span></a></div></div></div>
 <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
