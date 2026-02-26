@@ -834,6 +834,27 @@
       .cta-actions { flex-direction: column; }
       .hero-stat-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ─── PRODUCT SHOWCASE ─── */
+    .prod-showcase { background: var(--cream); }
+    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 0; }
+    .showcase-card { background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid rgba(45,122,79,0.15); display: flex; flex-direction: column; transition: box-shadow 0.3s, transform 0.3s; }
+    .showcase-card:hover { box-shadow: 0 16px 48px rgba(14,45,31,0.1); transform: translateY(-4px); }
+    .showcase-img-wrap { background: linear-gradient(135deg, #e8f4ee 0%, #d4eddf 100%); display: flex; align-items: flex-end; justify-content: center; height: 320px; overflow: hidden; position: relative; }
+    .showcase-img-wrap img { height: 110%; width: auto; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 8px 24px rgba(14,45,31,0.18)); transition: transform 0.4s; }
+    .showcase-card:hover .showcase-img-wrap img { transform: scale(1.04) translateY(-4px); }
+    .showcase-info { padding: 28px 28px 32px; display: flex; flex-direction: column; flex: 1; }
+    .showcase-hat-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 6px; }
+    .showcase-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.2; }
+    .showcase-name span { font-size: 1rem; font-weight: 400; color: var(--text-mid); font-style: italic; font-family: 'DM Sans', sans-serif; }
+    .showcase-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 18px; flex: 1; }
+    .showcase-link { display: inline-flex; align-items: center; font-size: 0.85rem; font-weight: 700; color: var(--green-mid); text-decoration: none; margin-top: 16px; transition: color 0.2s; }
+    .showcase-link:hover { color: var(--green-bright); }
+    .showcase-footer { margin-top: 40px; display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 0.85rem; color: var(--text-mid); flex-wrap: wrap; }
+    .showcase-footer a { font-weight: 700; color: var(--green-mid); text-decoration: none; }
+    .showcase-footer a:hover { color: var(--green-bright); }
+    .showcase-dot { color: rgba(45,122,79,0.3); font-size: 1.2rem; }
+    @media (max-width: 768px) { .showcase-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -997,6 +1018,60 @@
           <p class="reason-body">Clear name and role badges increase staff recognition from 41% to 96%. Better communication leads to fewer errors and improved surgical safety checklist compliance.</p>
           <div class="reason-metric">↑ Staff recognition 41% → 96%</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SHOWCASE -->
+  <section class="prod-showcase">
+    <div class="section-inner">
+      <div class="section-header fade-up" style="text-align:center;">
+        <p class="section-label">Our Products</p>
+        <h2 class="section-title">See the Badge Hat in Action</h2>
+        <p class="section-body">Name and role clearly visible at a glance — in theatre, every second counts.</p>
+      </div>
+      <div class="showcase-grid">
+        <div class="showcase-card fade-up">
+          <div class="showcase-img-wrap">
+            <img src="Bananda_Home.jpg" alt="Adrian, Surgeon wearing Eco Ninjas Bandana Badge Hat" />
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-hat-label">Bandana Hat</div>
+            <h3 class="showcase-name">Adrian <span>— Surgeon</span></h3>
+            <p class="showcase-desc">The popular scrub-style bandana with rear tie. Comfortable all-day wear with the detachable name and role badge attached to the front panel — instantly readable at a glance.</p>
+            <div class="showcase-tags">
+              <span class="style-tag">All Hair Types</span>
+              <span class="style-tag">Rear Tie</span>
+              <span class="style-tag">14 Colours</span>
+            </div>
+            <a href="products.html#bandana" class="showcase-link">View Bandana Hat →</a>
+          </div>
+        </div>
+        <div class="showcase-card fade-up fade-up-delay-1">
+          <div class="showcase-img-wrap">
+            <img src="Hammock_Home.jpg" alt="Sarah, Student wearing Eco Ninjas Hammock Badge Hat" />
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-hat-label">Hammock Hat</div>
+            <h3 class="showcase-name">Sarah <span>— Student</span></h3>
+            <p class="showcase-desc">Designed for longer and thicker hair. The hammock-style rear pouch accommodates high-volume hair securely, keeping it fully covered throughout long procedures.</p>
+            <div class="showcase-tags">
+              <span class="style-tag">Long Hair</span>
+              <span class="style-tag">Rear Pouch</span>
+              <span class="style-tag">14 Colours</span>
+            </div>
+            <a href="products.html#hammock" class="showcase-link">View Hammock Hat →</a>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-footer fade-up">
+        <span>8 hat styles available</span>
+        <span class="showcase-dot">·</span>
+        <span>14 NHS-compliant colours</span>
+        <span class="showcase-dot">·</span>
+        <span>Printed &amp; writeable badges</span>
+        <span class="showcase-dot">·</span>
+        <a href="products.html">View all products →</a>
       </div>
     </div>
   </section>
