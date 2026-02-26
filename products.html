@@ -58,7 +58,7 @@
     .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
     .feature-item { padding: 24px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
     .feature-item:last-child { border-right: none; }
-    .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .feature-icon { width: 52px; height: 52px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-radius: 12px; color: #fff; }
     .feature-title { font-weight: 700; font-size: 0.85rem; color: #fff; margin-bottom: 5px; }
     .feature-body { font-size: 0.78rem; color: #7aab8e; line-height: 1.5; }
 
@@ -354,7 +354,7 @@
     /* ─── CALCULATOR BANNER ─── */
     .calc-banner {
       background: linear-gradient(135deg, var(--green-deep) 0%, #0a2e1a 100%);
-      padding: 48px 0;
+      padding: 64px 0;
       position: relative;
       overflow: hidden;
     }
@@ -367,14 +367,23 @@
     .calc-banner-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 32px;
+      padding: 0 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 40px;
+      gap: 32px;
       position: relative;
     }
-    .calc-banner-text {}
+    .calc-banner-icon-wrap {
+      width: 72px; height: 72px;
+      background: rgba(76,175,125,0.12);
+      border: 1px solid rgba(76,175,125,0.25);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .calc-stats-row { display: flex; gap: 14px; flex-shrink: 0; }
+    .calc-banner-text { flex: 1; min-width: 0; }
     .calc-banner-label {
       font-size: 0.72rem;
       font-weight: 700;
@@ -532,6 +541,8 @@
       .fabric-care-grid { grid-template-columns: 1fr; }
       .badge-colour-grid { grid-template-columns: repeat(2, 1fr); }
       .calc-banner-inner { flex-direction: column; align-items: flex-start; }
+      .calc-stats-row { flex-wrap: wrap; }
+      .calc-banner-icon-wrap { display: none; }
       .care-symbols { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
@@ -587,10 +598,34 @@
   <div class="features-strip">
     <div class="features-inner">
       <div class="features-grid">
-        <div class="feature-item"><div class="feature-icon">🏷️</div><div class="feature-title">Name &amp; Role Badges</div><p class="feature-body">Removable clip badges, proven to improve staff recognition by 95.9%</p></div>
-        <div class="feature-item"><div class="feature-icon">🧺</div><div class="feature-title">Centrally Launderable</div><p class="feature-body">Meets NHS infection control standards — washes at 70°C</p></div>
-        <div class="feature-item"><div class="feature-icon">🎨</div><div class="feature-title">14 Colours</div><p class="feature-body">Match your scrubs for a coordinated, professional team appearance</p></div>
-        <div class="feature-item"><div class="feature-icon">💪</div><div class="feature-title">100+ Wash Durability</div><p class="feature-body">Industrial wash cycles without loss of shape, colour, or structure</p></div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/><path d="M8 12h.01M16 12h.01"/></svg>
+          </div>
+          <div class="feature-title">Name &amp; Role Badges</div>
+          <p class="feature-body">Removable clip badges, proven to improve staff recognition by 95.9%</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l1 14h16l1-14"/><path d="M1 6h22"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M8 11c0 2 1 3 4 3s4-1 4-3"/></svg>
+          </div>
+          <div class="feature-title">Centrally Launderable</div>
+          <p class="feature-body">Meets NHS infection control standards — washes at 70°C</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </div>
+          <div class="feature-title">14 Colours Available</div>
+          <p class="feature-body">Match your scrubs for a coordinated, professional team appearance</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </div>
+          <div class="feature-title">100+ Wash Durability</div>
+          <p class="feature-body">Industrial wash cycles without loss of shape, colour, or structure</p>
+        </div>
       </div>
     </div>
   </div>
@@ -599,17 +634,24 @@
   <!-- CALCULATOR BANNER -->
   <div class="calc-banner">
     <div class="calc-banner-inner">
-      <div class="calc-banner-text">
-        <div class="calc-banner-label">💰 Cost Savings Calculator</div>
-        <div class="calc-banner-title">See exactly how much your trust could save</div>
-        <div class="calc-banner-sub">NHS trusts save up to 90% vs disposables. Enter your theatre team size and get an instant breakdown.</div>
+      <div class="calc-banner-icon-wrap">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#4ccf8a;"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 12h.01M12 12h.01M16 12h.01M8 17h.01M12 17h.01M16 17h.01"/></svg>
       </div>
-      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+      <div class="calc-banner-text">
+        <div class="calc-banner-label">Cost Savings Calculator</div>
+        <div class="calc-banner-title">See exactly how much your trust could save</div>
+        <div class="calc-banner-sub">NHS trusts save up to 90% vs disposables. Enter your theatre team size and get an instant projected breakdown.</div>
+      </div>
+      <div class="calc-stats-row">
         <div class="calc-stat"><span class="calc-stat-num">90%</span><span class="calc-stat-label">Waste Reduction</span></div>
         <div class="calc-stat"><span class="calc-stat-num">£000s</span><span class="calc-stat-label">Annual Savings</span></div>
-        <div class="calc-banner-actions">
-          <a href="calculator.html" class="btn-calc">⚡ Calculate My Savings</a>
-        </div>
+        <div class="calc-stat"><span class="calc-stat-num">100+</span><span class="calc-stat-label">Wash Cycles</span></div>
+      </div>
+      <div class="calc-banner-actions">
+        <a href="calculator.html" class="btn-calc">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 12h.01M12 12h.01M16 12h.01M8 17h.01M12 17h.01M16 17h.01"/></svg>
+          Calculate My Savings
+        </a>
       </div>
     </div>
   </div>
