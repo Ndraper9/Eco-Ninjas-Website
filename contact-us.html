@@ -286,7 +286,7 @@
             </div>
             <div class="contact-info-item">
               <div class="contact-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div><div class="contact-info-label">Email</div><div class="contact-info-value"><a href="mailto:sales@econinjas.co.uk">sales@econinjas.co.uk</a></div></div>
+              <div><div class="contact-info-label">Email</div><div class="contact-info-value"><a href="/cdn-cgi/l/email-protection#1c6f7d70796f5c797f73727572767d6f327f73326977"><span class="__cf_email__" data-cfemail="98ebf9f4fdebd8fdfbf7f6f1f6f2f9ebb6fbf7b6edf3">[email&#160;protected]</span></a></div></div>
             </div>
             <div class="contact-info-item">
               <div class="contact-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -391,7 +391,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
     const toggle = document.getElementById('menuToggle');
@@ -424,7 +424,7 @@
 
   <script>
     // ─── API URL — update once Railway is deployed ────────────────────────────
-    const API_BASE = 'https://your-railway-app.railway.app';
+    const API_BASE = 'https://eco-ninjas-api-production.up.railway.app';
 
     // ─── HEADER SCROLL ────────────────────────────────────────────────────────
     const header = document.getElementById('header');
@@ -520,11 +520,4 @@
         statusEl.textContent = '✗ ' + (err.message || 'Failed to send. Please try calling 0330 102 5810.');
       } finally {
         btn.disabled = false;
-        const labels = { general: 'Send Enquiry', account: 'Submit Account Application', prices: 'Send Me the Price Lists' };
-        btn.innerHTML = labels[formId];
-      }
-    }
-  </script>
-  <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
-</body>
-</html>
+        const labels = { genera
