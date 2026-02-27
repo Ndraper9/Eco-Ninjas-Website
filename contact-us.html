@@ -491,4 +491,11 @@
         statusEl.textContent = '✗ ' + (err.message || 'Failed to send. Please try calling 0330 102 5810.');
       } finally {
         btn.disabled = false;
-        const labels = { genera
+        const labels = { general: 'Send Enquiry', account: 'Submit Account Application', prices: 'Send Me the Price Lists' };
+        btn.innerHTML = labels[formId];
+      }
+    }
+  </script>
+  <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+</body>
+</html>
