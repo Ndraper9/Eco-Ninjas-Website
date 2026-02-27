@@ -69,7 +69,32 @@
 
     @media (max-width: 900px) { .benefit-layout { grid-template-columns: 1fr; } .benefit-tabs { overflow-x: auto; } .nz-grid { grid-template-columns: 1fr; } .additional-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 600px) { .additional-grid { grid-template-columns: 1fr; } .benefit-tab { padding: 12px 16px; font-size: 0.82rem; } }
-  </style>
+  
+    /* ─── NEWSLETTER BAND ─── */
+    .newsletter-band { background: var(--green-deep); padding: 56px 0; position: relative; overflow: hidden; }
+    .newsletter-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(76,175,125,0.1) 0%, transparent 60%); pointer-events: none; }
+    .newsletter-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 480px; gap: 60px; align-items: center; position: relative; }
+    .newsletter-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); margin-bottom: 10px; }
+    .newsletter-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 10px; }
+    .newsletter-sub { font-size: 0.9rem; color: #7aab8e; line-height: 1.65; }
+    .newsletter-form { display: flex; flex-direction: column; gap: 12px; }
+    .newsletter-row { display: flex; gap: 10px; }
+    .newsletter-input { flex: 1; padding: 13px 16px; border: 1px solid rgba(76,175,125,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s, background 0.2s; }
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.35); }
+    .newsletter-input:focus { border-color: var(--green-light); background: rgba(255,255,255,0.1); }
+    .newsletter-btn { padding: 13px 22px; background: var(--green-light); color: var(--green-deep); border: none; border-radius: 8px; font-size: 0.88rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+    .newsletter-btn:hover:not(:disabled) { background: #fff; transform: translateY(-1px); }
+    .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .newsletter-name { width: 100%; padding: 13px 16px; border: 1px solid rgba(76,175,125,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; }
+    .newsletter-name::placeholder { color: rgba(255,255,255,0.35); }
+    .newsletter-name:focus { border-color: var(--green-light); }
+    .newsletter-note { font-size: 0.72rem; color: #5a8070; }
+    .newsletter-status { font-size: 0.85rem; font-weight: 600; padding: 10px 14px; border-radius: 6px; display: none; }
+    .newsletter-status.success { background: rgba(76,175,125,0.15); color: var(--green-light); display: block; }
+    .newsletter-status.error   { background: rgba(224,90,43,0.15); color: #f08060; display: block; }
+    @media (max-width: 900px) { .newsletter-inner { grid-template-columns: 1fr; gap: 32px; } .newsletter-row { flex-direction: column; } }
+    @media (max-width: 640px) { .newsletter-inner { padding: 0 20px; } }
+</style>
 </head>
 <body>
   <div class="topbar"><div class="topbar-inner"><span>Working towards a safer &amp; more sustainable NHS</span><div class="topbar-right"><a href="https://app.econinjas.co.uk/econinjas-portal">Order Portal</a><span class="topbar-badge">Net Zero Committed</span><a href="tel:+443301025810">0330 102 5810</a></div></div></div>
@@ -219,7 +244,7 @@
 
   <div class="cta-band"><div class="cta-inner"><div><h2 class="cta-title">See These Benefits in Your Trust</h2><p class="cta-sub">Join the growing number of NHS hospitals saving money while improving care.</p></div><div class="cta-actions"><a href="contact-us.html" class="btn-primary">Request Sample Pack</a><a href="calculator.html" class="btn-white">Calculate Savings</a></div></div></div>
 
-  <div class="accred-strip"><div class="accred-strip-inner"><p class="accred-strip-label">Trusted credentials &amp; certifications</p><div class="accred-logos"><a href="https://static.wixstatic.com/media/bee7e3_af53c48345c14a3691766a09b0120ca7~mv2.jpg" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_c89409b881444048be2e9cf5912382de~mv2.jpg" alt="ISO 9001" /><span>ISO 9001 Certified</span></a><a href="https://www.birmingham.ac.uk/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_7f6346f65eff4bc6b34eb7011f9b2384~mv2.png" alt="Birmingham University" /><span>University Research</span></a><a href="https://medbis.mediq.co.uk/manufacturer/eco-ninjas/surgical-supplies/theatre-apparel/headwear" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_499e534783bb454da78d464a6bcb5939~mv2.png" alt="Mediq" /><span>NHS Framework Supplier</span></a><a href="https://www.madeinbritain.org/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_a0ddff1fa4b34ca7b35322b6d8ffb469~mv2.jpg" alt="Made in Britain" /><span>Made in Britain</span></a><a href="http://thecarbonstamp.com" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_1bcc6c0b6ba3431ca685b7ecf9a65e26~mv2.png" alt="Carbon Stamp" /><span>Carbon Stamp Verified</span></a><a href="https://registry.blockmarktech.com/certificates/989ff22c-4ba0-4bf1-8d6d-2a478ab67aa7/?share_key=i1S9mVubuLE4dTgEkEEk8eh2y3INi-t6Fo84YW5H58w" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_477dceb0212a4f9395d1b7cff431367e~mv2.png" alt="Cyber Essentials+" /><span>Cyber Essentials+</span></a></div></div></div>
+  <div class="accred-strip"><div class="accred-strip-inner"><p class="accred-strip-label">Trusted credentials &amp; certifications</p><div class="accred-logos"><a href="https://www.british-assessment.co.uk/verify/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_c89409b881444048be2e9cf5912382de~mv2.jpg" alt="ISO 9001" /><span>ISO 9001 Certified</span></a><a href="https://www.birmingham.ac.uk/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_7f6346f65eff4bc6b34eb7011f9b2384~mv2.png" alt="Birmingham University" /><span>University Research</span></a><a href="https://medbis.mediq.co.uk/manufacturer/eco-ninjas/surgical-supplies/theatre-apparel/headwear" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_499e534783bb454da78d464a6bcb5939~mv2.png" alt="Mediq" /><span>NHS Framework Supplier</span></a><a href="https://www.madeinbritain.org/" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_a0ddff1fa4b34ca7b35322b6d8ffb469~mv2.jpg" alt="Made in Britain" /><span>Made in Britain</span></a><a href="http://thecarbonstamp.com" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_1bcc6c0b6ba3431ca685b7ecf9a65e26~mv2.png" alt="Carbon Stamp" /><span>Carbon Stamp Verified</span></a><a href="https://registry.blockmarktech.com/certificates/989ff22c-4ba0-4bf1-8d6d-2a478ab67aa7/?share_key=i1S9mVubuLE4dTgEkEEk8eh2y3INi-t6Fo84YW5H58w" target="_blank" class="accred-item" rel="noopener"><img src="https://static.wixstatic.com/media/bee7e3_477dceb0212a4f9395d1b7cff431367e~mv2.png" alt="Cyber Essentials+" /><span>Cyber Essentials+</span></a></div></div></div>
 <footer>
     <div class="footer-inner">
       <div class="footer-grid">
@@ -303,5 +328,38 @@
     const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
+
+  <script>
+    async function subscribeNewsletter(btn) {
+      const API_BASE = 'https://eco-ninjas-api-production.up.railway.app';
+      const email = document.getElementById('nl-email').value.trim();
+      const name  = document.getElementById('nl-name').value.trim();
+      const status = document.getElementById('nl-status');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        status.className = 'newsletter-status error';
+        status.textContent = '⚠ Please enter a valid email address.';
+        return;
+      }
+      btn.disabled = true; btn.textContent = 'Subscribing...';
+      status.className = 'newsletter-status';
+      try {
+        const res = await fetch(API_BASE + '/api/newsletter', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, source: window.location.pathname })
+        });
+        const json = await res.json();
+        if (json.success) {
+          status.className = 'newsletter-status success';
+          status.textContent = "✓ You're subscribed! Check your inbox for a welcome email.";
+          document.getElementById('nl-email').value = '';
+          document.getElementById('nl-name').value = '';
+        } else { throw new Error(json.message); }
+      } catch (err) {
+        status.className = 'newsletter-status error';
+        status.textContent = '✗ ' + (err.message || 'Something went wrong. Please try again.');
+      } finally { btn.disabled = false; btn.textContent = 'Subscribe →'; }
+    }
+  </script>
+
 </body>
 </html>
