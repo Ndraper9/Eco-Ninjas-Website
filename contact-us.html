@@ -129,6 +129,24 @@
 
   @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } .contact-sidebar { order: -1; } .form-row { grid-template-columns: 1fr; } }
   @media (max-width: 480px) { .contact-tabs { flex-direction: column; } .contact-tab { text-align: center; } }
+  /* ─── SUCCESS MODAL ─── */
+  .success-modal-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+    z-index: 9999; align-items: center; justify-content: center;
+  }
+  .success-modal-overlay.visible { display: flex; }
+  .success-modal {
+    background: #fff; border-radius: 18px; padding: 48px 40px; max-width: 420px;
+    width: 90%; text-align: center; box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal-icon { width: 64px; height: 64px; background: rgba(45,122,79,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--green-deep); margin-bottom: 10px; }
+  .modal-msg { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 24px; }
+  .modal-countdown { font-size: 0.85rem; color: var(--text-light); }
+  .modal-countdown span { font-weight: 700; color: var(--green-mid); font-size: 1.1rem; }
+
 </style>
 </head>
 <body>
@@ -305,6 +323,19 @@
     </div>
   </footer>
 
+  <!-- SUCCESS MODAL -->
+  <div class="success-modal-overlay" id="successModal">
+    <div class="success-modal">
+      <div class="modal-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2d7a4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="modal-title" id="modalTitle">Message Sent!</div>
+      <p class="modal-msg" id="modalMsg">Thank you for getting in touch. We'll be in touch shortly.</p>
+      <p class="modal-countdown">Redirecting to home page in <span id="modalCount">5</span>...</p>
+    </div>
+  </div>
+
+
   <script>
     var API = 'https://eco-ninjas-api-production.up.railway.app';
     var hdr = document.getElementById('header');
@@ -333,7 +364,7 @@
       if (!trust || !name || !email || !msg) { setStatus('general','err','Please fill in all required fields.'); return; }
       btn.disabled = true; btn.textContent = 'Sending...';
       fetch(API + '/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ trust:trust, name:name, email:email, phone:document.getElementById('g-phone').value, enquiryType:document.getElementById('g-type').value, message:msg, source:document.getElementById('g-source').value }) })
-      .then(function(r){ return r.json(); }).then(function(j){ setStatus('general', j.success ? 'ok' : 'err', j.success ? 'Sent! We will be in touch within a few hours.' : (j.message || 'Something went wrong.')); })
+      .then(function(r){ return r.json(); }).then(function(j){ if(j.success){ showModal('Message Sent!', 'Thank you for your enquiry. We will be in touch within a few hours.'); } else { setStatus('general','err', j.message || 'Something went wrong.'); } })
       .catch(function(){ setStatus('general','err','Failed. Please call 0330 102 5810.'); })
       .finally(function(){ btn.disabled = false; btn.textContent = 'Send Enquiry'; });
     }
@@ -343,7 +374,7 @@
       for (var i=0; i<fields.length; i++) { if (!document.getElementById(fields[i]).value.trim()) { setStatus('account','err','Please fill in all required fields.'); return; } }
       btn.disabled = true; btn.textContent = 'Sending...';
       fetch(API + '/api/open-account', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name:document.getElementById('a-name').value, email:document.getElementById('a-email').value, phone:document.getElementById('a-phone').value, trust:document.getElementById('a-trust').value, address:document.getElementById('a-address').value, city:document.getElementById('a-city').value, postcode:document.getElementById('a-postcode').value, staffCount:document.getElementById('a-staff').value, financeEmail:document.getElementById('a-finance').value, hatRange:document.getElementById('a-range').value, source:document.getElementById('a-source').value, comments:document.getElementById('a-comments').value }) })
-      .then(function(r){ return r.json(); }).then(function(j){ setStatus('account', j.success ? 'ok' : 'err', j.success ? 'Application submitted! We will be in touch within 1 business day.' : (j.message || 'Something went wrong.')); })
+      .then(function(r){ return r.json(); }).then(function(j){ if(j.success){ showModal('Application Submitted!', 'Thank you! We will review your application and be in touch within 1 business day.'); } else { setStatus('account','err', j.message || 'Something went wrong.'); } })
       .catch(function(){ setStatus('account','err','Failed. Please call 0330 102 5810.'); })
       .finally(function(){ btn.disabled = false; btn.textContent = 'Submit Account Application'; });
     }
@@ -400,7 +431,7 @@
       btn.disabled = true; btn.textContent = 'Sending...';
       fetch(API + '/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ trust:trust, name:name, email:email, phone:document.getElementById('g-phone').value, enquiryType:document.getElementById('g-type').value, message:msg, source:document.getElementById('g-source').value }) })
       .then(function(r){ return r.json(); })
-      .then(function(j){ setStatus('general', j.success ? 'ok' : 'err', j.success ? 'Sent! We will be in touch within a few hours.' : (j.message || 'Something went wrong.')); })
+      .then(function(j){ if(j.success){ showModal('Message Sent!', 'Thank you for your enquiry. We will be in touch within a few hours.'); } else { setStatus('general','err', j.message || 'Something went wrong.'); } })
       .catch(function(){ setStatus('general','err','Failed. Please call 0330 102 5810.'); })
       .finally(function(){ btn.disabled = false; btn.textContent = 'Send Enquiry →'; });
     }
@@ -411,9 +442,25 @@
       btn.disabled = true; btn.textContent = 'Sending...';
       fetch(API + '/api/open-account', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name:document.getElementById('a-name').value, email:document.getElementById('a-email').value, phone:document.getElementById('a-phone').value, trust:document.getElementById('a-trust').value, address:document.getElementById('a-address').value, city:document.getElementById('a-city').value, postcode:document.getElementById('a-postcode').value, staffCount:document.getElementById('a-staff').value, financeEmail:document.getElementById('a-finance').value, hatRange:document.getElementById('a-range').value, source:document.getElementById('a-source').value, comments:document.getElementById('a-comments').value }) })
       .then(function(r){ return r.json(); })
-      .then(function(j){ setStatus('account', j.success ? 'ok' : 'err', j.success ? 'Application submitted! We will be in touch within 1 business day.' : (j.message || 'Something went wrong.')); })
+      .then(function(j){ if(j.success){ showModal('Application Submitted!', 'Thank you! We will review your application and be in touch within 1 business day.'); } else { setStatus('account','err', j.message || 'Something went wrong.'); } })
       .catch(function(){ setStatus('account','err','Failed. Please call 0330 102 5810.'); })
       .finally(function(){ btn.disabled = false; btn.textContent = 'Submit Account Application →'; });
+    }
+
+    function showModal(title, msg) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalMsg').textContent = msg;
+      document.getElementById('successModal').classList.add('visible');
+      var count = 5;
+      var el = document.getElementById('modalCount');
+      var timer = setInterval(function() {
+        count--;
+        el.textContent = count;
+        if (count <= 0) {
+          clearInterval(timer);
+          window.location.href = 'index.html';
+        }
+      }, 1000);
     }
   </script>
 </body>
