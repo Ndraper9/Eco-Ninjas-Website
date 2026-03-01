@@ -178,7 +178,7 @@
             </div>
             <div class="cinfo-item">
               <div class="cinfo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div><div class="cinfo-lbl">Email</div><div class="cinfo-val"><a href="mailto:sales@econinjas.co.uk">sales@econinjas.co.uk</a></div></div>
+              <div><div class="cinfo-lbl">Email</div><div class="cinfo-val"><a href="/cdn-cgi/l/email-protection#ed9e8c81889ead888e82838483878c9ec38e82c39886"><span class="__cf_email__" data-cfemail="9eedfff2fbeddefbfdf1f0f7f0f4ffedb0fdf1b0ebf5">[email&#160;protected]</span></a></div></div>
             </div>
             <div class="cinfo-item">
               <div class="cinfo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -282,9 +282,9 @@
       if (!lists.length) { setStatus('prices','err','Please select at least one price list.'); return; }
       btn.disabled = true; btn.textContent = 'Sending...';
       fetch(API + '/api/request-prices', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ trust:trust, name:name, email:email, phone:document.getElementById('p-phone').value, area:document.getElementById('p-area').value, staffCount:staff, laundryType:laundry, priceLists:lists, timing:document.getElementById('p-timing').value, source:document.getElementById('p-source').value, comments:document.getElementById('p-comments').value }) })
-      .then(function(r){ return r.json(); }).then(function(j){ setStatus('prices', j.success ? 'ok' : 'err', j.success ? 'Price lists sent! Check your inbox.' : (j.message || 'Something went wrong.')); })
+      .then(function(r){ return r.json(); }).then(function(j){ setStatus('prices', j.success ? 'ok' : 'err', j.success ? 'Price lists sent! Check your inbox.' : (j.message || 'Something went wrong.'); })
       .catch(function(){ setStatus('prices','err','Failed. Please call 0330 102 5810.'); })
-      .finally(function(){ btn.disabled = false; btn.textContent = 'Send Me the Price Lists'; });
+      .finally(function(){ btn.disabled = false; btn.textContent = 'Request Price Lists'; });
     }
   </script>
 </body>
