@@ -282,7 +282,7 @@
       if (!lists.length) { setStatus('prices','err','Please select at least one price list.'); return; }
       btn.disabled = true; btn.textContent = 'Sending...';
       fetch(API + '/api/request-prices', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ trust:trust, name:name, email:email, phone:document.getElementById('p-phone').value, area:document.getElementById('p-area').value, staffCount:staff, laundryType:laundry, priceLists:lists, timing:document.getElementById('p-timing').value, source:document.getElementById('p-source').value, comments:document.getElementById('p-comments').value }) })
-      .then(function(r){ return r.json(); }).then(function(j){ setStatus('prices', j.success ? 'ok' : 'err', j.success ? 'Price lists sent! Check your inbox.' : (j.message || 'Something went wrong.'); })
+      .then(function(r){ return r.json(); }).then(function(j){ setStatus('prices', j.success ? 'ok' : 'err', j.success ? 'Price lists sent! Check your inbox.' : (j.message || 'Something went wrong.')); })
       .catch(function(){ setStatus('prices','err','Failed. Please call 0330 102 5810.'); })
       .finally(function(){ btn.disabled = false; btn.textContent = 'Request Price Lists'; });
     }
