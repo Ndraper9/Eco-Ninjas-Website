@@ -63,18 +63,18 @@
     .cat-btn:hover, .cat-btn.active { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
 
     /* ─── RESOURCE LIST ROWS ─── */
-    .resource-list { display: flex; flex-direction: column; gap: 10px; }
-    .res-row { display: flex; align-items: center; gap: 20px; background: #fff; border: 1px solid rgba(45,122,79,0.35); border-radius: 12px; padding: 18px 22px; transition: all 0.22s; }
-    .res-row:hover { border-color: var(--green-mid); box-shadow: 0 4px 20px rgba(14,45,31,0.09); transform: translateX(4px); }
-    .res-row-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .icon-case { background: rgba(76,175,125,0.1); color: var(--green-mid); }
-    .icon-sop { background: rgba(0,94,184,0.09); color: var(--nhs-blue); }
-    .icon-research { background: rgba(200,168,75,0.12); color: var(--gold); }
-    .icon-testing { background: rgba(130,50,180,0.09); color: #7b1fa2; }
-    .icon-guide { background: rgba(230,120,30,0.1); color: #c06010; }
-    .icon-poster { background: rgba(220,50,90,0.09); color: #b01040; }
-    .res-row-body { flex: 1; min-width: 0; }
-    .res-row-type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2px; }
+    .resource-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .res-row { display: flex; gap: 20px; align-items: flex-start; background: var(--green-pale); border: 1px solid rgba(45,122,79,0.2); border-left: 4px solid var(--green-mid); border-radius: 12px; padding: 24px; transition: all 0.25s; }
+    .res-row:hover { border-left-color: var(--green-bright); box-shadow: 0 8px 32px rgba(14,45,31,0.1); transform: translateY(-2px); }
+    .res-row-icon { width: 48px; height: 48px; background: #fff; border: 2px solid rgba(45,122,79,0.35); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icon-case { color: var(--green-mid); }
+    .icon-sop { color: var(--nhs-blue); }
+    .icon-research { color: var(--gold); }
+    .icon-testing { color: #7b1fa2; }
+    .icon-guide { color: #c06010; }
+    .icon-poster { color: #b01040; }
+    .res-row-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+    .res-row-type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
     .type-col-case { color: var(--green-bright); }
     .type-col-sop { color: var(--nhs-blue); }
     .type-col-research { color: var(--gold); }
@@ -83,7 +83,7 @@
     .type-col-poster { color: #b01040; }
     .res-row-title { font-weight: 700; font-size: 0.9rem; color: var(--text-dark); margin-bottom: 2px; line-height: 1.35; }
     .res-row-meta { font-size: 0.73rem; color: var(--text-light); }
-    .res-row-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .res-row-right { display: flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 14px; }
     .res-tag { font-size: 0.61rem; font-weight: 700; padding: 3px 9px; border-radius: 8px; letter-spacing: 0.06em; text-transform: uppercase; }
     .res-tag-hot { background: rgba(224,90,43,0.1); color: #c04010; border: 1px solid rgba(224,90,43,0.2); }
     .res-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 0.77rem; font-weight: 700; color: var(--green-deep); background: var(--green-pale); border: 1px solid rgba(45,122,79,0.2); padding: 8px 14px; border-radius: 8px; text-decoration: none; transition: all 0.18s; white-space: nowrap; }
@@ -127,6 +127,7 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .featured-row { grid-template-columns: 1fr; }
+      .resource-list { grid-template-columns: 1fr; }
       .video-grid { grid-template-columns: repeat(2, 1fr); }
       .hub-stats { flex-wrap: wrap; }
     }
@@ -135,8 +136,8 @@
       .hub-tabs-inner { padding: 0 8px; overflow-x: auto; scrollbar-width: none; }
       .hub-tab { padding: 14px 14px; font-size: 0.76rem; }
       .video-grid { grid-template-columns: 1fr; }
+      .resource-list { grid-template-columns: 1fr; }
       .res-row { flex-wrap: wrap; gap: 12px; }
-      .res-row-right { width: 100%; justify-content: flex-end; }
     }
   </style>
 </head>
