@@ -7,26 +7,26 @@
 
 <!-- NEWSLETTER BAND CSS — add once to <style> block of each page -->
 <style>
-  .newsletter-band { background: var(--green-deep); padding: 56px 0; position: relative; overflow: hidden; }
-  .newsletter-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(76,175,125,0.1) 0%, transparent 60%); pointer-events: none; }
+  .newsletter-band { background: var(--blue-deep); padding: 56px 0; position: relative; overflow: hidden; }
+  .newsletter-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(91,159,212,0.1) 0%, transparent 60%); pointer-events: none; }
   .newsletter-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 480px; gap: 60px; align-items: center; position: relative; }
-  .newsletter-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); margin-bottom: 10px; }
+  .newsletter-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 10px; }
   .newsletter-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 10px; }
-  .newsletter-sub { font-size: 0.9rem; color: #7aab8e; line-height: 1.65; }
+  .newsletter-sub { font-size: 0.9rem; color: #7aaec8; line-height: 1.65; }
   .newsletter-form { display: flex; flex-direction: column; gap: 12px; }
   .newsletter-row { display: flex; gap: 10px; }
-  .newsletter-input { flex: 1; padding: 13px 16px; border: 1px solid rgba(76,175,125,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s, background 0.2s; }
+  .newsletter-input { flex: 1; padding: 13px 16px; border: 1px solid rgba(91,159,212,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s, background 0.2s; }
   .newsletter-input::placeholder { color: rgba(255,255,255,0.35); }
-  .newsletter-input:focus { border-color: var(--green-light); background: rgba(255,255,255,0.1); }
-  .newsletter-btn { padding: 13px 22px; background: var(--green-light); color: var(--green-deep); border: none; border-radius: 8px; font-size: 0.88rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .newsletter-input:focus { border-color: var(--blue-light); background: rgba(255,255,255,0.1); }
+  .newsletter-btn { padding: 13px 22px; background: var(--blue-light); color: var(--blue-deep); border: none; border-radius: 8px; font-size: 0.88rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
   .newsletter-btn:hover:not(:disabled) { background: #fff; transform: translateY(-1px); }
   .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-  .newsletter-name { width: 100%; padding: 13px 16px; border: 1px solid rgba(76,175,125,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; }
+  .newsletter-name { width: 100%; padding: 13px 16px; border: 1px solid rgba(91,159,212,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; }
   .newsletter-name::placeholder { color: rgba(255,255,255,0.35); }
-  .newsletter-name:focus { border-color: var(--green-light); }
-  .newsletter-note { font-size: 0.72rem; color: #5a8070; }
+  .newsletter-name:focus { border-color: var(--blue-light); }
+  .newsletter-note { font-size: 0.72rem; color: #5a789a; }
   .newsletter-status { font-size: 0.85rem; font-weight: 600; padding: 10px 14px; border-radius: 6px; display: none; }
-  .newsletter-status.success { background: rgba(76,175,125,0.15); color: var(--green-light); display: block; }
+  .newsletter-status.success { background: rgba(91,159,212,0.15); color: var(--blue-light); display: block; }
   .newsletter-status.error   { background: rgba(224,90,43,0.15); color: #f08060; display: block; }
   @media (max-width: 900px) { .newsletter-inner { grid-template-columns: 1fr; gap: 32px; } .newsletter-row { flex-direction: column; } }
   @media (max-width: 640px) { .newsletter-inner { padding: 0 20px; } }
@@ -55,7 +55,7 @@
 <!-- NEWSLETTER JS — add once per page (or move to a shared script) -->
 <script>
   async function subscribeNewsletter(btn) {
-    const API_BASE = 'https://your-railway-app.railway.app'; // ← update after Railway deploy
+    const API_BASE = 'https://eco-ninjas-api-production.up.railway.app';
     const email = document.getElementById('nl-email').value.trim();
     const name  = document.getElementById('nl-name').value.trim();
     const status = document.getElementById('nl-status');

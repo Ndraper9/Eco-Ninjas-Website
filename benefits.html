@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* ─── BENEFIT TABS ─── */
-    .benefit-tabs { display: flex; gap: 0; border-bottom: 2px solid rgba(45,122,79,0.15); margin-bottom: 56px; }
+    .benefit-tabs { display: flex; gap: 0; border-bottom: 2px solid rgba(38,107,178,0.15); margin-bottom: 56px; }
     .benefit-tab { padding: 14px 28px; font-size: 0.88rem; font-weight: 600; color: var(--text-light); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; white-space: nowrap; }
-    .benefit-tab.active { color: var(--green-mid); border-bottom-color: var(--green-mid); }
+    .benefit-tab.active { color: var(--blue-mid); border-bottom-color: var(--blue-mid); }
     .benefit-tab:hover:not(.active) { color: var(--text-mid); }
 
     /* ─── BENEFIT PANEL ─── */
@@ -22,47 +22,47 @@
     .benefit-layout { display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: start; }
     .benefit-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
     .badge-financial { background: rgba(200,168,75,0.15); color: var(--gold); border: 1px solid rgba(200,168,75,0.3); }
-    .badge-environmental { background: rgba(76,175,125,0.15); color: var(--green-bright); border: 1px solid rgba(76,175,125,0.3); }
+    .badge-environmental { background: rgba(91,159,212,0.15); color: var(--blue-bright); border: 1px solid rgba(91,159,212,0.3); }
     .badge-clinical { background: rgba(0,94,184,0.1); color: var(--nhs-blue); border: 1px solid rgba(0,94,184,0.2); }
     .benefit-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700; color: var(--text-dark); margin-bottom: 16px; line-height: 1.15; }
     .benefit-body { font-size: 1rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 28px; }
     .benefit-checklist { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
     .benefit-check { display: flex; gap: 12px; align-items: flex-start; }
-    .check-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--green-pale); border: 2px solid var(--green-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.7rem; color: var(--green-mid); margin-top: 1px; }
+    .check-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--blue-pale); border: 2px solid var(--blue-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.7rem; color: var(--blue-mid); margin-top: 1px; }
     .check-text { font-size: 0.92rem; color: var(--text-mid); line-height: 1.5; }
     .check-text strong { color: var(--text-dark); font-weight: 600; }
 
     /* ─── STATS SIDEBAR ─── */
     .stats-sidebar { display: flex; flex-direction: column; gap: 16px; }
-    .stat-highlight { background: var(--green-deep); border-radius: 14px; padding: 28px; text-align: center; }
-    .stat-highlight-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--green-light); display: block; line-height: 1; }
-    .stat-highlight-label { font-size: 0.82rem; color: #7aab8e; margin-top: 8px; line-height: 1.4; }
-    .calc-box { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 14px; padding: 24px; }
-    .calc-box-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 16px; }
-    .calc-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--green-pale); font-size: 0.83rem; }
-    .calc-row:last-child { border-bottom: none; font-weight: 700; color: var(--green-mid); }
+    .stat-highlight { background: var(--blue-deep); border-radius: 14px; padding: 28px; text-align: center; }
+    .stat-highlight-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--blue-light); display: block; line-height: 1; }
+    .stat-highlight-label { font-size: 0.82rem; color: #7aaec8; margin-top: 8px; line-height: 1.4; }
+    .calc-box { background: var(--white); border: 1px solid rgba(38,107,178,0.35); border-radius: 14px; padding: 24px; }
+    .calc-box-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 16px; }
+    .calc-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--blue-pale); font-size: 0.83rem; }
+    .calc-row:last-child { border-bottom: none; font-weight: 700; color: var(--blue-mid); }
     .calc-label { color: var(--text-mid); }
     .calc-value { color: var(--text-dark); font-weight: 600; }
     .quote-block { background: rgba(0,94,184,0.06); border-left: 3px solid var(--nhs-blue); border-radius: 0 10px 10px 0; padding: 20px; margin-top: 16px; }
     .quote-text { font-size: 0.88rem; line-height: 1.65; color: var(--text-mid); font-style: italic; margin-bottom: 8px; }
-    .quote-source { font-size: 0.75rem; font-weight: 600; color: var(--green-bright); }
+    .quote-source { font-size: 0.75rem; font-weight: 600; color: var(--blue-bright); }
 
     /* ─── NET ZERO SECTION ─── */
-    .net-zero { background: var(--green-deep); }
+    .net-zero { background: var(--blue-deep); }
     .net-zero .section-title { color: #fff; }
-    .net-zero .section-label { color: var(--green-light); }
-    .net-zero .section-body { color: #7aab8e; max-width: 100%; }
+    .net-zero .section-label { color: var(--blue-light); }
+    .net-zero .section-body { color: #7aaec8; max-width: 100%; }
     .nz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-    .nz-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(76,175,125,0.15); border-radius: 14px; padding: 28px; text-align: center; }
+    .nz-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(91,159,212,0.15); border-radius: 14px; padding: 28px; text-align: center; }
     .nz-icon { font-size: 2rem; margin-bottom: 12px; }
     .nz-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-    .nz-label { font-size: 0.78rem; color: var(--green-light); font-weight: 600; margin-bottom: 10px; }
-    .nz-body { font-size: 0.85rem; color: #7aab8e; line-height: 1.5; }
+    .nz-label { font-size: 0.78rem; color: var(--blue-light); font-weight: 600; margin-bottom: 10px; }
+    .nz-body { font-size: 0.85rem; color: #7aaec8; line-height: 1.5; }
 
     /* ─── ADDITIONAL BENEFITS ─── */
     .additional-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .additional-item { background: var(--white); border: 1px solid rgba(45,122,79,0.35); border-radius: 12px; padding: 24px; display: flex; gap: 14px; align-items: flex-start; transition: all 0.2s; }
-    .additional-item:hover { border-color: rgba(45,122,79,0.5); box-shadow: 0 6px 24px rgba(14,45,31,0.07); }
+    .additional-item { background: var(--white); border: 1px solid rgba(38,107,178,0.35); border-radius: 12px; padding: 24px; display: flex; gap: 14px; align-items: flex-start; transition: all 0.2s; }
+    .additional-item:hover { border-color: rgba(38,107,178,0.5); box-shadow: 0 6px 24px rgba(9,30,58,0.07); }
     .additional-icon { font-size: 1.8rem; flex-shrink: 0; }
     .additional-title { font-weight: 700; font-size: 0.88rem; color: var(--text-dark); margin-bottom: 5px; }
     .additional-body { font-size: 0.83rem; color: var(--text-mid); line-height: 1.5; }
@@ -71,26 +71,26 @@
     @media (max-width: 600px) { .additional-grid { grid-template-columns: 1fr; } .benefit-tab { padding: 12px 16px; font-size: 0.82rem; } }
   
     /* ─── NEWSLETTER BAND ─── */
-    .newsletter-band { background: var(--green-deep); padding: 56px 0; position: relative; overflow: hidden; }
-    .newsletter-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(76,175,125,0.1) 0%, transparent 60%); pointer-events: none; }
+    .newsletter-band { background: var(--blue-deep); padding: 56px 0; position: relative; overflow: hidden; }
+    .newsletter-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(91,159,212,0.1) 0%, transparent 60%); pointer-events: none; }
     .newsletter-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 480px; gap: 60px; align-items: center; position: relative; }
-    .newsletter-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); margin-bottom: 10px; }
+    .newsletter-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 10px; }
     .newsletter-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 10px; }
-    .newsletter-sub { font-size: 0.9rem; color: #7aab8e; line-height: 1.65; }
+    .newsletter-sub { font-size: 0.9rem; color: #7aaec8; line-height: 1.65; }
     .newsletter-form { display: flex; flex-direction: column; gap: 12px; }
     .newsletter-row { display: flex; gap: 10px; }
-    .newsletter-input { flex: 1; padding: 13px 16px; border: 1px solid rgba(76,175,125,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s, background 0.2s; }
+    .newsletter-input { flex: 1; padding: 13px 16px; border: 1px solid rgba(91,159,212,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s, background 0.2s; }
     .newsletter-input::placeholder { color: rgba(255,255,255,0.35); }
-    .newsletter-input:focus { border-color: var(--green-light); background: rgba(255,255,255,0.1); }
-    .newsletter-btn { padding: 13px 22px; background: var(--green-light); color: var(--green-deep); border: none; border-radius: 8px; font-size: 0.88rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+    .newsletter-input:focus { border-color: var(--blue-light); background: rgba(255,255,255,0.1); }
+    .newsletter-btn { padding: 13px 22px; background: var(--blue-light); color: var(--blue-deep); border: none; border-radius: 8px; font-size: 0.88rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
     .newsletter-btn:hover:not(:disabled) { background: #fff; transform: translateY(-1px); }
     .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .newsletter-name { width: 100%; padding: 13px 16px; border: 1px solid rgba(76,175,125,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; }
+    .newsletter-name { width: 100%; padding: 13px 16px; border: 1px solid rgba(91,159,212,0.3); border-radius: 8px; background: rgba(255,255,255,0.06); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; }
     .newsletter-name::placeholder { color: rgba(255,255,255,0.35); }
-    .newsletter-name:focus { border-color: var(--green-light); }
-    .newsletter-note { font-size: 0.72rem; color: #5a8070; }
+    .newsletter-name:focus { border-color: var(--blue-light); }
+    .newsletter-note { font-size: 0.72rem; color: #5a789a; }
     .newsletter-status { font-size: 0.85rem; font-weight: 600; padding: 10px 14px; border-radius: 6px; display: none; }
-    .newsletter-status.success { background: rgba(76,175,125,0.15); color: var(--green-light); display: block; }
+    .newsletter-status.success { background: rgba(91,159,212,0.15); color: var(--blue-light); display: block; }
     .newsletter-status.error   { background: rgba(224,90,43,0.15); color: #f08060; display: block; }
     @media (max-width: 900px) { .newsletter-inner { grid-template-columns: 1fr; gap: 32px; } .newsletter-row { flex-direction: column; } }
     @media (max-width: 640px) { .newsletter-inner { padding: 0 20px; } }
@@ -141,7 +141,7 @@
               <div class="calc-row"><span class="calc-label">Disposable – 3 Years</span><span class="calc-value">£54,936</span></div>
               <div class="calc-row"><span class="calc-label">Reusable – 3 Years</span><span class="calc-value">£20,270</span></div>
               <div class="calc-row"><span class="calc-label">3-Year Saving</span><span class="calc-value">£33,086</span></div>
-              <div class="calc-row" style="border-top: 2px solid var(--green-light); padding-top:12px; margin-top:4px;"><span class="calc-label">CO₂e Saving</span><span class="calc-value">15.18 Tonnes</span></div>
+              <div class="calc-row" style="border-top: 2px solid var(--blue-light); padding-top:12px; margin-top:4px;"><span class="calc-label">CO₂e Saving</span><span class="calc-value">15.18 Tonnes</span></div>
             </div>
           </div>
         </div>
@@ -160,12 +160,12 @@
               <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>Circular economy:</strong> Caps are recyclable at end-of-life, not incinerated.</div></div>
               <div class="benefit-check"><div class="check-icon">✓</div><div class="check-text"><strong>UK manufacturing:</strong> Reduced transport emissions and supports British jobs.</div></div>
             </div>
-            <p style="font-size:0.88rem; color:var(--text-light); padding: 16px; background:var(--green-pale); border-radius:8px;">Eco Ninjas is proudly Carbon Stamp certified and commits 1% of revenue to carbon removal projects through Stripe Climate.</p>
+            <p style="font-size:0.88rem; color:var(--text-light); padding: 16px; background:var(--blue-pale); border-radius:8px;">Eco Ninjas is proudly Carbon Stamp certified and commits 1% of revenue to carbon removal projects through Stripe Climate.</p>
           </div>
           <div class="stats-sidebar fade-up fade-up-delay-1">
             <div class="stat-highlight"><span class="stat-highlight-num">90K+</span><div class="stat-highlight-label">Disposable caps prevented from incineration per hospital, per year</div></div>
-            <div class="stat-highlight" style="background: rgba(0,94,184,0.15); border: 1px solid rgba(0,94,184,0.2);"><span class="stat-highlight-num" style="color:#7ab4e8;">3.2T</span><div class="stat-highlight-label" style="color:#7aab8e;">CO₂ reduction per hospital per year</div></div>
-            <div class="stat-highlight" style="background: rgba(76,175,125,0.1); border: 1px solid rgba(76,175,125,0.2);"><span class="stat-highlight-num">Zero</span><div class="stat-highlight-label">Single-use hats — completely eliminated from the waste stream</div></div>
+            <div class="stat-highlight" style="background: rgba(0,94,184,0.15); border: 1px solid rgba(0,94,184,0.2);"><span class="stat-highlight-num" style="color:#7ab4e8;">3.2T</span><div class="stat-highlight-label" style="color:#7aaec8;">CO₂ reduction per hospital per year</div></div>
+            <div class="stat-highlight" style="background: rgba(91,159,212,0.1); border: 1px solid rgba(91,159,212,0.2);"><span class="stat-highlight-num">Zero</span><div class="stat-highlight-label">Single-use hats — completely eliminated from the waste stream</div></div>
           </div>
         </div>
       </div>
